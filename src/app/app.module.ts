@@ -29,8 +29,23 @@ import{ HomePage,
   EditarItiPage,
   EliminarItiPage} from '../pages/index.paginas';
 
+  const config = {
+    apiKey: "AIzaSyA8z3MU_XvgW4WnddejtoIEklLbUvmkh2I",
+    authDomain: "suraapp-e18e3.firebaseapp.com",
+    databaseURL: "https://suraapp-e18e3.firebaseio.com",
+    projectId: "suraapp-e18e3",
+    storageBucket: "suraapp-e18e3.appspot.com",
+    messagingSenderId: "163347150648"
+  };
+  
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+//firebase 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule} from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -63,7 +78,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config),
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -99,5 +117,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
+  
 })
 export class AppModule {}
