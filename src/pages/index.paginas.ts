@@ -1,6 +1,7 @@
 //Login y registro
 export {RegistroPage} from './Login/registro/registro';
 export {LogInPage} from './Login/log-in/log-in';
+export {RestablecerContraPage} from './Login/restablecer-contra/restablecer-contra';
 
 //Parte del administrador
 export {OpcionesPage} from './Administrador/opciones/opciones';

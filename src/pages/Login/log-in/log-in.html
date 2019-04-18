@@ -1,9 +1,38 @@
 <ion-header>
     <ion-navbar color="primary">
-        <ion-title>LogIn</ion-title>
+        <ion-title>Iniciar sesion</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+        <ion-icon class="icono" name="contact"></ion-icon>
+
+<!--form [formGroup]="myForm" (ngSubmit)="loginUser()"-->
+                <ion-list>
+                  <ion-item text-center>
+                 
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon name="person" item-left></ion-icon>
+                    <ion-label floating>Correo:</ion-label>
+                    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+                  </ion-item>
+                
+                  <ion-item>
+                    <ion-icon name="key" item-left></ion-icon>
+                    <ion-label floating>Contraseña:</ion-label>
+                    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+                  </ion-item>
+                </ion-list>
+                <div padding>
+                  <button color="primary" ion-button block type="submit">Ingresar</button>
+                </div>
+              <!--/form--> 
+      
+            <h5 class="letrero">¿NO ESTAS REGISTRADO?</h5>
+            <button class="btnRe" ion-button clear color="danger" [navPush]= "registro">Registrate Aqui</button>
+    
+            <img class="cand" src="assets/imgs/candado.png">
+            <button class="olvido" ion-button clear color="danger" [navPush]= "olvidar">¿Olvido su contraseña?</button>    
 
 </ion-content>
