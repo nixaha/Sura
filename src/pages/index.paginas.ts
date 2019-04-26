@@ -1,3 +1,5 @@
+import { from } from 'rxjs/observable/from';
+
 //Login y registro
 export {RegistroPage} from './Login/registro/registro';
 export {LogInPage} from './Login/log-in/log-in';
@@ -26,6 +28,8 @@ export { HotelesPage } from './Participante/hoteles/hoteles';
 export { HotelesListPage } from './Participante/hoteles-list/hoteles-list';
 export { GaleriaPage } from './Participante/galeria/galeria';
 export { GaleriaListPage } from './Participante/galeria-list/galeria-list';
+export { EventosPage} from './Participante/eventos/eventos';
+export { EventosComPage} from './Participante/eventos-com/eventos-com';
 
 
 export { ContactPage } from './contact/contact';

@@ -1,7 +1,8 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { ErrorHandler } from '@angular/core'; // le quite ngmodule
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';// importar clase para que se puedan agregar componentes ionic botones
 
 import{ HomePage,
   MapaPage,
@@ -20,6 +21,8 @@ import{ HomePage,
   ContactPage,
   TabsPage,
   RegistroPage,
+  EventosPage,
+  EventosComPage,
   LogInPage,
   OpcionesPage,
   AgregarEventoPage,
@@ -64,6 +67,8 @@ import { AngularFireAuthModule} from 'angularfire2/auth';
     HotelesListPage,
     GaleriaPage,
     GaleriaListPage,
+    EventosPage,
+    EventosComPage,
     ContactPage,
     TabsPage,
     RegistroPage,
@@ -100,8 +105,12 @@ import { AngularFireAuthModule} from 'angularfire2/auth';
     HotelesListPage,
     GaleriaPage,
     GaleriaListPage,
+    EventosPage,
+    EventosComPage,
     ContactPage,
     TabsPage,
+    EventosPage,
+    EventosComPage,
     RegistroPage,
     LogInPage,
     OpcionesPage,
@@ -116,6 +125,9 @@ import { AngularFireAuthModule} from 'angularfire2/auth';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
+  ],
+  schemas: [ // se agrego por que no se agregaban los botones ionic
+    CUSTOM_ELEMENTS_SCHEMA
   ]
   
 })

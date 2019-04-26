@@ -1,15 +1,84 @@
 <ion-header>
     <ion-navbar color="primary">
-        <ion-title>INICIO</ion-title>
+      
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <h2>Welcome toIonic!</h2>
-    <p>
-        T hs staoe simple tabs-based layout for apps that are going to primarily use a Tabbed UI.
-    </p>
-    <p>
-        Take a lk at the <code>src/pages/</code> directory to add or change tabs, update any existing page or create new pages.
-    </p>
+<ion-content >
+                <ion-img  width="300%" height="60" src="/assets/imgs/liston3.jpg"></ion-img>
+        <div align-item-center class="titulo">
+                 
+                <ion-label class="titulo">Bienvenido</ion-label>
+                
+         </div>
+                
+                <div >
+                        <ion-row align-item-center>
+                            
+                                <ion-col>     
+                                </ion-col>
+                                <ion-col class="ali">              
+                                   <ion-img  width="40" height="40"  src="/assets/imgs/circulo2/cal.png"></ion-img>
+                                        <button class="textoboton" ion-button block (click)="vereventoss()">                        
+                                            Eventos
+                                        </button>
+                                </ion-col>
+                                <ion-col>                   
+                                </ion-col>
+                        </ion-row>
+                            <ion-row align-item-center>
+                                        <ion-col class="ali">
+                                                        <ion-img  width="40" height="40"  src="/assets/imgs/circulo2/gal.png"></ion-img>
+                                                    
+                                                    <button class="textoboton"  ion-button block (click)="vergaleria()">
+                                                        
+                                                         Galería
+                                                    </button>
+                                            </ion-col> 
+                                            <ion-col class="ali"> 
+                                                        <ion-img  width="40" height="40"  src="/assets/imgs/circulo2/hot.png"></ion-img>                
+                                                    <button class="textoboton"  ion-button block (click)="verhoteles()" >                                 
+                                                            Hoteles
+                                                    </button>
+                                            </ion-col>  
+
+                                    <ion-col class="ali" >
+                                                <ion-img  width="40" height="40"  src="/assets/imgs/circulo2/mus.png"></ion-img>
+                                            <button class="textoboton" ion-button block (click)="vermuseos()"> 
+                                                  
+                                                    Museos
+                                                  </button>
+                                    </ion-col>
+                                   
+                            </ion-row>
+                            <ion-row align-item-center>
+                                       
+                                           
+                                <ion-col class="ali">
+                                                <ion-img  width="40" height="40"  src="/assets/imgs/circulo2/mas.png"></ion-img>
+                                            
+                                            <button class="textoboton"  ion-button block (click)="qmasvisitar()">
+                                                   
+                                                    ¿Qué más?
+                                            </button>
+                                    </ion-col>
+                                    <ion-col class="ali">
+                                                <ion-img  width="40" height="40"  src="/assets/imgs/circulo2/res.png"></ion-img>
+                                            <button class="textoboton"  ion-button block (click)="verrestaurantes()">
+                                                    
+                                                    Restaurantes
+                                            </button>
+                                    </ion-col>  
+                                    <ion-col class="ali">
+                                                <ion-img  width="40" height="40"  src="/assets/imgs/circulo2/sou.png"></ion-img>
+                                            
+                                            <button class="textoboton"  ion-button block (click)="souvenirs()">
+                                                    
+                                                    Souvenirs
+                                            </button>
+                                    </ion-col> 
+                                  
+                            </ion-row>
+                </div>
+                   
 </ion-content>
