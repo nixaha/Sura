@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+<<<<<<< HEAD
 
 //import { TabsPage } from '../pages/tabs/tabs';
 //import { AgregarEventoPage } from "../pages/index.paginas";
@@ -9,13 +10,22 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 //import { RegistroPage } from "../pages/index.paginas";
 import { LogInPage } from "../pages/index.paginas";
 
+=======
+import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { TabsPage } from '../pages/tabs/tabs';
+//import { HomePage } from "../pages/index.paginas";
+>>>>>>> prueba
 
 @Component({
 
   templateUrl: 'app.html'   
 })
 export class MyApp {
+<<<<<<< HEAD
   rootPage:any = LogInPage;
+=======
+  rootPage:any = TabsPage;
+>>>>>>> prueba
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
