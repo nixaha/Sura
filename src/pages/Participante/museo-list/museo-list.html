@@ -1,9 +1,32 @@
 <ion-header>
     <ion-navbar color="primary">
-        <ion-title>MuseoList</ion-title>
+        <ion-title>Museo</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+    <ion-card>
+        <img src="{{museo.foto}}" />
+        <ion-card-content>
+            <ion-card-title ALIGN="left">
+                {{museo.nombre}}
+            </ion-card-title>
+            <p ALIGN="justify">
+                {{museo.descripcion}}
+            </p>
+            <p ALIGN="justify">
+                {{museo.horarios}}
+            </p>
+            <p ALIGN="justify">
+                {{museo.costo}}
+            </p>
+            <p ALIGN="justify">
+                {{museo.direccion}}
+            </p>
+            <p ALIGN="justify">
+                {{museo.telefono}}
+            </p>
+        </ion-card-content>
+    </ion-card>
 
 </ion-content>

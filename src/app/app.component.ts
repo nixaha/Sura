@@ -7,7 +7,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 //import { AgregarEventoPage } from "../pages/index.paginas";
 
 //import { RegistroPage } from "../pages/index.paginas";
-import { LogInPage } from "../pages/index.paginas";
+//import { LogInPage } from "../pages/index.paginas";
+import { MuseoPage } from "../pages/index.paginas";
 
 
 @Component({
@@ -15,7 +16,7 @@ import { LogInPage } from "../pages/index.paginas";
   templateUrl: 'app.html'   
 })
 export class MyApp {
-  rootPage:any = LogInPage;
+  rootPage:any = MuseoPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

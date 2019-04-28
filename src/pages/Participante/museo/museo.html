@@ -1,9 +1,22 @@
 <ion-header>
-    <ion-navbar color="primary">
-        <ion-title>Museo</ion-title>
-    </ion-navbar>
+  <ion-navbar color="primary">
+    <ion-title>Museo</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list *ngFor="let museo of museos | async">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img class="uno" src="{{museo.foto}}">
+      </ion-thumbnail>
+      <h2>{{museo.nombre}}</h2>
+      <p>{{museo.descripcion}}</p>
+      <p>{{museo.horarios}}</p>
+      <p>{{museo.costo}}</p>
+      <p>{{museo.direccion}}</p>
+      <p>{{museo.telefono}}</p>
+      <button color="danger" ion-button clear [navPush]="museolist" (tap)="detalles(Museo)">Ver</button>
+    </ion-item>
+  </ion-list>
 </ion-content>
