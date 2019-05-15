@@ -5,5 +5,19 @@
 </ion-header>
 
 <ion-content padding>
+        <ion-list *ngFor="let quema of quemas | async">
+                <ion-item>
+                  <ion-thumbnail item-start>
+                    <img class="uno" src="{{quema.imagen}}">
+                  </ion-thumbnail>
+                  <h2>{{quema.nombre}}</h2>
+                  <p>{{quema.introduccion}}</p>
+                  <p>{{quema.horarios}}</p>
+                  <p>{{quema.direccion}}</p>
+                  <p>{{quema.telefono}}</p>
+                  <p>{{quema.costo}}</p>
+                  <button color="danger" ion-button clear [navPush]="qmasvisitarList" (tap)="detalles(Quema)">Ver</button>
+                </ion-item>
+              </ion-list>
 
 </ion-content>

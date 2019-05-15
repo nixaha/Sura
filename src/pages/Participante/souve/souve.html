@@ -1,9 +1,23 @@
 <ion-header>
     <ion-navbar color="primary">
-        <ion-title>Souve</ion-title>
+        <ion-title>Souvenir</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+        <ion-list *ngFor="let souvenir of souvenirs | async">
+                <ion-item>
+                  <ion-thumbnail item-start>
+                    <img class="uno" src="{{souvenir.foto}}">
+                  </ion-thumbnail>
+                  <h2>{{souvenir.nombre}}</h2>
+                  <p>{{souvenir.introduccion}}</p>
+                  <p>{{souvenir.horarios}}</p>
+                  <p>{{souvenir.direccion}}</p>
+                  <p>{{souvenir.telefono}}</p>
+                  
+                  <button color="danger" ion-button clear [navPush]="souvelist" (tap)="detalles(Souvenir)">Ver</button>
+                </ion-item>
+              </ion-list>
 
 </ion-content>

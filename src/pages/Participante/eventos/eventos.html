@@ -5,5 +5,17 @@
 </ion-header>
 
 <ion-content padding>
+        <ion-list *ngFor="let evento of eventos | async">
+                <ion-item>
+                  <ion-thumbnail item-start>
+                    <img class="uno" src="{{evento.imagen}}">
+                  </ion-thumbnail>
+                  <h2>{{evento.nombre}}</h2>
+                  <p>{{evento.introduccion}}</p>
+            
+                  <button color="danger" ion-button clear [navPush]="eventocom" (tap)="showPrompt()">Registrar</button>
+                </ion-item>
+              </ion-list>
+            
 
 </ion-content>

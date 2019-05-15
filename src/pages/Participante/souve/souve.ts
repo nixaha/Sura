@@ -1,17 +1,66 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+import { Souvenir } from '../../../commons/souvenir';
+import{ SouveListPage } from "../../index.paginas"
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'page-souve',
   templateUrl: 'souve.html',
 })
 export class SouvePage {
+  private noticiasCollection: AngularFirestoreCollection<Souvenir>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  souvenirs: Observable<Souvenir[]>;
+  notiDoc: AngularFirestoreDocument<Souvenir[]>;
+  souvelist:any = SouveListPage;
+
+  nombre: string ='';
+  introduccion: string='';
+  horarios: string ='';
+  direccion: string ='';
+  telefono: string ='';
+  foto: string ='';
+
+  constructor(public navCtrl: NavController,
+    private database: AngularFirestore,
+    public navParams: NavParams) {
+      this.noticiasCollection = database.collection<Souvenir>("souvenirS");
+      
+      this.souvenirs = this.noticiasCollection.snapshotChanges().pipe(
+        map(actions => actions.map(action => {
+          const data = action.payload.doc.data() as Souvenir;
+          const id = action.payload.doc.id;
+          return { id, ...data };
+        }))
+     );
+
+      this.nombre = this.navParams.get('nombre');
+      this.introduccion = this.navParams.get('introduccion');
+      this.horarios = this.navParams.get('horarios'); 
+      this.direccion = this.navParams.get('direccion');
+      this.telefono = this.navParams.get('telefono');
+      this.foto = this.navParams.get('foto');
+      console.log
+
+    if(this.nombre != null) {
+        const id = this.database.createId(); 
+        const souvenir: Souvenir = { 'nombre':this.nombre, 'introduccion':this.introduccion, 'horarios':this.horarios, 'direccion':this.direccion, 'telefono':this.telefono, 'foto':''};
+        this.noticiasCollection.doc(id).set(souvenir); 
+        this.navCtrl.push(SouveListPage, {
+          id: souvenir
+        });    
+    }
+        
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SouvePage');
+  detalles(_souvenir: Souvenir){
+    this.navCtrl.push(SouveListPage, {
+      id: _souvenir
+    })
   }
 
 }
+
