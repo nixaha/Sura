@@ -4,6 +4,9 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';// importar clase para que se puedan agregar componentes ionic botones
 
+import { Geolocation } from "@ionic-native/geolocation/ngx";
+
+
 import{ HomePage,
   MapaPage,
   MuseoPage,
@@ -50,6 +53,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule} from 'angularfire2/auth';
+import { NgIfContext } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -127,6 +131,7 @@ import { AngularFireAuthModule} from 'angularfire2/auth';
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ],
   schemas: [ // se agrego por que no se agregaban los botones ionic

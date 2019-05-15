@@ -8,6 +8,7 @@ import { SouvePage } from '../souve/souve';
 import { HotelesPage } from '../hoteles/hoteles';
 import { GaleriaPage } from '../galeria/galeria';
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'

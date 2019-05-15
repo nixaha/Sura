@@ -1,15 +1,19 @@
 <ion-header>
-    <ion-navbar color="primary">
-        <ion-title>Museo</ion-title>
-    </ion-navbar>
-</ion-header>
+        <ion-navbar color="primary">
+        </ion-navbar>
+      </ion-header>
 
-<ion-content padding>
+
+<ion-content padding >
+    
+     <h3 class="titulo">{{museo.nombre}}</h3>
+            <hr/>
+            <br/>
     <ion-card>
         <img src="{{museo.foto}}" />
         <ion-card-content>
             <ion-card-title ALIGN="left">
-                {{museo.nombre}}
+              
             </ion-card-title>
             <p ALIGN="justify">
                 {{museo.descripcion}}
