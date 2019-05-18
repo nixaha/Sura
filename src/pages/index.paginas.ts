@@ -31,6 +31,9 @@ export { GaleriaPage } from './Participante/galeria/galeria';
 export { GaleriaListPage } from './Participante/galeria-list/galeria-list';
 export { EventosPage} from './Participante/eventos/eventos';
 export { EventosComPage} from './Participante/eventos-com/eventos-com';
+export { AntrosBaresPage } from './Participante/antrosbares/antrosbares';
+export { EcoturismoPage} from './Participante/ecoturismo/ecoturismo';
+export { TransportesPage} from './Participante/transportes/transportes';
 
 
 export { ContactPage } from './contact/contact';
