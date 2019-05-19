@@ -4,16 +4,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
-import { LogInPage } from '../pages/index.paginas';
+import { LogInPage, OpcionesPage } from '../pages/index.paginas';
 
 @Component({
 
-  templateUrl: 'app.html'   
+  templateUrl: 'app.html'
 })
 export class MyApp {
-  
-  rootPage:any;
-  
+
+  rootPage: any;
+
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       this.checkSession();
@@ -22,11 +22,20 @@ export class MyApp {
     });
   }
 
-  checkSession(){
-    if(localStorage.getItem('token')){
-      this.rootPage = TabsPage;
-    }else{
+  checkSession() {
+    const data = JSON.parse(localStorage.getItem('data'));
+    if (data) {
+      this.checkRole(data.rol);
+    } else {
       this.rootPage = LogInPage;
+    }
+  }
+
+  checkRole(rol) {
+    if (rol === 'PARTICIPANTE') {
+      this.rootPage = TabsPage;
+    } else if (rol === 'ADMIN'){
+      this.rootPage = OpcionesPage;
     }
   }
 

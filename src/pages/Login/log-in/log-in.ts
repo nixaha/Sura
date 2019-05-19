@@ -13,41 +13,55 @@ export class LogInPage {
 
   registro: any = RegistroPage;
   olvidar: any = RestablecerContraPage;
-  
+
   user = {} as User;
   email: string = '';
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     private loginService: LoginService,
     private messagesService: MessagesService
-    ) {
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LogInPage');
   }
 
-  login(){
-   this.messagesService.showLoadingMessage('Autenticando...');
+  login() {
+    this.messagesService.showLoadingMessage('Autenticando...');
     this.loginService.login(this.user).then(
-      result=>{
-        this.loginService.getUserInfo().on('value',(snapshot)=>{
-          const rol = snapshot.child('rol').val();
-          if(rol === 'PARTICIPANTE'){
-            this.navCtrl.setRoot(TabsPage);
-          }else if (rol === 'ADMIN'){
-            this.navCtrl.setRoot(OpcionesPage);
-          }
+      result => {
+        this.loginService.getUserInfo().on('value', (snapshot) => {
+          this.saveData(result, snapshot);
+          this.checkRole(snapshot.child('rol').val());
         });
         this.messagesService.hideLoadingMessage();
-      },error=>{
+      }, error => {
         console.log(JSON.stringify(error));
-        this.messagesService.showMessage('Error', this.loginService.getLoginErrorMessage(error.code),['Aceptar']);
+        this.messagesService.showMessage('Error', this.loginService.getLoginErrorMessage(error.code), ['Aceptar']);
         this.messagesService.hideLoadingMessage();
       }
     );
+  }
+
+  saveData(result, snapshot) {
+    const data = {
+      token: result.user.refreshToken,
+      nombre: snapshot.child('nombre').val(),
+      estado: snapshot.child('estado').val(),
+      rol: snapshot.child('rol').val()
+    };
+    localStorage.setItem('data', JSON.stringify(data));
+  }
+
+  checkRole(rol) {
+    if (rol === 'PARTICIPANTE') {
+      this.navCtrl.setRoot(TabsPage);
+    } else if (rol === 'ADMIN') {
+      this.navCtrl.setRoot(OpcionesPage);
+    }
   }
 
 }
