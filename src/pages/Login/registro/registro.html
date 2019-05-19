@@ -5,31 +5,48 @@
 </ion-header>
 
 <ion-content padding>
-        <ion-icon class="icono" name="contact"></ion-icon>
+    <ion-icon class="icono" name="contact"></ion-icon>
+
+    <ngForm #regForm="ngForm" name="regForm">
         <ion-item class="label">
             <ion-label floating>Nombre:</ion-label>
-            <ion-input type="text" [(ngModel)]="user.nombre"></ion-input>
+            <ion-input name="nombre" type="text" [(ngModel)]="userInfo.nombre" required></ion-input>
         </ion-item>
 
         <ion-item class="label">
             <ion-label floating>Estado:</ion-label>
-            <ion-input type="text" [(ngModel)]="user.estado"></ion-input>
+            <ion-input name="estado" type="text" [(ngModel)]="userInfo.estado" required></ion-input>
         </ion-item>
-    
+
         <ion-item class="label">
             <ion-label floating>Correo:</ion-label>
-            <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+            <ion-input name="email" type="text" [(ngModel)]="user.email" required></ion-input>
         </ion-item>
-          
+
         <ion-item>
             <ion-label floating>Contraseña:</ion-label>
-            <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+            <ion-input name="password" type="password" [(ngModel)]="user.password" required></ion-input>
+        </ion-item>
+
+        <ion-item class="item" *ngIf="user.password && user.password.length < 6">
+            <ion-label color="error" class="inputError">
+                *La contraseña debe tener al menos 6 caracteres
+            </ion-label>
         </ion-item>
 
         <ion-item>
             <ion-label floating>Confirma tu contraseña:</ion-label>
-            <ion-input type="password" [(ngModel)]="user.password2" ></ion-input>
+            <ion-input name="password2" #password2 type="password" [(ngModel)]="user.password2" required></ion-input>
         </ion-item>
-            <br>
-        <button class="btnRe" ion-button block color="primary" (click)="register(user)" [navPush]= "logi">Registrarse</button>
+
+        <ion-item class="item" *ngIf="user.password && user.password.length > 0  && user.password2 
+            && user.password2.length > 0 && user.password2 !== user.password">
+            <ion-label color="error" class="inputError">
+                *Confirmación de contraseña no coincide con contraseña
+            </ion-label>
+        </ion-item>
+        <br>
+        <button class="btnRe" ion-button block color="primary" (click)="register()"
+            [disabled]="!regForm.valid || user.password2 !== user.password">Registrarse</button>
+    </ngForm>
 </ion-content>

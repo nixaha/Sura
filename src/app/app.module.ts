@@ -4,6 +4,9 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';// importar clase para que se puedan agregar componentes ionic botones
 
+//Servicios de conexión a firebase y utilerías
+import { LoginService, MessagesService } from '../services/index.services';
+
 import { Geolocation } from "@ionic-native/geolocation/ngx";
 
 
@@ -53,6 +56,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule} from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { NgIfContext } from '@angular/common';
 
 @NgModule({
@@ -89,10 +93,13 @@ import { NgIfContext } from '@angular/common';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      scrollAssist:false
+    }),
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -132,7 +139,9 @@ import { NgIfContext } from '@angular/common';
     StatusBar,
     SplashScreen,
     Geolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LoginService,
+    MessagesService
   ],
   schemas: [ // se agrego por que no se agregaban los botones ionic
     CUSTOM_ELEMENTS_SCHEMA

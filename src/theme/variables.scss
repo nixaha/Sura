@@ -38,7 +38,8 @@ $colors: (
   secondary:  #F5B708,
   danger:     #D7007E,
   light:      #E9E9E7,
-  dark:       #000000
+  dark:       #000000,
+  error:      red
 );
 
 
@@ -86,3 +87,14 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+.item{
+  background-color: transparent !important;
+  .item-inner{
+    border-bottom: none !important;
+    .inputError{
+      font-size:10pt;
+      margin:0;
+    }
+  }
+}
