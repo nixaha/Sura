@@ -1,9 +1,53 @@
 <ion-header>
-    <ion-navbar color="primary">
-        <ion-title>EditarEvento</ion-title>
-    </ion-navbar>
+  <ion-navbar color="primary"> </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <h2 class="titulo">Editar Evento</h2>
+  <ion-list>
+    <ngForm #evtRegForm="ngForm" name="evtRegForm">
+      <ion-item>
+        <ion-label floating color="primary" stacked>Nombre</ion-label>
+        <ion-input
+          name="nombre"
+          type="text"
+          [(ngModel)]="evento.nombre"
+        ></ion-input>
+      </ion-item>
 
+      <ion-item>
+        <ion-label floating color="primary" stacked>Descripción</ion-label>
+        <ion-input
+          name="descripcion"
+          type="text"
+          [(ngModel)]="evento.descripcion"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating color="primary" stacked>Clave</ion-label>
+        <ion-input
+          name="clave"
+          type="text"
+          [(ngModel)]="evento.clave"
+        ></ion-input>
+      </ion-item>
+      <br />
+
+      <div padding>
+        <ion-row>
+          <ion-col>
+            <ion-label color="primary">Imagen</ion-label>
+          </ion-col>
+          <ion-col>
+            <button ion-button color="secondary">Subir Imagen</button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ngForm>
+    <br />
+    <div class="titulo">
+      <button ion-button color="primary" (click)="editar()">Actualizar</button>
+    </div>
+  </ion-list>
 </ion-content>

@@ -1,16 +1,20 @@
-import { ErrorHandler } from '@angular/core'; // le quite ngmodule
-import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';// importar clase para que se puedan agregar componentes ionic botones
+import { ErrorHandler } from "@angular/core"; // le quite ngmodule
+import { BrowserModule } from "@angular/platform-browser";
+import { IonicApp, IonicModule, IonicErrorHandler } from "ionic-angular";
+import { MyApp } from "./app.component";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core"; // importar clase para que se puedan agregar componentes ionic botones
 
 //Servicios de conexión a firebase y utilerías
-import { LoginService, MessagesService } from '../services/index.services';
+import {
+  LoginService,
+  MessagesService,
+  AdminService
+} from "../services/index.services";
 
 import { Geolocation } from "@ionic-native/geolocation/ngx";
 
-
-import{ HomePage,
+import {
+  HomePage,
   MapaPage,
   MuseoPage,
   MuseoListPage,
@@ -37,27 +41,27 @@ import{ HomePage,
   EliminarEventoPage,
   AgregarItiPage,
   EditarItiPage,
-  EliminarItiPage} from '../pages/index.paginas';
+  EliminarItiPage
+} from "../pages/index.paginas";
 
-  const config = {
-    apiKey: "AIzaSyA8z3MU_XvgW4WnddejtoIEklLbUvmkh2I",
-    authDomain: "suraapp-e18e3.firebaseapp.com",
-    databaseURL: "https://suraapp-e18e3.firebaseio.com",
-    projectId: "suraapp-e18e3",
-    storageBucket: "suraapp-e18e3.appspot.com",
-    messagingSenderId: "163347150648"
-  };
-  
+const config = {
+  apiKey: "AIzaSyA8z3MU_XvgW4WnddejtoIEklLbUvmkh2I",
+  authDomain: "suraapp-e18e3.firebaseapp.com",
+  databaseURL: "https://suraapp-e18e3.firebaseio.com",
+  projectId: "suraapp-e18e3",
+  storageBucket: "suraapp-e18e3.appspot.com",
+  messagingSenderId: "163347150648"
+};
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from "@ionic-native/status-bar";
+import { SplashScreen } from "@ionic-native/splash-screen";
 
-//firebase 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireAuthModule} from 'angularfire2/auth';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { NgIfContext } from '@angular/common';
+//firebase
+import { AngularFireModule } from "angularfire2";
+import { AngularFirestoreModule } from "angularfire2/firestore";
+import { AngularFireAuthModule } from "angularfire2/auth";
+import { AngularFireDatabaseModule } from "angularfire2/database";
+import { NgIfContext } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -93,8 +97,8 @@ import { NgIfContext } from '@angular/common';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp,{
-      scrollAssist:false
+    IonicModule.forRoot(MyApp, {
+      scrollAssist: false
     }),
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
@@ -139,13 +143,14 @@ import { NgIfContext } from '@angular/common';
     StatusBar,
     SplashScreen,
     Geolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     LoginService,
-    MessagesService
+    MessagesService,
+    AdminService
   ],
-  schemas: [ // se agrego por que no se agregaban los botones ionic
+  schemas: [
+    // se agrego por que no se agregaban los botones ionic
     CUSTOM_ELEMENTS_SCHEMA
   ]
-  
 })
 export class AppModule {}

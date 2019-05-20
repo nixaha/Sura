@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import { Hotel } from '../../../commons/Hotel';
+import { Hotel } from '../../../commons/hotel';
 import{ HotelesListPage } from "../../index.paginas"
 import { map } from 'rxjs/operators';
 
