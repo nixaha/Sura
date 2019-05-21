@@ -1,9 +1,94 @@
 <ion-header>
-    <ion-navbar color="primary">
-        <ion-title>EditarIti</ion-title>
-    </ion-navbar>
+  <ion-navbar color="primary"> </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <h2 class="titulo">Editar Itinerario</h2>
+  <ion-list>
+    <ngForm #agregarItiForm="ngForm" name="agregarItiForm">
+      <ion-item>
+        <ion-label floating color="primary" stacked>Nombre</ion-label>
+        <ion-input
+          name="nombre"
+          type="text"
+          [(ngModel)]="itinerario.nombre"
+        ></ion-input>
+      </ion-item>
 
+      <ion-item>
+        <ion-label floating color="primary" stacked>Descripción</ion-label>
+        <ion-input
+          name="descripcion"
+          type="text"
+          [(ngModel)]="itinerario.descripcion"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating color="primary" stacked>Ponente</ion-label>
+        <ion-input
+          name="ponente"
+          type="text"
+          [(ngModel)]="itinerario.ponente"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating color="primary" stacked>Lugar</ion-label>
+        <ion-input
+          name="lugar"
+          type="text"
+          [(ngModel)]="itinerario.lugar"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating color="primary" stacked>Hora de inicio</ion-label>
+        <ion-datetime
+          name="horaInicio"
+          displayFormat="h:mm A"
+          pickerFormat="h mm A"
+          (ionChange)="validarHorario()"
+          [(ngModel)]="itinerario.horaInicio"
+        ></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating color="primary" stacked>Hora de cierre</ion-label>
+        <ion-datetime
+          name="horaCierre"
+          displayFormat="h:mm A"
+          pickerFormat="h mm A"
+          (ionChange)="validarHorario()"
+          [(ngModel)]="itinerario.horaFin"
+        ></ion-datetime>
+      </ion-item>
+
+      <ion-item *ngIf="!horarioValido">
+        <ion-label color="error" class="inputError">
+          *Horario incorrecto
+        </ion-label>
+      </ion-item>
+    </ngForm>
+
+    <br />
+
+    <div class="titulo">
+      <ion-row>
+        <ion-col>
+          <button ion-button color="secondary">Ver</button>
+        </ion-col>
+        <ion-col>
+          <button
+            ion-button
+            color="primary"
+            (click)="editar()"
+            [disabled]="!horarioValido"
+          >
+            Guardar
+          </button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-list>
 </ion-content>

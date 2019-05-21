@@ -1,15 +1,32 @@
-<!--
-  Generated template for the ItinerariosPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
-    <ion-title>itinerarios</ion-title>
+  <ion-navbar color="primary">
+    <!-- <ion-title>Eventos</ion-title> -->
+    <ion-buttons end>
+      <button ion-button icon-only (click)="agregarItinerario()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let iti of itinerarios; let i = index">
+      <ion-card>
+        <ion-card-content>
+          <h2>{{ iti.nombre }}</h2>
+          <p>{{ iti.ponente }}</p>
+          <p>{{ iti.descripcion }}</p>
+          <!-- <hr /> -->
+        </ion-card-content>
+        <div class="btn-footer">
+          <button ion-button icon-only item-end (click)="editarItinerario(i)">
+            <ion-icon name="create"></ion-icon>
+          </button>
+          <button ion-button icon-only item-end (click)="eliminarItinerario(i)">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </div>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>

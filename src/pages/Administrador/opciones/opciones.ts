@@ -2,20 +2,20 @@ import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 import { AgregarEventoPage } from "../agregar-evento/agregar-evento";
 import { EditarEventoPage } from "../editar-evento/editar-evento";
-import { EliminarEventoPage } from "../eliminar-evento/eliminar-evento";
+import { ItinerariosPage } from "../itinerarios/itinerarios";
 
-import { AdminService } from "../../../services/admin/admin.service";
+import {
+  AdminService,
+  MessagesService
+} from "../../../services/index.services";
 
 import { Evento } from "../../../shared/models/evento.model";
-import { MessagesService } from "../../../services/index.services";
 
 @Component({
   selector: "page-opciones",
   templateUrl: "opciones.html"
 })
 export class OpcionesPage {
-  test = ["a", "b", "c", "d", "e", "f", "g"];
-
   public eventos: Array<Evento>;
 
   constructor(
@@ -27,7 +27,7 @@ export class OpcionesPage {
 
   cargarEventos() {
     this.eventos = [];
-    this.messagesService.showLoadingMessage('Cargando eventos...');
+    this.messagesService.showLoadingMessage("Cargando eventos...");
     this.adminService.getEventos().then(
       result => {
         result.forEach(doc => {
@@ -37,7 +37,11 @@ export class OpcionesPage {
         this.messagesService.hideLoadingMessage();
       },
       error => {
-        this.messagesService.showMessage('Error',this.adminService.getErrorEventoMessage(error.code),['Aceptar'])
+        this.messagesService.showMessage(
+          "Error",
+          this.adminService.getErrorEventoMessage(error.code),
+          ["Aceptar"]
+        );
         this.messagesService.hideLoadingMessage();
         console.log(error);
       }
@@ -67,6 +71,9 @@ export class OpcionesPage {
         handler: () => {
           this.confirmarEliminarEvento(index);
         }
+      },
+      {
+        text: "Cancelar"
       }
     ]);
   }
@@ -89,5 +96,9 @@ export class OpcionesPage {
         console.log(error);
       }
     );
+  }
+
+  agregarItinerarios(index) {
+    this.navCtrl.push(ItinerariosPage, { eventoId: this.eventos[index].id });
   }
 }

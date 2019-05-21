@@ -56,7 +56,6 @@
 
 <ion-header>
   <ion-navbar color="primary">
-    <!-- <ion-title>Eventos</ion-title> -->
     <ion-buttons end>
       <button ion-button icon-only (click)="agregareventoo()">
         <ion-icon name="add-circle"></ion-icon>
@@ -65,216 +64,14 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <!-- <ion-card class="sticky">
-                <ion-card-header>
-                        Agregar nuevo evento
-                </ion-card-header>
-                <ion-card-content>
-                        <button ion-button icon-only class="btn-agregar" color="secondary">
-                                <ion-icon name="add" color="light"></ion-icon>
-                        </button>
-                </ion-card-content>
-        </ion-card> -->
-
   <ion-list>
     <ion-item *ngFor="let evento of eventos; let i = index">
-      <!-- <ion-item *ngFor="let item of test"> -->
-
-      <!-- <ion-avatar item-start>
-                                <img src="../../../assets/imgs/cafe.png">
-                        </ion-avatar> -->
-      <!-- <h2>Evento</h2>
-                        <p>Descripción</p>
-                        <button ion-button icon-only item-end>
-                                <ion-icon name="create"></ion-icon>
-                        </button>
-                        <button ion-button icon-only item-end>>
-                                <ion-icon name="trash"></ion-icon>
-                        </button> -->
-      <!-- <ion-card> -->
-      <!-- <img src="../../../assets/imgs/cafe.png"> -->
-      <!-- <ion-card-header>Evento</ion-card-header> -->
-      <!-- <ion-card-content> -->
-      <!-- <ion-card-title>
-                                                Evento
-                                        </ion-card-title> -->
-      <!-- <ion-thumbnail item-start>
-                                                <img src="../../../assets/imgs/cafe.png">
-                                        </ion-thumbnail> -->
-      <!-- <ion-avatar item-start>
-                                                <img src="../../../assets/imgs/cafe.png"> -->
-      <!-- </ion-avatar>
-                                        <h2>Descripción</h2>
-                                        <p>Día</p>
-                                        <button ion-button icon-only item-end>
-                                                <ion-icon name="create"></ion-icon>
-                                        </button>
-                                        <button ion-button icon-only item-end>
-                                                <ion-icon name="trash"></ion-icon>
-                                        </button>
-                                </ion-card-content>
-                        </ion-card>-->
-      <!-- <ion-card>
-                                <h2>Evento</h2>
-                                <p>Fecha</p>
-                                <img src="../../../assets/imgs/candado.png">
-                                <ion-card-content>
-                                        <p>Descripción</p><ion-header>
-    <ion-navbar color="primary">
-        <ion-title></ion-title>
-    </ion-navbar>import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { AgregarEventoPage } from '../agregar-evento/agregar-evento';
-import { EditarEventoPage } from '../editar-evento/editar-evento';
-import { EliminarEventoPage } from '../eliminar-evento/eliminar-evento';
-
-@Component({
-  selector: 'page-opciones',
-  templateUrl: 'opciones.html',
-})
-export class OpcionesPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OpcionesPage');
-  }
-  agregareventoo() {
-    this.navCtrl.push(AgregarEventoPage);
-   
-  }
-  editarevento() {
-    this.navCtrl.push(EditarEventoPage);
- 
-  }
-
-  eliminarevento() {
-    this.navCtrl.push(EliminarEventoPage);
-   
-  }
-
-
-}
-
-</ion-header>
-
-<ion-content >
-
-                <ion-img  width="300%" height="60" src="/assets/imgs/liston3.jpg"></ion-img>
-        <div class="titulo">
-                <ion-label> Administrador </ion-label>
-                
-                    </div >
-                <br/>
-                <div >>
-                        <ion-row align-item-center>import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { AgregarEventoPage } from '../agregar-evento/agregar-evento';
-import { EditarEventoPage } from '../editar-evento/editar-evento';
-import { EliminarEventoPage } from '../eliminar-evento/eliminar-evento';
-
-@Component({
-  selector: 'page-opciones',
-  templateUrl: 'opciones.html',
-})
-export class OpcionesPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OpcionesPage');
-  }
-  agregareventoo() {
-    this.navCtrl.push(AgregarEventoPage);
-   
-  }
-  editarevento() {
-    this.navCtrl.push(EditarEventoPage);
- 
-  }
-
-  eliminarevento() {
-    this.navCtrl.push(EliminarEventoPage);
-   
-  }
-
-
-}
-
-                            
-                                <ion-col>     
-                                </ion-col>
-                                <ion-col class="ali">              
-                                        <ion-img  width="50" height="50"  src="/assets/imgs/circulo2/add.png"></ion-img>
-                                        <button class="textoboton" ion-button (click)="agregareventoo()">
-                                               Agregar
-                                              </button>
-                                            
-                                           
-                                       
-                                </ion-col>
-                                <ion-col>                   
-                                </ion-col>
-                        </ion-row>
-                            <ion-row align-item-center>
-                    
-                                    <ion-col class="ali" >
-                                            <ion-img  width="50" height="50"  src="/assets/imgs/circulo2/dell.png"></ion-img>
-                                            <button class="textoboton" ion-button (click)="eliminarevento()" > 
-                                                  
-                                                    Eliminar
-                                                  </button>
-                                    </ion-col>
-                                    <ion-col class="ali">
-                                        
-                                    </ion-col>
-                                    <ion-col class="ali">
-                                            <ion-img  width="50" height="50"  src="/assets/imgs/circulo2/mod.png"></ion-img>
-                                            
-                                            <button class="textoboton"  ion-button (click)="editarevento()" >
-                                                    
-                                                    Editar
-                                            </button>
-                                    </ion-col>
-                            </ion-row>
-                    
-                </div>
-</ion-content>
-                                </ion-card-content>
-                                <ion-row>
-                                        <ion-col>
-
-                                                <button ion-button icon-only item-end>
-                                                        <ion-icon name="create"></ion-icon>
-                                                </button>
-
-                                        </ion-col>
-                                        <ion-col>
-
-                                                <button ion-button icon-only item-end>
-                                                        <ion-icon name="trash"></ion-icon>
-                                                </button>
-                                        </ion-col>
-                                </ion-row>
-                        </ion-card> -->
       <ion-card>
-        <!-- <ion-thumbnail item-start
-                                        style="display:block;float:rigth;margin-top:5px;margin-right:5px;background:red">
-                                        <img src="../../../assets/imgs/cafe.png">
-                                </ion-thumbnail> -->
         <ion-card-content>
-          <!-- <ion-card-title>Evento</ion-card-title> -->
           <ion-card-title>{{ evento.nombre }}</ion-card-title>
-          <!-- <img src="../../../assets/imgs/cafe.png" class="img-card" /> -->
           <img src="{{ evento.imagen }}" class="img-card" />
           <ion-item>
             <p class="p-card">
-              <!-- Descripción del evento test de una oración larga para probar si
-              cabe en el espacio que se le ha destinado y agregando todo lo que
-              se pueda con el objetivo de abarcar un largo espacio sin importar
-              que el texto sea redundante -->
               {{ evento.descripcion }}
             </p>
           </ion-item>
@@ -283,8 +80,7 @@ export class OpcionesPage {
               color="danger"
               ion-button
               clear
-              [navPush]="museolist"
-              (tap)="detalles(museo)"
+              (tap)="agregarItinerarios(i)"
             >
               Ver itinerarios
             </button>

@@ -1,10 +1,10 @@
-export class Itinerario {
-  constructor(
-    public nombre?: string,
-    public descripcion?: string,
-    public ponente?: string,
-    public lugar?: string,
-    public horaInicio?: string,
-    public horaFin?: string
-  ) {}
+export interface Itinerario {
+  id: string;
+  eventoId: string;
+  nombre: string;
+  descripcion: string;
+  ponente: string;
+  lugar: string;
+  horaInicio: string;
+  horaFin: string;
 }

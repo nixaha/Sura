@@ -3,7 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { IonicApp, IonicModule, IonicErrorHandler } from "ionic-angular";
 import { MyApp } from "./app.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core"; // importar clase para que se puedan agregar componentes ionic botones
-import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { ImagePicker } from "@ionic-native/image-picker/ngx";
 
 //Servicios de conexión a firebase y utilerías
 import {
@@ -40,6 +40,7 @@ import {
   AgregarEventoPage,
   EditarEventoPage,
   EliminarEventoPage,
+  ItinerariosPage,
   AgregarItiPage,
   EditarItiPage,
   EliminarItiPage
@@ -93,6 +94,7 @@ import { NgIfContext } from "@angular/common";
     AgregarEventoPage,
     EditarEventoPage,
     EliminarEventoPage,
+    ItinerariosPage,
     AgregarItiPage,
     EditarItiPage,
     EliminarItiPage
@@ -138,6 +140,7 @@ import { NgIfContext } from "@angular/common";
     AgregarEventoPage,
     EditarEventoPage,
     EliminarEventoPage,
+    ItinerariosPage,
     AgregarItiPage,
     EditarItiPage,
     EliminarItiPage
