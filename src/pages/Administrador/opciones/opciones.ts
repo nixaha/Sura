@@ -27,14 +27,18 @@ export class OpcionesPage {
 
   cargarEventos() {
     this.eventos = [];
+    this.messagesService.showLoadingMessage('Cargando eventos...');
     this.adminService.getEventos().then(
       result => {
         result.forEach(doc => {
           this.eventos.push(doc.data());
           console.log(doc, doc.data());
         });
+        this.messagesService.hideLoadingMessage();
       },
       error => {
+        this.messagesService.showMessage('Error',this.adminService.getErrorEventoMessage(error.code),['Aceptar'])
+        this.messagesService.hideLoadingMessage();
         console.log(error);
       }
     );

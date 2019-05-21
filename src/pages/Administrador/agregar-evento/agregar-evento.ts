@@ -1,5 +1,8 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
+
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
+
 import { OpcionesPage } from "../opciones/opciones";
 
 import {
@@ -8,6 +11,7 @@ import {
 } from "../../../services/index.services";
 
 import { Evento } from "../../../shared/models/evento.model";
+import { eventoImgConfig } from '../../../shared/consts/image.consts';
 
 @Component({
   selector: "page-agregar-evento",
@@ -20,8 +24,9 @@ export class AgregarEventoPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private adminService: AdminService,
-    private messagesService: MessagesService
-  ) {}
+    private messagesService: MessagesService,
+    private imagePicker: ImagePicker
+  ) { }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad AgregarEventoPage");
@@ -43,6 +48,38 @@ export class AgregarEventoPage {
           this.adminService.getErrorEventoMessage(error.code),
           ["Aceptar"]
         );
+      }
+    );
+  }
+
+  cargarImagen() {
+    this.imagePicker.hasReadPermission().then(
+      result => {
+        if (!result) {
+          this.imagePicker.requestReadPermission();
+        } else {
+          this.imagePicker.getPictures(eventoImgConfig).then(
+            result => {
+              for (var i = 0; i < result.length; i++) {
+                this.guardarImagen(result[i])
+                console.log('Image URI: ' + result[i]);
+              }
+            }, error => {
+              console.log(error);
+            });
+        }
+      }, error => {
+        console.log(error);
+      }
+    );
+  }
+
+  guardarImagen(imagen){
+    this.adminService.uploadImage(imagen).then(
+      result=>{
+        console.log(result);
+      },error=>{
+        console.log(error);
       }
     );
   }

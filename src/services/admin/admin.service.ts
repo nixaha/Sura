@@ -2,20 +2,24 @@ import { Injectable } from "@angular/core";
 
 import { AngularFireAuth } from "angularfire2/auth";
 import { AngularFirestore } from "@angular/fire/firestore";
+import { AngularFireStorage } from '@angular/fire/storage';
 
 import { Evento } from "../../shared/models/evento.model";
 import { Itinerario } from "../../shared/models/itinerario.model";
 
 import { strings } from "../../shared/consts/strings.const";
+import { UploadTask } from "@angular/fire/storage/interfaces";
 
 @Injectable()
 export class AdminService {
   private collectionEventos = "eventos";
-  private collectionItinerarios = "";
+  private collectionItinerarios = "itinerarios";
+  private storageEventos = 'eventos';
 
   constructor(
     private angfireAuth: AngularFireAuth,
-    private angfirestore: AngularFirestore
+    private angfirestore: AngularFirestore,
+    private angfireStorage: AngularFireStorage
   ) {}
 
   getEventos(): Promise<any> {
@@ -46,6 +50,11 @@ export class AdminService {
       .collection(this.collectionEventos)
       .doc(evento.id)
       .delete();
+  }
+
+  uploadImage(image): UploadTask{
+    const imgString = `data:image/jpeg;base64,${image}`;
+    return this.angfireStorage.ref(this.storageEventos).putString(imgString,'data_url').task;     
   }
 
   getItinerarios(): Promise<any> {

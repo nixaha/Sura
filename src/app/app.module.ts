@@ -3,6 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { IonicApp, IonicModule, IonicErrorHandler } from "ionic-angular";
 import { MyApp } from "./app.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core"; // importar clase para que se puedan agregar componentes ionic botones
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
 
 //Servicios de conexión a firebase y utilerías
 import {
@@ -61,6 +62,7 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from "angularfire2/database";
+import { AngularFireStorageModule } from "angularfire2/storage";
 import { NgIfContext } from "@angular/common";
 
 @NgModule({
@@ -103,7 +105,8 @@ import { NgIfContext } from "@angular/common";
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -144,6 +147,7 @@ import { NgIfContext } from "@angular/common";
     SplashScreen,
     Geolocation,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    ImagePicker,
     LoginService,
     MessagesService,
     AdminService
