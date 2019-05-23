@@ -3,5 +3,6 @@ export interface Evento {
   nombre: string;
   descripcion: string;
   clave: string;
-  imagen: string;
+  imagenId: string;
+  imagenUrl: string;
 }

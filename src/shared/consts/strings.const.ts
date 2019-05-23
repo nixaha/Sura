@@ -16,6 +16,13 @@ export const strings = {
   registroEventoErrors: {
     defaultregistroEvtMsg: "Ocurrió un error al intentar registrar evento"
   },
+  registroItinerarioCatalogos: {
+    tipos: {
+      academico: "ACADEMICO",
+      acompaniante: "ACOMPANIANTE",
+      social: "SOCIAL"
+    }
+  },
   registroItinerarioErrors: {
     defaultregistroItiMsg: "Ocurrió un error al intentar registrar itinerario"
   }

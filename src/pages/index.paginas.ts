@@ -16,6 +16,7 @@ export { EditarEventoPage } from "./Administrador/editar-evento/editar-evento";
 export {
   EliminarEventoPage
 } from "./Administrador/eliminar-evento/eliminar-evento";
+export { EventosAdminPage } from "./Administrador/eventos/eventos";
 export { ItinerariosPage } from "./Administrador/itinerarios/itinerarios";
 export { AgregarItiPage } from "./Administrador/agregar-iti/agregar-iti";
 export { EditarItiPage } from "./Administrador/editar-iti/editar-iti";

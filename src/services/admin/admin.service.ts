@@ -1,10 +1,7 @@
 import { Injectable } from "@angular/core";
 
 import { AngularFireAuth } from "angularfire2/auth";
-import {
-  AngularFirestore,
-  AngularFirestoreCollection
-} from "@angular/fire/firestore";
+import { AngularFirestore } from "@angular/fire/firestore";
 import { AngularFireStorage } from "@angular/fire/storage";
 
 import { Evento } from "../../shared/models/evento.model";
@@ -12,7 +9,6 @@ import { Itinerario } from "../../shared/models/itinerario.model";
 
 import { strings } from "../../shared/consts/strings.const";
 import { UploadTask } from "@angular/fire/storage/interfaces";
-import { eventoImgConfig } from "../../shared/consts/image.consts";
 
 @Injectable()
 export class AdminService {
@@ -23,7 +19,6 @@ export class AdminService {
   constructor(
     private angfireAuth: AngularFireAuth,
     private angfirestore: AngularFirestore,
-    private angfirestoreCollection: AngularFirestore,
     private angfireStorage: AngularFireStorage
   ) {}
 
@@ -34,8 +29,12 @@ export class AdminService {
       .toPromise();
   }
 
+  generateId(): string {
+    return this.angfirestore.createId();
+  }
+
   createEvento(evento: Evento): Promise<any> {
-    const id = this.angfirestore.createId();
+    const id = this.generateId();
     evento.id = id;
     return this.angfirestore
       .collection(this.collectionEventos)
@@ -57,22 +56,36 @@ export class AdminService {
       .delete();
   }
 
-  uploadImage(image): UploadTask {
+  uploadImage(image, id): UploadTask {
     const imgString = `data:image/jpeg;base64,${image}`;
     return this.angfireStorage
-      .ref(this.storageEventos)
+      .ref(`${this.storageEventos}/${id}`)
       .putString(imgString, "data_url").task;
   }
 
+  getImageUrl(id): Promise<any> {
+    return this.angfireStorage
+      .ref(`${this.storageEventos}/${id}`)
+      .getDownloadURL()
+      .toPromise();
+  }
+
+  deleteImage(id): Promise<any> {
+    return this.angfireStorage
+      .ref(`${this.storageEventos}/${id}`)
+      .delete()
+      .toPromise();
+  }
+
   getItinerarios(eventoId): Promise<any> {
-    return this.angfirestoreCollection
+    return this.angfirestore
       .collection(this.collectionItinerarios)
       .ref.where("eventoId", "==", eventoId)
       .get();
   }
 
   createItinerario(itinerario: Itinerario) {
-    const id = this.angfirestore.createId();
+    const id = this.generateId();
     itinerario.id = id;
     return this.angfirestore
       .collection(this.collectionItinerarios)

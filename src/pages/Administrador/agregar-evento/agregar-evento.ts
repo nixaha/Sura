@@ -1,9 +1,7 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 
-import { ImagePicker } from '@ionic-native/image-picker/ngx';
-
-import { OpcionesPage } from "../opciones/opciones";
+import { Camera, CameraOptions } from "@ionic-native/camera";
 
 import {
   AdminService,
@@ -11,7 +9,6 @@ import {
 } from "../../../services/index.services";
 
 import { Evento } from "../../../shared/models/evento.model";
-import { eventoImgConfig } from '../../../shared/consts/image.consts';
 
 @Component({
   selector: "page-agregar-evento",
@@ -19,26 +16,75 @@ import { eventoImgConfig } from '../../../shared/consts/image.consts';
 })
 export class AgregarEventoPage {
   public evento = {} as Evento;
+  public image: string;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private adminService: AdminService,
     private messagesService: MessagesService,
-    private imagePicker: ImagePicker
-  ) { }
+    private camera: Camera
+  ) {}
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad AgregarEventoPage");
   }
 
-  guardar() {
+  cargarImagen() {
+    const options: CameraOptions = {
+      quality: 75,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      saveToPhotoAlbum: false
+    };
+    this.camera.getPicture(options).then(
+      result => {
+        this.image = result;
+      },
+      error => {
+        this.messagesService.showToastMessage("Seleccione una imagen");
+      }
+    );
+  }
+
+  guardarImagen() {
+    this.evento.imagenId = this.adminService.generateId();
+    this.adminService.uploadImage(this.image, this.evento.imagenId).then(
+      result => {
+        this.buscarImgUrl();
+      },
+      error => {
+        this.messagesService.showMessage("Error", "No se pudo guardar imagen", [
+          "Aceptar"
+        ]);
+      }
+    );
+  }
+
+  buscarImgUrl() {
     this.messagesService.showLoadingMessage("Registrando evento...");
+    this.getImagenUrl();
+  }
+
+  getImagenUrl() {
+    this.adminService.getImageUrl(this.evento.imagenId).then(
+      result => {
+        this.evento.imagenUrl = result;
+        this.crearEvento();
+      },
+      error => {
+        this.messagesService.showMessage("Error", "No se pudo guardar imagen", [
+          "Aceptar"
+        ]);
+      }
+    );
+  }
+
+  crearEvento() {
     this.adminService.createEvento(this.evento).then(
       result => {
-        console.log("guardado");
         this.messagesService.hideLoadingMessage();
-        this.navCtrl.setRoot(OpcionesPage);
+        this.navCtrl.pop();
         this.messagesService.showToastMessage("Evento registrado exitosamente");
       },
       error => {
@@ -48,38 +94,6 @@ export class AgregarEventoPage {
           this.adminService.getErrorEventoMessage(error.code),
           ["Aceptar"]
         );
-      }
-    );
-  }
-
-  cargarImagen() {
-    this.imagePicker.hasReadPermission().then(
-      result => {
-        if (!result) {
-          this.imagePicker.requestReadPermission();
-        } else {
-          this.imagePicker.getPictures(eventoImgConfig).then(
-            result => {
-              for (var i = 0; i < result.length; i++) {
-                this.guardarImagen(result[i])
-                console.log('Image URI: ' + result[i]);
-              }
-            }, error => {
-              console.log(error);
-            });
-        }
-      }, error => {
-        console.log(error);
-      }
-    );
-  }
-
-  guardarImagen(imagen){
-    this.adminService.uploadImage(imagen).then(
-      result=>{
-        console.log(result);
-      },error=>{
-        console.log(error);
       }
     );
   }

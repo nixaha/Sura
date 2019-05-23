@@ -1,0 +1,26 @@
+page-eventos {
+  .img-card {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    -webkit-box-shadow: 8px 10px 18px -1px rgba(0, 0, 0, 0.29);
+    -moz-box-shadow: 8px 10px 18px -1px rgba(0, 0, 0, 0.29);
+    box-shadow: 8px 10px 18px -1px rgba(0, 0, 0, 0.29);
+    border-radius: 8px;
+  }
+
+  .btn-footer {
+    display: block;
+    float: right;
+  }
+
+  .p-card {
+    white-space: normal;
+    max-height: 75px;
+    overflow-y: auto;
+  }
+
+  .container-card {
+    max-height: 250px;
+  }
+}

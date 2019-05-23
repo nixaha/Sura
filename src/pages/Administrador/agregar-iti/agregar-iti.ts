@@ -1,14 +1,14 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 
-import { ItinerariosPage } from "../itinerarios/itinerarios";
-
 import {
   AdminService,
   MessagesService
 } from "../../../services/index.services";
 
 import { Itinerario } from "../../../shared/models/itinerario.model";
+
+import { strings } from "../../../shared/consts/strings.const";
 
 @Component({
   selector: "page-agregar-iti",
@@ -18,6 +18,8 @@ export class AgregarItiPage {
   public itinerario = {} as Itinerario;
   public eventoId: string;
   public horarioValido: boolean;
+
+  public tiposIti = strings.registroItinerarioCatalogos.tipos;
 
   constructor(
     public navCtrl: NavController,

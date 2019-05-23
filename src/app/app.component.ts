@@ -1,20 +1,22 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Component } from "@angular/core";
+import { Platform } from "ionic-angular";
+import { StatusBar } from "@ionic-native/status-bar";
+import { SplashScreen } from "@ionic-native/splash-screen";
 
-import { TabsPage } from '../pages/tabs/tabs';
-import { LogInPage, OpcionesPage } from '../pages/index.paginas';
+import { TabsPage } from "../pages/tabs/tabs";
+import { LogInPage, OpcionesPage } from "../pages/index.paginas";
 
 @Component({
-
-  templateUrl: 'app.html'
+  templateUrl: "app.html"
 })
 export class MyApp {
-
   rootPage: any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(
+    platform: Platform,
+    statusBar: StatusBar,
+    splashScreen: SplashScreen
+  ) {
     platform.ready().then(() => {
       this.checkSession();
       statusBar.styleDefault();
@@ -23,7 +25,7 @@ export class MyApp {
   }
 
   checkSession() {
-    const data = JSON.parse(localStorage.getItem('data'));
+    const data = JSON.parse(localStorage.getItem("data"));
     if (data) {
       this.checkRole(data.rol);
     } else {
@@ -32,11 +34,10 @@ export class MyApp {
   }
 
   checkRole(rol) {
-    if (rol === 'PARTICIPANTE') {
+    if (rol === "PARTICIPANTE") {
       this.rootPage = TabsPage;
-    } else if (rol === 'ADMIN'){
+    } else if (rol === "ADMIN") {
       this.rootPage = OpcionesPage;
     }
   }
-
 }

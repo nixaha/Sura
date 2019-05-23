@@ -43,6 +43,20 @@
       </ion-item>
 
       <ion-item>
+        <ion-label floating color="primary" stacked>Tipo</ion-label>
+        <ion-select
+          name="tipo"
+          type="text"
+          [(ngModel)]="itinerario.tipo"
+          required
+        >
+          <ion-option [value]="tiposIti.academico">Académico</ion-option>
+          <ion-option [value]="tiposIti.acompaniante">Acompañante</ion-option>
+          <ion-option [value]="tiposIti.social">Social</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
         <ion-label floating color="primary" stacked>Hora de inicio</ion-label>
         <ion-datetime
           name="horaInicio"
@@ -83,7 +97,7 @@
             ion-button
             color="primary"
             (click)="guardar()"
-            [disabled]="!horarioValido"
+            [disabled]="!horarioValido || !agregarItiForm.valid"
           >
             Guardar
           </button>

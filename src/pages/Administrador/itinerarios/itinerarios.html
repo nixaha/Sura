@@ -22,7 +22,12 @@
           <button ion-button icon-only item-end (click)="editarItinerario(i)">
             <ion-icon name="create"></ion-icon>
           </button>
-          <button ion-button icon-only item-end (click)="eliminarItinerario(i)">
+          <button
+            ion-button
+            icon-only
+            item-end
+            (click)="consultarEliminarItinerario(i)"
+          >
             <ion-icon name="trash"></ion-icon>
           </button>
         </div>

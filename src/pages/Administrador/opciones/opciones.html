@@ -1,100 +1,53 @@
-<!-- <ion-header>
-        <ion-navbar color="primary">
-                <ion-title></ion-title>
-        </ion-navbar>
-</ion-header>
-
-<ion-content>
-
-        <ion-img width="300%" height="60" src="/assets/imgs/liston3.jpg"></ion-img>
-        <div class="titulo">
-                <ion-label> Administrador </ion-label>
-
-        </div>
-        <br />
-        <div>
-                <ion-row align-item-center>
-
-                        <ion-col>
-                        </ion-col>
-                        <ion-col class="ali">
-                                <ion-img width="50" height="50" src="/assets/imgs/circulo2/add.png"></ion-img>
-                                <button class="textoboton" ion-button (click)="agregareventoo()">
-                                        Agregar
-                                </button>
-
-
-
-                        </ion-col>
-                        <ion-col>
-                        </ion-col>
-                </ion-row>
-                <ion-row align-item-center>
-
-                        <ion-col class="ali">
-                                <ion-img width="50" height="50" src="/assets/imgs/circulo2/dell.png"></ion-img>
-                                <button class="textoboton" ion-button (click)="eliminarevento()">
-
-                                        Eliminar
-                                </button>
-                        </ion-col>
-                        <ion-col class="ali">
-
-                        </ion-col>
-                        <ion-col class="ali">
-                                <ion-img width="50" height="50" src="/assets/imgs/circulo2/mod.png"></ion-img>
-
-                                <button class="textoboton" ion-button (click)="editarevento()">
-
-                                        Editar
-                                </button>
-                        </ion-col>
-                </ion-row>
-
-        </div>
-</ion-content> -->
-
 <ion-header>
   <ion-navbar color="primary">
-    <ion-buttons end>
-      <button ion-button icon-only (click)="agregareventoo()">
-        <ion-icon name="add-circle"></ion-icon>
-      </button>
-    </ion-buttons>
+    <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
+
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let evento of eventos; let i = index">
-      <ion-card>
-        <ion-card-content>
-          <ion-card-title>{{ evento.nombre }}</ion-card-title>
-          <img src="{{ evento.imagen }}" class="img-card" />
-          <ion-item>
-            <p class="p-card">
-              {{ evento.descripcion }}
-            </p>
-          </ion-item>
-          <ion-item>
-            <button
-              color="danger"
-              ion-button
-              clear
-              (tap)="agregarItinerarios(i)"
-            >
-              Ver itinerarios
-            </button>
-          </ion-item>
-        </ion-card-content>
-        <div class="btn-footer">
-          <button ion-button icon-only item-end (click)="editarevento(i)">
-            <ion-icon name="create"></ion-icon>
-          </button>
-          <button ion-button icon-only item-end (click)="eliminarevento(i)">
-            <ion-icon name="trash"></ion-icon>
-          </button>
-        </div>
-      </ion-card>
-    </ion-item>
-  </ion-list>
+  <ion-img width="300%" height="60" src="/assets/imgs/liston3.jpg"></ion-img>
+  <div class="titulo">
+    <ion-label> Administrador </ion-label>
+  </div>
+  <br />
+  <div>
+    <ion-row align-item-center>
+      <ion-col> </ion-col>
+      <ion-col class="ali">
+        <ion-img
+          width="50"
+          height="50"
+          src="/assets/imgs/circulo2/add.png"
+        ></ion-img>
+        <button class="textoboton" ion-button (click)="eventos()">
+          Agregar
+        </button>
+      </ion-col>
+      <ion-col> </ion-col>
+    </ion-row>
+    <ion-row align-item-center>
+      <ion-col class="ali">
+        <ion-img
+          width="50"
+          height="50"
+          src="/assets/imgs/circulo2/dell.png"
+        ></ion-img>
+        <button class="textoboton" ion-button (click)="eliminarevento()">
+          Eliminar
+        </button>
+      </ion-col>
+      <ion-col class="ali"> </ion-col>
+      <ion-col class="ali">
+        <ion-img
+          width="50"
+          height="50"
+          src="/assets/imgs/circulo2/mod.png"
+        ></ion-img>
+
+        <button class="textoboton" ion-button (click)="editarevento()">
+          Editar
+        </button>
+      </ion-col>
+    </ion-row>
+  </div>
 </ion-content>

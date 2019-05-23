@@ -3,7 +3,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { IonicApp, IonicModule, IonicErrorHandler } from "ionic-angular";
 import { MyApp } from "./app.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core"; // importar clase para que se puedan agregar componentes ionic botones
-import { ImagePicker } from "@ionic-native/image-picker/ngx";
 
 //Servicios de conexión a firebase y utilerías
 import {
@@ -37,6 +36,7 @@ import {
   LogInPage,
   RestablecerContraPage,
   OpcionesPage,
+  EventosAdminPage,
   AgregarEventoPage,
   EditarEventoPage,
   EliminarEventoPage,
@@ -66,6 +66,8 @@ import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireStorageModule } from "angularfire2/storage";
 import { NgIfContext } from "@angular/common";
 
+import { Camera } from "@ionic-native/camera";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -91,6 +93,7 @@ import { NgIfContext } from "@angular/common";
     LogInPage,
     RestablecerContraPage,
     OpcionesPage,
+    EventosAdminPage,
     AgregarEventoPage,
     EditarEventoPage,
     EliminarEventoPage,
@@ -137,6 +140,7 @@ import { NgIfContext } from "@angular/common";
     LogInPage,
     RestablecerContraPage,
     OpcionesPage,
+    EventosAdminPage,
     AgregarEventoPage,
     EditarEventoPage,
     EliminarEventoPage,
@@ -150,10 +154,10 @@ import { NgIfContext } from "@angular/common";
     SplashScreen,
     Geolocation,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    ImagePicker,
     LoginService,
     MessagesService,
-    AdminService
+    AdminService,
+    Camera
   ],
   schemas: [
     // se agrego por que no se agregaban los botones ionic

@@ -69,7 +69,7 @@ export class ItinerariosPage {
     });
   }
 
-  eliminarItinerario(index) {
+  consultarEliminarItinerario(index) {
     this.messagesService.showMessage("Eliminar", "¿Está seguro de eliminar?", [
       {
         text: "Aceptar",
@@ -84,6 +84,24 @@ export class ItinerariosPage {
   }
 
   confirmarEliminarItinerario(index) {
+    this.messagesService.showMessage(
+      "Eliminar",
+      "¿Está realmente seguro de eliminar?",
+      [
+        {
+          text: "Aceptar",
+          handler: () => {
+            this.eliminarItinerario(index);
+          }
+        },
+        {
+          text: "Cancelar"
+        }
+      ]
+    );
+  }
+
+  eliminarItinerario(index) {
     this.messagesService.showLoadingMessage("Eliminando itinerario...");
     this.adminService.deleteItinerario(this.itinerarios[index]).then(
       result => {

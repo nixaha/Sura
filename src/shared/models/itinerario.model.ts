@@ -7,4 +7,5 @@ export interface Itinerario {
   lugar: string;
   horaInicio: string;
   horaFin: string;
+  tipo: string;
 }
