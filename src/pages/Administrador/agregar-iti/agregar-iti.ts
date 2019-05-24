@@ -20,6 +20,7 @@ export class AgregarItiPage {
   public horarioValido: boolean;
 
   public tiposIti = strings.registroItinerarioCatalogos.tipos;
+  public fechasDisponibles: Array<any>;
 
   constructor(
     public navCtrl: NavController,
@@ -29,6 +30,31 @@ export class AgregarItiPage {
   ) {
     this.eventoId = this.navParams.get("eventoId");
     this.horarioValido = true;
+    const fechaInicio = this.navParams.get("fechaInicio");
+    const fechaFin = this.navParams.get("fechaFin");
+    this.cargarFechasDisponibles(fechaInicio, fechaFin);
+  }
+
+  cargarFechasDisponibles(fechaInicio, fechaFin) {
+    this.fechasDisponibles = [];
+    let fechaInicioToDate = new Date(fechaInicio);
+    const fechaFinToDate = new Date(fechaFin);
+    const diaInicio = fechaInicioToDate.getUTCDate();
+    const diaFin = fechaFinToDate.getUTCDate();
+    for (let i = diaInicio; i <= diaFin; i++) {
+      if (diaInicio < i) {
+        fechaInicioToDate.setDate(fechaInicioToDate.getDate() + 1);
+      }
+      const mesDisponible = fechaInicioToDate.getMonth() + 1;
+      const mesDisponibleFormat =
+        mesDisponible < 10 ? `0${mesDisponible}` : `${mesDisponible}`;
+      const diaDisponible = fechaInicioToDate.getUTCDate();
+      const fechaDisponibleFormat =
+        diaDisponible < 10 ? `0${diaDisponible}` : `${diaDisponible}`;
+      this.fechasDisponibles.push(
+        `${fechaInicioToDate.getFullYear()}-${mesDisponibleFormat}-${fechaDisponibleFormat}`
+      );
+    }
   }
 
   ionViewDidLoad() {

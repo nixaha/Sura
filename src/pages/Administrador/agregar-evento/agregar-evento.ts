@@ -17,6 +17,7 @@ import { Evento } from "../../../shared/models/evento.model";
 export class AgregarEventoPage {
   public evento = {} as Evento;
   public image: string;
+  public fechaValido: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -24,7 +25,9 @@ export class AgregarEventoPage {
     private adminService: AdminService,
     private messagesService: MessagesService,
     private camera: Camera
-  ) {}
+  ) {
+    this.fechaValido = true;
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad AgregarEventoPage");
@@ -96,5 +99,17 @@ export class AgregarEventoPage {
         );
       }
     );
+  }
+
+  validarFechas() {
+    if (this.evento.fechaInicio && this.evento.fechaFin) {
+      const fechaInicio = new Date(this.evento.fechaInicio);
+      const fechaFin = new Date(this.evento.fechaFin);
+      if (fechaInicio > fechaFin) {
+        this.fechaValido = false;
+      } else {
+        this.fechaValido = true;
+      }
+    }
   }
 }
