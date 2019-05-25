@@ -19,6 +19,8 @@ import {
 export class ItinerariosPage {
   public itinerarios: Array<Itinerario>;
   public eventoId: string;
+  public eventoFechaInicio: string;
+  public eventoFechaFin: string;
 
   constructor(
     public navCtrl: NavController,
@@ -27,6 +29,8 @@ export class ItinerariosPage {
     private messagesService: MessagesService
   ) {
     this.eventoId = navParams.get("eventoId");
+    this.eventoFechaInicio = navParams.get("fechaInicio");
+    this.eventoFechaFin = navParams.get("fechaFin");
   }
 
   ionViewDidLoad() {
@@ -61,8 +65,13 @@ export class ItinerariosPage {
   }
 
   agregarItinerario() {
-    this.navCtrl.push(AgregarItiPage, { eventoId: this.eventoId });
+    this.navCtrl.push(AgregarItiPage, {
+      eventoId: this.eventoId,
+      fechaInicio: this.eventoFechaInicio,
+      fechaFin: this.eventoFechaFin
+    });
   }
+
   editarItinerario(index) {
     this.navCtrl.push(EditarItiPage, {
       itinerario: this.itinerarios[index]

@@ -5,7 +5,7 @@
 <ion-content padding>
   <h2 class="titulo">Editar Evento</h2>
   <ion-list>
-    <ngForm #evtRegForm="ngForm" name="evtRegForm">
+    <ngForm #evtEditForm="ngForm" name="evtEditForm">
       <ion-item>
         <ion-label floating color="primary" stacked>Nombre</ion-label>
         <ion-input
@@ -34,22 +34,60 @@
       </ion-item>
       <br />
 
+      <ion-item>
+        <ion-label floating color="primary" stacked>Fecha de inicio</ion-label>
+        <ion-datetime
+          name="fechaInicio"
+          displayFormat="DD MMM YYYY"
+          pickerFormat="DD MMM YYYY"
+          [(ngModel)]="evento.fechaInicio"
+          (ionChange)="validarFechas()"
+          required
+        ></ion-datetime>
+      </ion-item>
+      <br />
+
+      <ion-item>
+        <ion-label floating color="primary" stacked>Fecha de cierre</ion-label>
+        <ion-datetime
+          name="fechaFin"
+          displayFormat="DD MMM YYYY"
+          pickerFormat="DD MMM YYYY"
+          [(ngModel)]="evento.fechaFin"
+          (ionChange)="validarFechas()"
+          required
+        ></ion-datetime>
+      </ion-item>
+
+      <ion-item *ngIf="!fechaValido">
+        <ion-label color="error" class="inputError">
+          *Fechas incorrectas
+        </ion-label>
+      </ion-item>
+
       <div padding>
         <ion-row>
-          <ion-col>
-            <ion-label color="primary">Imagen</ion-label>
-          </ion-col>
           <ion-col>
             <button ion-button color="secondary" (click)="cargarImagen()">
               Subir Imagen
             </button>
+          </ion-col>
+          <ion-col>
+            <ion-thumbnail>
+              <img src="{{ loadedImage }}" width="48" height="48" />
+            </ion-thumbnail>
           </ion-col>
         </ion-row>
       </div>
     </ngForm>
     <br />
     <div class="titulo">
-      <button ion-button color="primary" (click)="guardarImagen()">
+      <button
+        ion-button
+        color="primary"
+        (click)="guardarImagen()"
+        [disabled]="!evtEditForm.valid || !loadedImage || !fechaValido"
+      >
         Actualizar
       </button>
     </div>
