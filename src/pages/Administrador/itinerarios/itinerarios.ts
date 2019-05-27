@@ -74,7 +74,9 @@ export class ItinerariosPage {
 
   editarItinerario(index) {
     this.navCtrl.push(EditarItiPage, {
-      itinerario: this.itinerarios[index]
+      itinerario: this.itinerarios[index],
+      fechaInicio: this.eventoFechaInicio,
+      fechaFin: this.eventoFechaFin
     });
   }
 

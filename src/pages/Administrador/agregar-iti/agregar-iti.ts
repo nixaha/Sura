@@ -37,23 +37,18 @@ export class AgregarItiPage {
 
   cargarFechasDisponibles(fechaInicio, fechaFin) {
     this.fechasDisponibles = [];
-    let fechaInicioToDate = new Date(fechaInicio);
-    const fechaFinToDate = new Date(fechaFin);
-    const diaInicio = fechaInicioToDate.getUTCDate();
-    const diaFin = fechaFinToDate.getUTCDate();
-    for (let i = diaInicio; i <= diaFin; i++) {
-      if (diaInicio < i) {
-        fechaInicioToDate.setDate(fechaInicioToDate.getDate() + 1);
-      }
-      const mesDisponible = fechaInicioToDate.getMonth() + 1;
-      const mesDisponibleFormat =
-        mesDisponible < 10 ? `0${mesDisponible}` : `${mesDisponible}`;
-      const diaDisponible = fechaInicioToDate.getUTCDate();
-      const fechaDisponibleFormat =
-        diaDisponible < 10 ? `0${diaDisponible}` : `${diaDisponible}`;
-      this.fechasDisponibles.push(
-        `${fechaInicioToDate.getFullYear()}-${mesDisponibleFormat}-${fechaDisponibleFormat}`
-      );
+    const dia = 1000 * 60 * 60 * 24;
+    const fechaInicioDias = new Date(fechaInicio).getTime();
+    const fechaFinDias = new Date(fechaFin).getTime();
+    const dias = Math.round((fechaFinDias - fechaInicioDias) / dia);
+    for (let i = 0; i <= dias; i++) {
+      const fechaDisponible = new Date(fechaInicio);
+      fechaDisponible.setUTCDate(fechaDisponible.getUTCDate()+i);
+      const dia = fechaDisponible.getUTCDate();
+      const mes = fechaDisponible.getUTCMonth() + 1;
+      const diaFormat = (dia < 10) ? `0${dia}` : `${dia}`;
+      const mesFormat = (mes < 10) ? `0${mes}` : `${mes}`;
+      this.fechasDisponibles.push(`${fechaDisponible.getFullYear()}-${mesFormat}-${diaFormat}`);
     }
   }
 
