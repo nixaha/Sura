@@ -34,6 +34,7 @@ export class AgregarEventoPage {
   }
 
   cargarImagen() {
+    this.messagesService.showLoadingMessage('Cargando imagen...');
     const options: CameraOptions = {
       quality: 75,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -43,6 +44,7 @@ export class AgregarEventoPage {
     this.camera.getPicture(options).then(
       result => {
         this.image = result;
+        this.messagesService.hideLoadingMessage();
       },
       error => {
         this.messagesService.showToastMessage("Seleccione una imagen");

@@ -39,6 +39,7 @@ export class EditarEventoPage {
   }
 
   cargarImagen() {
+    this.messagesService.showLoadingMessage('Cargando imagen...');
     const options: CameraOptions = {
       quality: 75,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -50,6 +51,7 @@ export class EditarEventoPage {
         this.image = result;
         this.loadedImage = `data:image/jpeg;base64,${this.image}`;
         this.imageChange = true;
+        this.messagesService.hideLoadingMessage();
       },
       error => {
         this.messagesService.showToastMessage("Seleccione una imagen");
