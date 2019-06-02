@@ -30,7 +30,7 @@ export class LogInPage {
     public navParams: NavParams,
     private loginService: LoginService,
     private messagesService: MessagesService
-  ) {}
+  ) { }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad LogInPage");
@@ -62,7 +62,8 @@ export class LogInPage {
       token: result.user.refreshToken,
       nombre: snapshot.child("nombre").val(),
       estado: snapshot.child("estado").val(),
-      rol: snapshot.child("rol").val()
+      rol: snapshot.child("rol").val(),
+      eventosRegistrados: snapshot.child("eventosRegistrados").val()
     };
     localStorage.setItem("data", JSON.stringify(data));
   }

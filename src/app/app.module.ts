@@ -11,7 +11,8 @@ import {
   AdminService
 } from "../services/index.services";
 
-import { Geolocation } from "@ionic-native/geolocation/ngx";
+import { Geolocation } from "@ionic-native/geolocation";
+import { LocationAccuracy } from "@ionic-native/location-accuracy";
 
 import {
   HomePage,
@@ -153,6 +154,7 @@ import { Camera } from "@ionic-native/camera";
     StatusBar,
     SplashScreen,
     Geolocation,
+    LocationAccuracy,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     LoginService,
     MessagesService,
