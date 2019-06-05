@@ -48,6 +48,7 @@ export class AgregarEventoPage {
       },
       error => {
         this.messagesService.showToastMessage("Seleccione una imagen");
+        this.messagesService.hideLoadingMessage();
       }
     );
   }

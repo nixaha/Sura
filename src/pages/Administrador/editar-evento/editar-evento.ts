@@ -55,6 +55,7 @@ export class EditarEventoPage {
       },
       error => {
         this.messagesService.showToastMessage("Seleccione una imagen");
+        this.messagesService.hideLoadingMessage();
       }
     );
   }

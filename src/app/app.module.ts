@@ -8,7 +8,8 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core"; // importar cl
 import {
   LoginService,
   MessagesService,
-  AdminService
+  AdminService,
+  ParticipanteService
 } from "../services/index.services";
 
 import { Geolocation } from "@ionic-native/geolocation";
@@ -159,6 +160,7 @@ import { Camera } from "@ionic-native/camera";
     LoginService,
     MessagesService,
     AdminService,
+    ParticipanteService,
     Camera
   ],
   schemas: [
