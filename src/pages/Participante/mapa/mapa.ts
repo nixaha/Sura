@@ -1,16 +1,19 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { NavController } from "ionic-angular";
 
-import { AlertController } from 'ionic-angular'
+import { AlertController } from "ionic-angular";
 
 import { Geolocation } from "@ionic-native/geolocation";
 import { LocationAccuracy } from "@ionic-native/location-accuracy";
 
-import { Ubicacion } from '../../../shared/models/ubicacion.model';
+import { Ubicacion } from "../../../shared/models/ubicacion.model";
 
 import L from "leaflet";
 
-import { MessagesService, ParticipanteService } from "../../../services/index.services";
+import {
+  MessagesService,
+  ParticipanteService
+} from "../../../services/index.services";
 
 declare var google;
 
@@ -29,6 +32,7 @@ export class MapaPage implements OnInit {
   public marcadores: Array<any>;
   public marcadoresGroup: any;
   public marcadorUbicacion: any;
+  public bounds: any;
 
   constructor(
     private geolocation: Geolocation,
@@ -36,9 +40,9 @@ export class MapaPage implements OnInit {
     private messagesService: MessagesService,
     readonly alertCtrl: AlertController,
     private participanteService: ParticipanteService
-  ) { }
+  ) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   ionViewWillEnter() {
     if (!this.map) {
@@ -56,7 +60,7 @@ export class MapaPage implements OnInit {
     this.ubicaciones = [];
     this.ubicacionesSeleccionadas = [];
     this.marcadoresGroup = null;
-    this.messagesService.showLoadingMessage('Cargando ubicaciones');
+    this.messagesService.showLoadingMessage("Cargando ubicaciones");
     this.participanteService.getUbicaciones().then(
       result => {
         result.forEach(doc => {
@@ -72,18 +76,18 @@ export class MapaPage implements OnInit {
 
   mostrarUbicaciones() {
     const alert = this.alertCtrl.create();
-    alert.setTitle('Ubicaciones');
+    alert.setTitle("Ubicaciones");
     this.ubicaciones.forEach(ubicacion => {
       alert.addInput({
-        type: 'checkbox',
+        type: "checkbox",
         label: ubicacion.nombre,
         value: ubicacion.id,
         checked: this.ubicacionesSeleccionadas.indexOf(ubicacion.id) !== -1
-      })
+      });
     });
-    alert.addButton('Cancelar');
+    alert.addButton("Cancelar");
     alert.addButton({
-      text: 'Aceptar',
+      text: "Aceptar",
       handler: data => {
         this.ubicacionesSeleccionadas = data;
         this.agregarMarcadores();
@@ -94,43 +98,55 @@ export class MapaPage implements OnInit {
 
   agregarMarcadores() {
     if (this.marcadoresGroup) {
-      this.map.removeLayer(this.marcadoresGroup)
+      this.map.removeLayer(this.marcadoresGroup);
     }
     this.marcadores = [];
     this.marcadoresGroup = null;
     console.log(this.ubicacionesSeleccionadas);
     console.log(this.ubicaciones);
     this.ubicacionesSeleccionadas.forEach(idUbicacion => {
-      const ubicacion: Ubicacion = this.ubicaciones.filter(u => u.id == idUbicacion)[0];
-      this.marcadores.push(L.marker([ubicacion.latlng.lat, ubicacion.latlng.lng])
-        // .bindPopup(`${ubicacion.nombre}<br>${ubicacion.direccion}`))
-        .on('click', (e) => {
-          this.messagesService.showMessage(ubicacion.nombre, ubicacion.direccion, ['Aceptar'])
-        }))
+      const ubicacion: Ubicacion = this.ubicaciones.filter(
+        u => u.id == idUbicacion
+      )[0];
+      this.marcadores.push(
+        L.marker([ubicacion.latlng.lat, ubicacion.latlng.lng])
+          // .bindPopup(`${ubicacion.nombre}<br>${ubicacion.direccion}`))
+          .on("click", e => {
+            this.messagesService.showMessage(
+              ubicacion.nombre,
+              ubicacion.direccion,
+              ["Aceptar"]
+            );
+          })
+      );
     });
     this.marcadoresGroup = L.layerGroup(this.marcadores);
     this.marcadoresGroup.addTo(this.map);
+    if (this.marcadores.length > 0) {
+      const last = this.marcadores[this.marcadores.length - 1];
+      this.map.flyTo([last._latlng.lat, last._latlng.lng]);
+    }
   }
 
   loadMap() {
     this.map = L.map("mapid");
-    this.map.setView(new L.LatLng(24.0241868, -104.6706912), 15);
-    // this.map.attributionControl.setPrefix("");
-    // const sw = L.latLng(24.100790747617285, -104.72494125366212);
-    // const ne = L.latLng(23.94160507253009, -104.50231790542604);
-    // this.bounds = L.latLngBounds(sw, ne);
+    this.map.attributionControl.setPrefix("");
+    const sw = L.latLng(24.100790747617285, -104.7258);
+    const ne = L.latLng(23.94160507253009, -104.520493);
+    this.bounds = L.latLngBounds(sw, ne);
     L.tileLayer(
-      /*entorno.map*/ "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", //"../assets/map/{z}/{x}/{y}.png",
       {
         maxZoom: 16,
-        minZoom: 11
+        minZoom: 12
       }
     ).addTo(this.map);
-    // this.map.setMaxBounds(this.bounds);
-    // this.fitBounds(this.bounds);
-    // this.map.on("drag", e => {
-    //   this.map.panInsideBounds(this.bounds, { animate: false });
-    // });
+    this.map.setMaxBounds(this.bounds);
+    this.map.fitBounds(this.bounds);
+    this.map.on("drag", e => {
+      this.map.panInsideBounds(this.bounds, { animate: false });
+    });
+    this.map.setView(new L.LatLng(24.0230874, -104.6680331), 14);
   }
 
   ubicar() {
@@ -142,11 +158,8 @@ export class MapaPage implements OnInit {
             response.coords.longitude
           ]);
           this.map.addLayer(this.marcadorUbicacion);
-          // this.map.add(
-          //   new L.marker([response.coords.latitude, response.coords.longitude])
-          // );
         },
-        error => { }
+        error => {}
       );
     }
   }
@@ -175,7 +188,7 @@ export class MapaPage implements OnInit {
       this.map.removeLayer(this.marcadoresGroup);
       this.marcadoresGroup = null;
     }
-    if(this.marcadorUbicacion){
+    if (this.marcadorUbicacion) {
       this.map.removeLayer(this.marcadorUbicacion);
     }
   }
