@@ -29,7 +29,7 @@
                 </div>
                 <h2><strong>{{ iti.nombre }}</strong></h2>
                 <hr />
-                <p>Ponente: {{ iti.ponente }}</p>
+                <p>{{(iti.tipo==='ACADEMICO')?'Ponente: ' + iti.ponente:'' }}</p>
                 <p>{{ iti.descripcion }}</p>
             </ion-card-content>
         </ion-card>

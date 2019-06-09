@@ -102,8 +102,6 @@ export class MapaPage implements OnInit {
     }
     this.marcadores = [];
     this.marcadoresGroup = null;
-    console.log(this.ubicacionesSeleccionadas);
-    console.log(this.ubicaciones);
     this.ubicacionesSeleccionadas.forEach(idUbicacion => {
       const ubicacion: Ubicacion = this.ubicaciones.filter(
         u => u.id == idUbicacion
@@ -131,11 +129,11 @@ export class MapaPage implements OnInit {
   loadMap() {
     this.map = L.map("mapid");
     this.map.attributionControl.setPrefix("");
-    const sw = L.latLng(24.100790747617285, -104.7258);
-    const ne = L.latLng(23.94160507253009, -104.520493);
-    this.bounds = L.latLngBounds(sw, ne);
+    const ne = L.latLng(24.126130582800734, -104.74674224853517);
+    const sw = L.latLng(23.889918576743234, -104.50057983398439);
+    this.bounds = L.latLngBounds(ne, sw);
     L.tileLayer(
-      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", //"../assets/map/{z}/{x}/{y}.png",
+      "../assets/map/{z}/{x}/{y}.png", //"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
       {
         maxZoom: 16,
         minZoom: 12
@@ -146,7 +144,7 @@ export class MapaPage implements OnInit {
     this.map.on("drag", e => {
       this.map.panInsideBounds(this.bounds, { animate: false });
     });
-    this.map.setView(new L.LatLng(24.0230874, -104.6680331), 14);
+    this.map.setView(new L.LatLng(24.01887060790728, -104.62554931640626), 14);
   }
 
   ubicar() {
@@ -158,6 +156,7 @@ export class MapaPage implements OnInit {
             response.coords.longitude
           ]);
           this.map.addLayer(this.marcadorUbicacion);
+          this.map.flyTo(response.coords.latitude, response.coords.longitude);
         },
         error => {}
       );
