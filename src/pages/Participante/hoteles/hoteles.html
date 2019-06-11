@@ -1,24 +1,31 @@
 <ion-header>
-    <ion-navbar color="primary">
-    </ion-navbar>
+  <ion-navbar color="primary">
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-        <h3 class="titulo">Hoteles</h3>
-        <ion-list *ngFor="let hotel of hoteles | async">
-                <ion-item>
-                  <ion-thumbnail item-start>
-                    <img class="uno" src="{{hotel.imagen}}">
-                  </ion-thumbnail>
-                  <h2>{{hotel.nombre}}</h2>
-                  <p>{{hotel.descripcion}}</p>
-                  <p>{{hotel.categoria}}</p>
-                  <p>{{hotel.direccion}}</p>
-                  <p>{{hotel.telefono}}</p>
-            
-                  <button color="danger" ion-button clear [navPush]="hotellist" (tap)="detalles(Hotel)">Ver</button>
-                </ion-item>
-              </ion-list>
-            
 
+
+  <h3 class="titulo">Hoteles</h3>
+  <ion-list *ngFor="let hotel of hoteles | async">
+   
+      <ion-card>
+        <ion-card-content>
+          <ion-item>
+            <ion-thumbnail item-start>
+              <img style="align-content: center" class="uno" src="{{hotel.imagen}}">
+            </ion-thumbnail>
+          </ion-item>
+          <ion-item>
+          <h2 style="text-align:center">{{hotel.nombre}}</h2>
+          <p>{{hotel.descripcion}}</p>
+          <p>{{hotel.categoria}}</p>
+          <p>{{hotel.direccion}}</p>
+          <p>{{hotel.telefono}}</p>
+          <button color="danger" ion-button clear [navPush]="hotellist" (tap)="detalles(Hotel)">Ver</button>
+        </ion-item>
+        </ion-card-content>
+      </ion-card>
+   
+  </ion-list>
 </ion-content>

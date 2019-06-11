@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Iniciar sesion</ion-title>
+    
   </ion-navbar>
 </ion-header>
 
@@ -28,12 +28,11 @@
   </ion-list>
   <div padding>
     <button color="primary" ion-button block type="submit" (click)="login()" [disabled]="!loginForm.valid">Ingresar</button>
+    <button class="" style="text-align:center" ion-button clear color="danger" [navPush]="registro">Registrate Aquí</button>
+    <!-- <img class="cand" src="assets/imgs/candado.png"> -->
+    <button class=""style="text-align:center" ion-button clear color="danger" [navPush]="olvidar">¿Olvidaste tu contraseña?</button>
+  
   </div>
 
-  <h5 class="letrero">¿NO ESTAS REGISTRADO?</h5>
-  <button class="btnRe" ion-button clear color="danger" [navPush]="registro">Registrate Aqui</button>
-
-  <img class="cand" src="assets/imgs/candado.png">
-  <button class="olvido" ion-button clear color="danger" [navPush]="olvidar">¿Olvido su contraseña?</button>
-
+  
 </ion-content>
