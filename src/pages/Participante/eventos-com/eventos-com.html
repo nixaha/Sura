@@ -1,8 +1,37 @@
 <ion-header>
     <ion-navbar color="primary">
     </ion-navbar>
+    <ion-toolbar>
+        <ion-segment [(ngModel)]="tipo">
+            <ion-segment-button (click)="filtrar()" value="TODOS" checked>
+                <small>Todos</small>
+            </ion-segment-button>
+            <ion-segment-button (click)="filtrar()" [value]="tipos.academico">
+                <small>Académico</small>
+            </ion-segment-button>
+            <ion-segment-button (click)="filtrar()" [value]="tipos.acompaniante">
+                <small>Acompañante</small>
+            </ion-segment-button>
+            <ion-segment-button (click)="filtrar()" [value]="tipos.social">
+                <small>Social</small>
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+    <ion-list *ngFor="let iti of filtro; let i = index">
+        <ion-card>
+            <ion-card-content>
+                <div class="fecha">
+                    <ion-label color="date">{{iti.fecha}}</ion-label>
+                    <ion-label color="date">{{iti.horaInicio}} - {{iti.horaFin}} hrs</ion-label>
+                </div>
+                <h2><strong>{{ iti.nombre }}</strong></h2>
+                <hr />
+                <p>{{(iti.tipo==='ACADEMICO')?'Ponente: ' + iti.ponente:'' }}</p>
+                <p>{{ iti.descripcion }}</p>
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
 </ion-content>

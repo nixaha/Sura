@@ -2,10 +2,13 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import { Evento } from '../../../commons/evento';
-import{ EventosComPage } from "../../index.paginas"
+import { Evento } from '../../../shared/models/evento.model';
+import { UserInfo } from '../../../shared/models/user-info';
+import { EventosComPage } from "../../index.paginas"
 import { map } from 'rxjs/operators';
 import { AlertController } from 'ionic-angular';
+
+import { MessagesService, AdminService, LoginService } from '../../../services/index.services';
 
 @Component({
   selector: 'page-eventos',
@@ -13,77 +16,151 @@ import { AlertController } from 'ionic-angular';
 })
 export class EventosPage {
 
-  private noticiasCollection: AngularFirestoreCollection<Evento>;
+  // private noticiasCollection: AngularFirestoreCollection<Evento>;
 
-  eventos: Observable<Evento[]>;
-  notiDoc: AngularFirestoreDocument<Evento[]>;
-  eventocom:any = EventosComPage;
+  // eventos: Observable<Evento[]>;
+  // notiDoc: AngularFirestoreDocument<Evento[]>;
+  // eventocom: any = EventosComPage;
 
-  nombre: string ='';
-  introduccion: string='';
-  imagen: string ='';
+  // nombre: string = '';
+  // introduccion: string = '';
+  // imagen: string = '';
+
+  public evento = {} as Evento;
+  public eventos: Array<Evento>;
+  public userInfo: UserInfo;
+  public clave: string;
+
+
 
   constructor(public navCtrl: NavController,
     private database: AngularFirestore,
     public navParams: NavParams,
-    public alertCtrl: AlertController) {
-      this.noticiasCollection = database.collection<Evento>("eventos");
-      
-      this.eventos = this.noticiasCollection.snapshotChanges().pipe(
-        map(actions => actions.map(action => {
-          const data = action.payload.doc.data() as Evento;
-          const id = action.payload.doc.id;
-          return { id, ...data };
-        }))
-     );
+    public alertCtrl: AlertController,
+    private messagesService: MessagesService,
+    private adminService: AdminService,
+    private loginService: LoginService
+  ) {
+    this.cargarEventos();
+    this.cargarUserInfo();
 
-      this.nombre = this.navParams.get('nombre');
-      this.introduccion = this.navParams.get('introduccion');
-      this.imagen = this.navParams.get('foto');
-      console.log
+    // this.noticiasCollection = database.collection<Evento>("eventos");
+    // this.eventos = this.noticiasCollection.snapshotChanges().pipe(
+    //   map(actions => actions.map(action => {
+    //     const data = action.payload.doc.data() as Evento;
+    //     const id = action.payload.doc.id;
+    //     return { id, ...data };
+    //   }))
+    // );
 
-    if(this.nombre != null) {
-        const id = this.database.createId(); 
-        const evento: Evento = { 'nombre':this.nombre, 'introduccion':this.introduccion, 'imagen':''};
-        this.noticiasCollection.doc(id).set(evento); 
-        this.navCtrl.push(EventosComPage, {
-          id: evento
-        });    
-    }
-        
+    // this.nombre = this.navParams.get('nombre');
+    // this.introduccion = this.navParams.get('introduccion');
+    // this.imagen = this.navParams.get('foto');
+
+    // if (this.nombre != null) {
+    //   const id = this.database.createId();
+    //   const evento: Evento = { 'nombre': this.nombre, 'introduccion': this.introduccion, 'imagen': '' };
+    //   this.noticiasCollection.doc(id).set(evento);
+    //   this.navCtrl.push(EventosComPage, {
+    //     id: evento
+    //   });
+    // }
+
   }
- showPrompt() {
-    const prompt = this.alertCtrl.create({
-      title: 'Inserte la clabe',
-      message: "para registrarse",
-      inputs: [
-        {
-          name: 'clabe',
-          placeholder: 'clabe'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancelar',
-          handler: data => {
-            console.log('Cancel clicked');
+
+  cargarEventos() {
+    this.eventos = [];
+    this.messagesService.showLoadingMessage('Cargando eventos...');
+    this.adminService.getEventos().then(
+      result => {
+        result.forEach(doc => {
+          this.eventos.push(doc.data());
+        });
+        this.messagesService.hideLoadingMessage();
+      },
+      error => {
+        this.messagesService.hideLoadingMessage();
+        this.messagesService.showMessage('Error', 'Error al cargar los eventos', ['Aceptar']);
+      }
+    );
+  }
+
+  cargarUserInfo() {
+    const data = localStorage.getItem('data');
+    if (data) {
+      this.userInfo = JSON.parse(data)
+    }
+  }
+
+  showPrompt(index) {
+    if (!this.registrado(index)) {
+      const prompt = this.alertCtrl.create({
+        title: 'Inserte la clave',
+        message: "para registrarse",
+        inputs: [
+          {
+            name: 'clave',
+            placeholder: 'clave',
+          },
+        ],
+        buttons: [
+          {
+            text: 'Cancelar',
+            handler: data => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Enviar',
+            handler: data => {
+              this.clave = data.clave;
+              this.registrarEvento(index);
+            }
           }
-        },
-        {
-          text: 'Enviar',
-          handler: data => {
-            console.log('Saved clicked');
-          }
-        }
-      ]
-    });
-    prompt.present();
+        ]
+      });
+      prompt.present();
+    } else {
+      this.navCtrl.push(EventosComPage,{eventoId:this.eventos[index].id});
+    }
+  }
+
+  registrado(index) {
+    const eventoId = this.eventos[index].id;
+    const eventosRegistrados = this.userInfo.eventosRegistrados;
+    if (this.userInfo && eventosRegistrados) {
+      const registrado = eventosRegistrados.indexOf(eventoId);
+      if (registrado !== -1) {
+        return true;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  registrarEvento(index) {
+    this.verificarClave(index);
+  }
+
+  verificarClave(index) {
+    const clave = this.eventos[index].clave;
+    if (clave !== this.clave) {
+      this.messagesService.showMessage('Error', 'Clave incorrecta', ['Aceptar'])
+    } else {
+      if (!this.userInfo.eventosRegistrados) {
+        this.userInfo.eventosRegistrados = [];
+      }
+      this.userInfo.eventosRegistrados.push(this.eventos[index].id);
+      this.loginService.setUserInfo(this.userInfo);
+      localStorage.setItem('data', JSON.stringify(this.userInfo));
+      this.navCtrl.push(EventosComPage,{eventoId:this.eventos[index].id});
+    }
   }
 
   //detalles(_evento: Evento){
-    //this.navCtrl.push(EventosComPage, {
-     // id: _evento
-    //})
+  //this.navCtrl.push(EventosComPage, {
+  // id: _evento
+  //})
   //}
 
 }

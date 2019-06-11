@@ -20,6 +20,7 @@ export class AgregarItiPage {
   public horarioValido: boolean;
 
   public tiposIti = strings.registroItinerarioCatalogos.tipos;
+  public fechasDisponibles: Array<any>;
 
   constructor(
     public navCtrl: NavController,
@@ -29,6 +30,26 @@ export class AgregarItiPage {
   ) {
     this.eventoId = this.navParams.get("eventoId");
     this.horarioValido = true;
+    const fechaInicio = this.navParams.get("fechaInicio");
+    const fechaFin = this.navParams.get("fechaFin");
+    this.cargarFechasDisponibles(fechaInicio, fechaFin);
+  }
+
+  cargarFechasDisponibles(fechaInicio, fechaFin) {
+    this.fechasDisponibles = [];
+    const dia = 1000 * 60 * 60 * 24;
+    const fechaInicioDias = new Date(fechaInicio).getTime();
+    const fechaFinDias = new Date(fechaFin).getTime();
+    const dias = Math.round((fechaFinDias - fechaInicioDias) / dia);
+    for (let i = 0; i <= dias; i++) {
+      const fechaDisponible = new Date(fechaInicio);
+      fechaDisponible.setUTCDate(fechaDisponible.getUTCDate()+i);
+      const dia = fechaDisponible.getUTCDate();
+      const mes = fechaDisponible.getUTCMonth() + 1;
+      const diaFormat = (dia < 10) ? `0${dia}` : `${dia}`;
+      const mesFormat = (mes < 10) ? `0${mes}` : `${mes}`;
+      this.fechasDisponibles.push(`${fechaDisponible.getFullYear()}-${mesFormat}-${diaFormat}`);
+    }
   }
 
   ionViewDidLoad() {

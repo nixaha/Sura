@@ -57,6 +57,20 @@
       </ion-item>
 
       <ion-item>
+        <ion-label floating color="primary" stacked>Fecha</ion-label>
+        <ion-select
+          name="fecha"
+          displayFormat="DD MMM YYYY"
+          pickerFormat="DD MMM YYYY"
+          [(ngModel)]="itinerario.fecha"
+        >
+          <ion-option *ngFor="let fecha of fechasDisponibles" [value]="fecha">{{
+            fecha
+          }}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
         <ion-label floating color="primary" stacked>Hora de inicio</ion-label>
         <ion-datetime
           name="horaInicio"

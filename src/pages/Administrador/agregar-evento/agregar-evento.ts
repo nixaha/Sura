@@ -17,6 +17,7 @@ import { Evento } from "../../../shared/models/evento.model";
 export class AgregarEventoPage {
   public evento = {} as Evento;
   public image: string;
+  public fechaValido: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -24,13 +25,16 @@ export class AgregarEventoPage {
     private adminService: AdminService,
     private messagesService: MessagesService,
     private camera: Camera
-  ) {}
+  ) {
+    this.fechaValido = true;
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad AgregarEventoPage");
   }
 
   cargarImagen() {
+    this.messagesService.showLoadingMessage('Cargando imagen...');
     const options: CameraOptions = {
       quality: 75,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -40,9 +44,11 @@ export class AgregarEventoPage {
     this.camera.getPicture(options).then(
       result => {
         this.image = result;
+        this.messagesService.hideLoadingMessage();
       },
       error => {
         this.messagesService.showToastMessage("Seleccione una imagen");
+        this.messagesService.hideLoadingMessage();
       }
     );
   }
@@ -96,5 +102,17 @@ export class AgregarEventoPage {
         );
       }
     );
+  }
+
+  validarFechas() {
+    if (this.evento.fechaInicio && this.evento.fechaFin) {
+      const fechaInicio = new Date(this.evento.fechaInicio);
+      const fechaFin = new Date(this.evento.fechaFin);
+      if (fechaInicio > fechaFin) {
+        this.fechaValido = false;
+      } else {
+        this.fechaValido = true;
+      }
+    }
   }
 }
