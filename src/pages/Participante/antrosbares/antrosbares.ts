@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
 
 @Component({
-  selector: 'antros-bares',
+  selector: 'page-antros-bares',
   templateUrl: 'antrosbares.html',                   
 })
 export class AntrosBaresPage {
  
 
-  constructor()
+  constructor(public navCtrl: NavController)
   {
 
   }

@@ -4,5 +4,31 @@
 </ion-header>
 
 <ion-content padding>
+    <h3 class="titulo">{{restaurante.nombre}}</h3>
+    <hr/>
+    <br/>
+    <ion-card>
+        <img src="{{restaurante.imagen}}" />
+        <ion-card-content>
+            <ion-card-title ALIGN="left">
+
+            </ion-card-title>
+            <p ALIGN="justify">
+                {{restaurante.introducion}}
+            </p>
+            <br/>
+            <p ALIGN="justify">
+                {{restaurante.horarios}}
+            </p>
+            <br/>
+            <p ALIGN="justify">
+                {{restaurante.direccion}}
+            </p>
+            <br/>
+            <p ALIGN="justify">
+                {{restaurante.telefono}}
+            </p>
+        </ion-card-content>
+    </ion-card>
 
 </ion-content>

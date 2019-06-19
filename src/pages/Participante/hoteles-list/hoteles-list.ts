@@ -6,12 +6,18 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'hoteles-list.html',
 })
 export class HotelesListPage {
+  hotel:any = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    this.hotel= this.navParams.get('id');
+    //this.museo1 = new Museo("","","","","","","");
+    
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HotelesListPage');
+  
+    
+    
+    console.log(navParams + 'imagen hotel list ts');
+    
   }
 
 }

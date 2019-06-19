@@ -4,5 +4,31 @@
 </ion-header>
 
 <ion-content padding>
+        <h3 class="titulo">{{hotel.nombre}}</h3>
+        <hr/>
+        <br/>
+<ion-card>
+    <img src="{{hotel.foto}}" />
+    <ion-card-content>
+        <ion-card-title ALIGN="left">
+          
+        </ion-card-title>
+        <p ALIGN="justify">
+            {{hotel.descripcion}}
+        </p>
+        <br/>
+        <p ALIGN="justify">
+            {{hotel.categoria}}
+        </p>
+        <br/>
+        <p ALIGN="justify">
+            {{hotel.direccion}}
+        </p>
+        <br/>
+        <p ALIGN="justify">
+            {{hotel.telefono}}
+        </p>
+    </ion-card-content>
+</ion-card>
 
 </ion-content>

@@ -50,10 +50,7 @@ export class HotelesPage {
     if(this.nombre != null) {
         const id = this.database.createId(); 
         const hotel: Hotel = { 'nombre':this.nombre, 'descripcion':this.descripcion, 'categoria':this.categoria, 'direccion':this.direccion, 'telefono':this.telefono, 'imagen':''};
-        this.noticiasCollection.doc(id).set(hotel); 
-        this.navCtrl.push(HotelesListPage, {
-          id: hotel
-        });    
+        this.noticiasCollection.doc(id).set(hotel);   
     }
         
   }

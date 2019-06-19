@@ -6,12 +6,14 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'restaurante-list.html',
 })
 export class RestauranteListPage {
+  restaurante:any = {}; 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RestauranteListPage');
+    this.restaurante= this.navParams.get('id');
+ 
+    console.log(navParams + 'imagen restaurante list ts');
+    
+   
   }
 
 }

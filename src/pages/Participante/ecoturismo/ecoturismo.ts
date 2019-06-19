@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
 
 @Component({
-  selector: 'ecoturismo',
+  selector: 'page-ecoturismo',
   templateUrl: 'ecoturismo.html',                   
 })
 export class EcoturismoPage {
  
 
-  constructor()
+  constructor(public navCtrl: NavController)
   {
 
   }

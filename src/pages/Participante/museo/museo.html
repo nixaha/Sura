@@ -3,18 +3,18 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding >
+<ion-content padding>
   <h3 class="titulo">Museos</h3>
   <hr/>
   <br/>
-  <ion-list  *ngFor="let museo of museos | async">
-   <h6 class="subti">{{museo.nombre}}</h6>
+  <ion-list *ngFor="let museo of museos | async">
+    <h6 class="subti">{{museo.nombre}}</h6>
     <ion-item>
-      <ion-thumbnail item-start>
-         
+      <ion-thumbnail item-start> 
+
         <img class="uno" src="{{museo.foto}}">
       </ion-thumbnail>
-     
+
       <p>{{museo.descripcion}}</p>
       <p>{{museo.horarios}}</p>
       <p>{{museo.costo}}</p>

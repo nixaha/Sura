@@ -66,7 +66,7 @@ export class MuseoPage {
   detalles(_museo: Museo){
     this.navCtrl.push(MuseoListPage, {
       id: _museo
-
+ 
     })
 
   }

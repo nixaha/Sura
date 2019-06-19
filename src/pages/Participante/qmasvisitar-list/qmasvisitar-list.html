@@ -4,5 +4,35 @@
 </ion-header>
 
 <ion-content padding>
+        <h3 class="titulo">{{quema.nombre}}</h3>
+        <hr/>
+        <br/>
+<ion-card>
+    <img src="{{quema.imagen}}" />
+    <ion-card-content>
+        <ion-card-title ALIGN="left">
+          
+        </ion-card-title>
+        <p ALIGN="justify"> 
+            {{quema.introducion}}
+        </p>
+        <br/>
+        <p ALIGN="justify"> 
+            {{quema.horarios}}
+        </p>
+        <br/>
+        <p ALIGN="justify">
+            {{quema.direccion}}
+        </p>
+        <br/>
+        <p ALIGN="justify">
+            {{quema.telefono}}
+        </p>
+        <br/>
+        <p ALIGN="justify">
+            {{quema.costo}}
+        </p>
+    </ion-card-content>
+</ion-card>
 
 </ion-content>

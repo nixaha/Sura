@@ -28,15 +28,11 @@ export { MapaPage } from "./Participante/mapa/mapa";
 export { MuseoPage } from "./Participante/museo/museo";
 export { MuseoListPage } from "./Participante/museo-list/museo-list";
 export { RestaurantePage } from "./Participante/restaurante/restaurante";
-export {
-  RestauranteListPage
-} from "./Participante/restaurante-list/restaurante-list";
+export { RestauranteListPage } from "./Participante/restaurante-list/restaurante-list";
 export { SouvePage } from "./Participante/souve/souve";
 export { SouveListPage } from "./Participante/souve-list/souve-list";
 export { QmasvisitarPage } from "./Participante/qmasvisitar/qmasvisitar";
-export {
-  QmasvisitarListPage
-} from "./Participante/qmasvisitar-list/qmasvisitar-list";
+export { QmasvisitarListPage } from "./Participante/qmasvisitar-list/qmasvisitar-list";
 export { HotelesPage } from "./Participante/hoteles/hoteles";
 export { HotelesListPage } from "./Participante/hoteles-list/hoteles-list";
 export { GaleriaPage } from "./Participante/galeria/galeria";
@@ -44,7 +40,9 @@ export { GaleriaListPage } from "./Participante/galeria-list/galeria-list";
 export { EventosPage } from "./Participante/eventos/eventos";
 export { EventosComPage } from "./Participante/eventos-com/eventos-com";
 export { AntrosBaresPage } from "./Participante/antrosbares/antrosbares";
+export { AntrosbaresListPage } from "./Participante/antrosbares-list/antrosbares-list";
 export { EcoturismoPage } from "./Participante/ecoturismo/ecoturismo";
+export { EcoturismoListPage } from "./Participante/ecoturismo-list/ecoturismo-list";
 export { TransportesPage } from "./Participante/transportes/transportes";
 
 export { ContactPage } from "./contact/contact";

@@ -6,12 +6,16 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'souve-list.html',
 })
 export class SouveListPage {
+  souvenir: any = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+
+    this.souvenir = this.navParams.get('id');
+
+    console.log(navParams + 'imagen souvenir list ts');
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SouveListPage');
-  }
 
 }

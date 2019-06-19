@@ -4,21 +4,23 @@
 </ion-header>
 
 <ion-content padding>
-        <h3 class="titulo">Hoteles</h3>
-        <ion-list *ngFor="let hotel of hoteles | async">
+              <h3 class="titulo">Hoteles</h3>
+              <hr/>
+              <br/>
+              <ion-list  *ngFor="let hotel of hoteles | async">
+               <h6 class="subti">{{hotel.nombre}}</h6>
                 <ion-item>
                   <ion-thumbnail item-start>
+                     
                     <img class="uno" src="{{hotel.imagen}}">
                   </ion-thumbnail>
-                  <h2>{{hotel.nombre}}</h2>
+                 
                   <p>{{hotel.descripcion}}</p>
-                  <p>{{hotel.categoria}}</p>
+                  <p>{{hotel.categoria}}</p> 
                   <p>{{hotel.direccion}}</p>
                   <p>{{hotel.telefono}}</p>
-            
-                  <button color="danger" ion-button clear [navPush]="hotellist" (tap)="detalles(Hotel)">Ver</button>
+                  <button color="danger" ion-button clear [navPush]="hotellist" (tap)="detalles(hotel)">Ver</button>
                 </ion-item>
               </ion-list>
-            
 
 </ion-content>
