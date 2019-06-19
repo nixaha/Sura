@@ -8,10 +8,12 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core"; // importar cl
 import {
   LoginService,
   MessagesService,
-  AdminService
+  AdminService,
+  ParticipanteService
 } from "../services/index.services";
 
-import { Geolocation } from "@ionic-native/geolocation/ngx";
+import { Geolocation } from "@ionic-native/geolocation";
+import { LocationAccuracy } from "@ionic-native/location-accuracy";
 
 import {
   HomePage,
@@ -168,10 +170,12 @@ import { Camera } from "@ionic-native/camera";
     StatusBar,
     SplashScreen,
     Geolocation,
+    LocationAccuracy,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     LoginService,
     MessagesService,
     AdminService,
+    ParticipanteService,
     Camera
   ],
   schemas: [

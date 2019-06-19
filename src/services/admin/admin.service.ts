@@ -25,8 +25,9 @@ export class AdminService {
   getEventos(): Promise<any> {
     return this.angfirestore
       .collection(this.collectionEventos)
-      .get()
-      .toPromise();
+      .ref.orderBy("fechaInicio") //.get()
+      .get();
+    //.toPromise();
   }
 
   generateId(): string {
@@ -78,10 +79,13 @@ export class AdminService {
   }
 
   getItinerarios(eventoId): Promise<any> {
-    return this.angfirestore
-      .collection(this.collectionItinerarios)
-      .ref.where("eventoId", "==", eventoId)
-      .get();
+    return (
+      this.angfirestore
+        .collection(this.collectionItinerarios)
+        .ref.where("eventoId", "==", eventoId)
+        //.orderBy("fecha")
+        .get()
+    );
   }
 
   createItinerario(itinerario: Itinerario) {

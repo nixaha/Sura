@@ -132,6 +132,10 @@ export class EventosAdminPage {
   }
 
   agregarItinerarios(index) {
-    this.navCtrl.push(ItinerariosPage, { eventoId: this.eventos[index].id });
+    this.navCtrl.push(ItinerariosPage, {
+      eventoId: this.eventos[index].id,
+      fechaInicio: this.eventos[index].fechaInicio,
+      fechaFin: this.eventos[index].fechaFin
+    });
   }
 }

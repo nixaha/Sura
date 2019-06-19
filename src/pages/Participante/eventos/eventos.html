@@ -1,22 +1,33 @@
 <ion-header>
-    <ion-navbar color="primary">
-       
-    </ion-navbar>
+  <ion-navbar color="primary">
+
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-        <h3 class="titulo">Eventos</h3>
-        <ion-list *ngFor="let evento of eventos | async">
-                <ion-item>
-                  <ion-thumbnail item-start>
-                    <img class="uno" src="{{evento.imagen}}">
-                  </ion-thumbnail>
-                  <h2>{{evento.nombre}}</h2>
-                  <p>{{evento.introduccion}}</p>
-            
-                  <button color="danger" ion-button clear [navPush]="eventocom" (tap)="showPrompt()">Registrar</button>
-                </ion-item>
-              </ion-list>
-            
+  <!-- <h3 class="titulo">Eventos</h3>
+  <ion-list *ngFor="let evento of eventos | async">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img class="uno" src="{{evento.imagenUrl}}">
+      </ion-thumbnail>
+      <h2>{{evento.nombre}}</h2>
+      <p>{{evento.descripcion}}</p>
+      <button color="danger" ion-button clear [navPush]="eventocom" (tap)="showPrompt(index)">Registrar</button>
+    </ion-item>
+  </ion-list> -->
+  <h3 class="titulo">Eventos</h3>
+  <ion-list *ngFor="let evt of eventos;let i=index">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img class="uno" src="{{evt.imagenUrl}}">
+      </ion-thumbnail>
+      <h2>{{evt.nombre}}</h2>
+      <p>{{evt.descripcion}}</p>
+      <button color="danger" ion-button clear [navPush]="eventocom"
+        (tap)="showPrompt(i)">{{(registrado(i))?'Ver itinerario':'Registrar'}}</button>
+    </ion-item>
+  </ion-list>
+
 
 </ion-content>
