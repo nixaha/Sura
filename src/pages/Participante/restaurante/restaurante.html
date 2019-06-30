@@ -6,10 +6,12 @@
 <ion-content padding>
         <h3 class="titulo">Restaurantes</h3>
 <ion-list *ngFor="let restaurante of restaurantes | async">
+    <ion-card>
+        <ion-card-content>
     <ion-item>
-      <ion-thumbnail item-start>
+      
         <img class="uno" src="{{restaurante.imagen}}">
-      </ion-thumbnail>
+      
       <h2>{{restaurante.nombre}}</h2>
       <p>{{restaurante.introduccion}}</p>
       <p>{{restaurante.horarios}}</p>
@@ -18,6 +20,8 @@
 
       <button color="danger" ion-button clear [navPush]="restaurantelist" (tap)="detalles(Restaurante)">Ver</button>
     </ion-item>
+    </ion-card-content>
+    </ion-card>
   </ion-list>
 
 </ion-content>

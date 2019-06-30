@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar color="primary">
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+        <h3 class="titulo">Antros y Bares</h3>
+<ion-list *ngFor="let antro of antros | async">
+    <ion-card>
+        <ion-card-content>
+    <ion-item>
+      
+        <img class="uno" src="{{antro.imagen}}">
+      
+      <h2>{{antro.nombre}}</h2>
+      <p>{{antro.introduccion}}</p>
+      <p>{{antro.horarios}}</p>
+      <p>{{antro.direccion}}</p>
+      <p>{{antro.telefono}}</p>
+
+      <button color="danger" ion-button clear [navPush]="antrolist" (tap)="detalles(Antro)">Ver</button>
+    </ion-item>
+    </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

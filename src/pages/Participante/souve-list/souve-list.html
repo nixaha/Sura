@@ -1,8 +1,40 @@
 <ion-header>
-    <ion-navbar color="primary">
-    </ion-navbar>
-</ion-header>
+        <ion-navbar color="primary">
+        </ion-navbar>
+      </ion-header>
 
-<ion-content padding>
+
+<ion-content padding >
+    
+     <h3 class="titulo">{{souvenir.nombre}}</h3>
+            <hr/>
+            <br/>
+    <ion-card>
+        <img src="{{souvenir.foto}}" />
+        <ion-card-content>
+            <ion-card-title ALIGN="left">
+              
+            </ion-card-title>
+            <p ALIGN="justify">
+                {{souvenir.introduccion}}
+            </p>
+            <br/>
+            <strong>Horarios:</strong>
+            <p ALIGN="justify">
+                {{souvenir.horarios}}
+            </p>
+            <br/>
+            <strong>Dirección:</strong>
+            <p ALIGN="justify">
+                {{souvenir.direccion}}
+            </p>
+            <br/>
+            <strong>Teléfono:</strong>
+            <p ALIGN="justify">
+                {{souvenir.telefono}}
+            </p>
+        </ion-card-content>
+        
+    </ion-card>
 
 </ion-content>

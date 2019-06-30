@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { Hotel } from '../../../commons/hotel';
-import{ HotelesListPage } from "../../index.paginas"
+import{ HotelesListPage } from "../../index.paginas";
 import { map } from 'rxjs/operators';
 
 
@@ -49,7 +49,7 @@ export class HotelesPage {
 
     if(this.nombre != null) {
         const id = this.database.createId(); 
-        const hotel: Hotel = { 'nombre':this.nombre, 'descripcion':this.descripcion, 'categoria':this.categoria, 'direccion':this.direccion, 'telefono':this.telefono, 'imagen':''};
+        const hotel: Hotel = { 'nombre':this.nombre, 'descripcion':this.descripcion, 'categoria':this.categoria, 'direccion':this.direccion, 'telefono':this.telefono, 'imagen':this.imagen};
         this.noticiasCollection.doc(id).set(hotel); 
         this.navCtrl.push(HotelesListPage, {
           id: hotel

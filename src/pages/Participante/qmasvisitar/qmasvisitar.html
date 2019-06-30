@@ -6,10 +6,12 @@
 <ion-content padding>
         <h3 class="titulo">Que Más Visitar</h3>
         <ion-list *ngFor="let quema of quemas | async">
+          <ion-card>
+      <ion-card-content>
                 <ion-item>
-                  <ion-thumbnail item-start>
+                  
                     <img class="uno" src="{{quema.imagen}}">
-                  </ion-thumbnail>
+                 
                   <h2>{{quema.nombre}}</h2>
                   <p>{{quema.introduccion}}</p>
                   <p>{{quema.horarios}}</p>
@@ -18,6 +20,8 @@
                   <p>{{quema.costo}}</p>
                   <button color="danger" ion-button clear [navPush]="qmasvisitarList" (tap)="detalles(Quema)">Ver</button>
                 </ion-item>
+                </ion-card-content>
+                </ion-card>
               </ion-list>
 
 </ion-content>

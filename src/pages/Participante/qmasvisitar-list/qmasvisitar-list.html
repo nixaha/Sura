@@ -1,8 +1,44 @@
 <ion-header>
     <ion-navbar color="primary">
     </ion-navbar>
-</ion-header>
+  </ion-header>
 
-<ion-content padding>
+<ion-content padding >
+
+ <h3 class="titulo">{{quema.nombre}}</h3>
+        <hr/>
+        <br/>
+<ion-card>
+    <img src="{{quema.imagen}}" />
+    <ion-card-content>
+        <ion-card-title ALIGN="left">
+          
+        </ion-card-title>
+        <p ALIGN="justify">
+            {{quema.introduccion}}
+        </p>
+        <br/>
+        <strong>Horarios:</strong>
+        <p ALIGN="justify">
+            {{quema.horarios}}
+        </p>
+        <br/>
+        <strong>Costos:</strong>
+        <p ALIGN="justify">
+            {{quema.costo}}
+        </p>
+        <br/>
+        <strong>Dirección:</strong>
+        <p ALIGN="justify">
+            {{quema.direccion}}
+        </p>
+        <br/>
+        <strong>Teléfono:</strong>
+        <p ALIGN="justify">
+            {{quema.telefono}}
+        </p>
+    </ion-card-content>
+    
+</ion-card>
 
 </ion-content>

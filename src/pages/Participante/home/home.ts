@@ -7,9 +7,11 @@ import { RestaurantePage } from "../restaurante/restaurante";
 import { SouvePage } from "../souve/souve";
 import { HotelesPage } from "../hoteles/hoteles";
 import { GaleriaPage } from "../galeria/galeria";
-import { LogInPage } from "../../index.paginas";
-
+import { AntrosBaresPage } from "../antrosbares/antrosbares";
+import { EcoturismoPage } from "../ecoturismo/ecoturismo";
+import { TransportesPage } from "../transportes/transportes";
 import { MessagesService } from "../../../services/messages.service";
+import { LogInPage} from "../../index.paginas";
 
 @Component({
   selector: "page-home",
@@ -36,6 +38,15 @@ export class HomePage {
   qmasvisitar() {
     this.navCtrl.push(QmasvisitarPage);
   }
+  antrosbares() {
+    this.navCtrl.push(AntrosBaresPage);
+  }
+   ecoturismo() {
+   this.navCtrl.push(EcoturismoPage);
+  }
+   transportes() {
+    this.navCtrl.push(TransportesPage);
+   }
 
   souvenirs() {
     this.navCtrl.push(SouvePage);
@@ -44,6 +55,7 @@ export class HomePage {
   verhoteles() {
     this.navCtrl.push(HotelesPage);
   }
+
   vergaleria() {
     this.navCtrl.push(GaleriaPage);
   }
@@ -66,4 +78,5 @@ export class HomePage {
       ]
     );
   }
+  
 }

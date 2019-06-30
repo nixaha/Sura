@@ -43,6 +43,12 @@ import {
   EditarEventoPage,
   EliminarEventoPage,
   ItinerariosPage,
+  AntrosBaresPage,
+  EcoturismoPage,
+  TransportesPage,
+  TransporteListPage,
+  AntrosListPage,
+  EcoListPage,
   AgregarItiPage,
   EditarItiPage,
   EliminarItiPage
@@ -102,7 +108,13 @@ import { Camera } from "@ionic-native/camera";
     ItinerariosPage,
     AgregarItiPage,
     EditarItiPage,
-    EliminarItiPage
+    EliminarItiPage,
+    AntrosBaresPage,
+    EcoturismoPage,
+    TransportesPage,
+    TransporteListPage,
+    AntrosListPage,
+    EcoListPage
   ],
   imports: [
     BrowserModule,
@@ -149,7 +161,13 @@ import { Camera } from "@ionic-native/camera";
     ItinerariosPage,
     AgregarItiPage,
     EditarItiPage,
-    EliminarItiPage
+    EliminarItiPage,
+    AntrosBaresPage,
+    EcoturismoPage,
+    TransportesPage,
+    TransporteListPage,
+    AntrosListPage,
+    EcoListPage,
   ],
   providers: [
     StatusBar,
