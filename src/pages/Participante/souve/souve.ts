@@ -27,7 +27,7 @@ export class SouvePage {
   constructor(public navCtrl: NavController,
     private database: AngularFirestore,
     public navParams: NavParams) {
-      this.noticiasCollection = database.collection<Souvenir>("souvenirS");
+      this.noticiasCollection = database.collection<Souvenir>("souvenirs");
       
       this.souvenirs = this.noticiasCollection.snapshotChanges().pipe(
         map(actions => actions.map(action => {
