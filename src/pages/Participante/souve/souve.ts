@@ -27,7 +27,7 @@ export class SouvePage {
   constructor(public navCtrl: NavController,
     private database: AngularFirestore,
     public navParams: NavParams) {
-      this.noticiasCollection = database.collection<Souvenir>("souvenirS");
+      this.noticiasCollection = database.collection<Souvenir>("souvenirs");
       
       this.souvenirs = this.noticiasCollection.snapshotChanges().pipe(
         map(actions => actions.map(action => {
@@ -43,15 +43,15 @@ export class SouvePage {
       this.direccion = this.navParams.get('direccion');
       this.telefono = this.navParams.get('telefono');
       this.foto = this.navParams.get('foto');
-      console.log
+      //console.log
 
     if(this.nombre != null) {
         const id = this.database.createId(); 
-        const souvenir: Souvenir = { 'nombre':this.nombre, 'introduccion':this.introduccion, 'horarios':this.horarios, 'direccion':this.direccion, 'telefono':this.telefono, 'foto':''};
-        this.noticiasCollection.doc(id).set(souvenir); 
-        this.navCtrl.push(SouveListPage, {
-          id: souvenir
-        });    
+        const souvenirs: Souvenir = { 'nombre':this.nombre, 'introduccion':this.introduccion, 'horarios':this.horarios, 'direccion':this.direccion, 'telefono':this.telefono, 'foto':this.foto};
+        this.noticiasCollection.doc(id).set(souvenirs); 
+        // this.navCtrl.push(SouveListPage, {
+        //   id: souvenir
+        // });    
     }
         
   }

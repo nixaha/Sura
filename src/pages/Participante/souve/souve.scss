@@ -1,10 +1,23 @@
 page-souve {
-    img {
-        max-width: 10rem;    
-        min-width: 10rem;
-    }
-    u{
-        font-size: 45px;
-    }
+ /*la version lala*/
+ img {
+    max-width: 10rem;    
+    min-width: 10rem;
+    -webkit-box-shadow: 8px 10px 18px -1px rgba(0,0,0,0.29);
+    -moz-box-shadow: 8px 10px 18px -1px rgba(0,0,0,0.29);
+    box-shadow: 8px 10px 18px -1px rgba(0,0,0,0.29);
+    border-radius: 8px;
+}
+u{
+    font-size: 45px;
+}
 
 }
+
+.subti
+{
+
+text-align: center;
+
+}
+

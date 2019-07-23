@@ -1,0 +1,23 @@
+<ion-header>
+        <ion-navbar color="primary">
+        </ion-navbar>
+      </ion-header>
+      
+      <ion-content padding>
+              <h3 class="titulo">Transportación</h3>
+              <ion-list *ngFor="let transporte of transporte | async">
+                  <ion-card>
+                      <ion-card-content>
+                      <ion-item>
+                        <img class="uno" src="{{transporte.imagen}}">
+                        <h2><strong>{{transporte.nombre}} </strong> </h2>
+                         <!-- <button color="danger" ion-button clear [navPush]="transportelist">Descargar</button> -->
+                         <!-- <button color="danger" ion-button clear href="{{transporte.android}}">Andoridd</button> -->
+                         <a href="{{transporte.android}}">Android</a>
+                         <br/>
+                         <a href="{{transporte.ios}}">IOS</a>
+                        </ion-item>
+                      </ion-card-content>
+                  </ion-card>
+              </ion-list>
+      </ion-content>

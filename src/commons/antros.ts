@@ -1,8 +1,7 @@
 export interface Antro{
     nombre: string,
     introduccion: string,
-    horarios: string,
-    costo: string,
+    horario: string,
     direccion: string,
     telefono: string,
     imagen: string

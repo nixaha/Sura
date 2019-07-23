@@ -1,6 +1,7 @@
 export interface Transporte{
     nombre: string,
-    introduccion: string,
-    imagen: string
+    imagen: string,
+    android: string,
+    ios: string
 
 }

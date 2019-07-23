@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { Antro } from '../../../commons/antros';
-import{ AntrosListPage } from "../../index.paginas"
+import{ AntrosbaresListPage } from "../../index.paginas"
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -14,24 +14,23 @@ import { map } from 'rxjs/operators';
 export class AntrosBaresPage {
   private noticiasCollection: AngularFirestoreCollection<Antro>;
 
-  antro: Observable<Antro[]>;
+  antrosbares: Observable<Antro[]>;
   notiDoc: AngularFirestoreDocument<Antro[]>;
-  restaurantelist:any = AntrosListPage;
+  antrosbareslist:any = AntrosbaresListPage;
 
   nombre: string ='';
   introduccion: string='';
-  horarios: string ='';
+  horario: string ='';
   direccion: string ='';
   telefono: string ='';
   imagen: string ='';
-  costo: string='';
 
   constructor(public navCtrl: NavController,
     private database: AngularFirestore,
     public navParams: NavParams) {
-      this.noticiasCollection = database.collection<Antro>("restaurantes");
+      this.noticiasCollection = database.collection<Antro>("antrosbares");
       
-      this.antro = this.noticiasCollection.snapshotChanges().pipe(
+      this.antrosbares = this.noticiasCollection.snapshotChanges().pipe(
         map(actions => actions.map(action => {
           const data = action.payload.doc.data() as Antro;
           const id = action.payload.doc.id;
@@ -41,27 +40,26 @@ export class AntrosBaresPage {
 
       this.nombre = this.navParams.get('nombre');
       this.introduccion = this.navParams.get('introduccion');
-      this.horarios = this.navParams.get('horarios'); 
+      this.horario = this.navParams.get('horario'); 
       this.direccion = this.navParams.get('direccion');
       this.telefono = this.navParams.get('telefono');
       this.imagen = this.navParams.get('imagen');
-      this.costo = this.navParams.get('costo');
-      console.log
+
 
     if(this.nombre != null) {
         const id = this.database.createId(); 
-        const antross: Antro = { 'nombre':this.nombre, 'introduccion':this.introduccion, 'horarios':this.horarios, 'direccion':this.direccion, 'telefono':this.telefono, 'imagen':this.imagen, 'costo':this.costo};
-        this.noticiasCollection.doc(id).set(antross); 
-        this.navCtrl.push(AntrosListPage, {
-          id: antross
-        });    
+        const antrosbares: Antro = { 'nombre':this.nombre, 'introduccion':this.introduccion, 'horario':this.horario, 'direccion':this.direccion, 'telefono':this.telefono, 'imagen':this.imagen};
+        this.noticiasCollection.doc(id).set(antrosbares); 
+        // this.navCtrl.push(AntrosbaresListPage, {
+        //   id: antro
+        // });    
     }
         
   }
 
-  detalles(_antro: Antro){
-    this.navCtrl.push(AntrosListPage, {
-      id: _antro
+  detalles(_antrosbares: Antro){
+    this.navCtrl.push(AntrosbaresListPage, {
+      id: _antrosbares
     })
   }
 

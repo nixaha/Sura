@@ -2,18 +2,15 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
-     selector: 'antroslist',
-     templateUrl: 'antroslistt.html',                   
+  selector: 'page-ecoturismo-list',
+  templateUrl: 'ecoturismo-list.html',
 })
-export class AntrosListPage {
- 
+export class EcoturismoListPage {
 
- 
+  ecoturismo:any = {};
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.ecoturismo= this.navParams.get('id');
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AntrosListPage');
-  }
 
 }

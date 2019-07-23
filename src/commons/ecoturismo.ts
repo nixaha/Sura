@@ -1,10 +1,7 @@
 export interface Ecoturismo{
     nombre: string,
-    introduccion: string,
-    direccion: string,
+    ubicacion: string,
     actividades: string,
-    costo: string,
-    telefono: string,
     imagen: string
 
 }

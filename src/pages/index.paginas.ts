@@ -20,11 +20,9 @@ export { EliminarItiPage } from "./Administrador/eliminar-iti/eliminar-iti";
 export { HomePage } from "./Participante/home/home";
 
 export { AntrosBaresPage } from "./Participante/antrosbares/antrosbares";
-export { AntrosListPage } from './Participante/antros-list/antroslistt';
 export { EcoturismoPage } from "./Participante/ecoturismo/ecoturismo";
 export { TransporteListPage } from "./Participante/transporte-list/transportelist";
 export { TransportesPage } from "./Participante/transportes/transportes";
-export { EcoListPage } from "./Participante/ecoturismo-list/ecolist";
 export { MapaPage } from "./Participante/mapa/mapa";
 export { MuseoPage } from "./Participante/museo/museo";
 export { MuseoListPage } from "./Participante/museo-list/museo-list";
@@ -40,7 +38,7 @@ export { GaleriaPage } from "./Participante/galeria/galeria";
 export { GaleriaListPage } from "./Participante/galeria-list/galeria-list";
 export { EventosPage } from "./Participante/eventos/eventos";
 export { EventosComPage } from "./Participante/eventos-com/eventos-com";
-
-
+export { AntrosbaresListPage } from "./Participante/antrosbares-list/antrosbares-list";
+export { EcoturismoListPage } from "./Participante/ecoturismo-list/ecoturismo-list";
 export { ContactPage } from "./contact/contact";
 export { TabsPage } from "./tabs/tabs";

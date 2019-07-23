@@ -1,7 +1,6 @@
 <ion-header>
-    <ion-navbar color="primary">
-        <ion-title>Souvenir</ion-title>
-    </ion-navbar>
+  <ion-navbar color="primary">
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
@@ -12,14 +11,15 @@
                 <ion-item>
                  
                     <img class="uno" src="{{souvenir.foto}}">
-                 
+                  </ion-item>
+                  <ion-item>
                   <h2>{{souvenir.nombre}}</h2>
                   <p>{{souvenir.introduccion}}</p>
                   <p>{{souvenir.horarios}}</p>
                   <p>{{souvenir.direccion}}</p>
                   <p>{{souvenir.telefono}}</p>
                   
-                  <button color="danger" ion-button clear [navPush]="souvelist" (tap)="detalles(Souvenir)">Ver</button>
+                  <button color="danger" ion-button clear [navPush]="souvelist" (tap)="detalles(souvenir)">Ver</button>
                 </ion-item>
                 </ion-card-content>
                 </ion-card>

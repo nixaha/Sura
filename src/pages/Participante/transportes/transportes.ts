@@ -6,8 +6,6 @@ import { Transporte } from '../../../commons/transportes';
 import { map } from 'rxjs/operators';
 import { TransporteListPage } from "../../index.paginas";
 
-
-
 @Component({
   selector: 'transportes',
   templateUrl: 'transportes.html',                   
@@ -15,47 +13,45 @@ import { TransporteListPage } from "../../index.paginas";
 export class TransportesPage {
   private noticiasCollection: AngularFirestoreCollection<Transporte>;
 
-  restaurantes: Observable<Transporte[]>;
+  transporte: Observable<Transporte[]>;
   notiDoc: AngularFirestoreDocument<Transporte[]>;
-  restaurantelist:any = TransporteListPage;
+  transportelist:any = TransporteListPage;
 
   nombre: string = '';
-  introduccion: string= '';
-  imagen: string ='';
+  imagen: string = '';
+  android: string ='';
+  ios: string = '';
   
   constructor(public navCtrl: NavController,
     private database: AngularFirestore,
     public navParams: NavParams) {
-      this.noticiasCollection = database.collection<Transporte>("restaurantes");
+      this.noticiasCollection = database.collection<Transporte>("transportacion");
       
-      this.restaurantes = this.noticiasCollection.snapshotChanges().pipe(
+      this.transporte = this.noticiasCollection.snapshotChanges().pipe(
         map(actions => actions.map(action => {
           const data = action.payload.doc.data() as Transporte;
           const id = action.payload.doc.id;
           return { id, ...data };
         }))
      );
-
       this.nombre = this.navParams.get('nombre');
-      this.introduccion = this.navParams.get('introduccion');
       this.imagen = this.navParams.get('imagen');
-      console.log
-
-    if(this.nombre != null) {
+      
+      this.android = this.navParams.get('android');
+      this.ios = this.navParams.get('ios');
+    
+      if(this.nombre != null) {
         const id = this.database.createId(); 
-        const restaurante: Transporte = { 'nombre':this.nombre, 'introduccion':this.introduccion, 'imagen': this.imagen};
-        this.noticiasCollection.doc(id).set(restaurante); 
+        const transporte: Transporte = { 'nombre':this.nombre, 'imagen': this.imagen, 'android': this.android, 'ios': this.ios};
+        this.noticiasCollection.doc(id).set(transporte); 
         this.navCtrl.push(TransporteListPage, {
-          id: restaurante
+          id: transporte
         });    
-    }
-        
+     }  
   }
-
-  detalles(_restaurante: Transporte){
+  detalles(_transporte: Transporte){
     this.navCtrl.push(TransporteListPage, {
-      id: _restaurante
+      id: _transporte
     })
   }
-
 }

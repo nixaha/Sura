@@ -1,6 +1,6 @@
 <ion-header>
-    <ion-navbar color="primary">
-    </ion-navbar>
+  <ion-navbar color="primary">
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
@@ -18,7 +18,7 @@
       <p>{{restaurante.direccion}}</p>
       <p>{{restaurante.telefono}}</p>
 
-      <button color="danger" ion-button clear [navPush]="restaurantelist" (tap)="detalles(Restaurante)">Ver</button>
+      <button color="danger" ion-button clear [navPush]="restaurantelist" (tap)="detalles(restaurante)">Ver</button>
     </ion-item>
     </ion-card-content>
     </ion-card>

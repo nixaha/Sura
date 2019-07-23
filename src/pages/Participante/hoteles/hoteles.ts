@@ -45,7 +45,7 @@ export class HotelesPage {
       this.direccion = this.navParams.get('direccion');
       this.telefono = this.navParams.get('telefono');
       this.imagen = this.navParams.get('foto');
-      console.log
+    
 
     if(this.nombre != null) {
         const id = this.database.createId(); 
@@ -57,11 +57,9 @@ export class HotelesPage {
     }
         
   }
-
   detalles(_hotel: Hotel){
     this.navCtrl.push(HotelesListPage, {
       id: _hotel
     })
   }
-
 }

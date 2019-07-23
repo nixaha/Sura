@@ -7,19 +7,21 @@
 <ion-content padding>
         <h3 class="titulo">Ecoturismo</h3>
         <ion-list *ngFor="let ecoturismo of ecoturismo | async">
-                <ion-item>
-                  <ion-thumbnail item-start>
+            <ion-card>
+                <ion-card-content>
+                  <ion-item>      
+         
                     <img class="uno" src="{{ecoturismo.imagen}}">
-                  </ion-thumbnail>
-                  <h2>{{ecoturismo.nombre}}</h2>
-                  <p>{{ecoturismo.introduccion}}</p>
-                  <p>{{ecoturismo.horarios}}</p>
-                  <p>{{ecoturismo.direccion}}</p>
-                  <p>{{ecoturismo.telefono}}</p>
-                  <p>{{ecoturismo.actividades}}</p>
                   
-                  <button color="danger" ion-button clear [navPush]="souvelist" (tap)="detalles(ecoturismo)">Ver</button>
+                  <h2>{{ecoturismo.nombre}}</h2>
+                  <p>{{ecoturismo.actividades}}</p>
+                  <p>{{ecoturismo.ubicacion}}</p>
+                 
+                  
+                  <button color="danger" ion-button clear [navPush]="ecolist" (tap)="detalles(ecoturismo)">Ver</button>
                 </ion-item>
+              </ion-card-content>
+            </ion-card>
               </ion-list>
 
 </ion-content>
