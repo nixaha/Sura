@@ -3,26 +3,32 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content >
         <h3 class="titulo">Souvenirs</h3>
-        <ion-list *ngFor="let souvenir of souvenirs | async">
-            <ion-card>
-                <ion-card-content>
+
+        
+  <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let souvenir of souvenirs | async" col-6>
+            <ion-card class="card">
+               
                 <ion-item>
                  
                     <img class="uno" src="{{souvenir.foto}}">
                   </ion-item>
                   <ion-item>
-                  <h2>{{souvenir.nombre}}</h2>
+                  <h3 class="p-card1">{{souvenir.nombre}}</h3>
                   <p>{{souvenir.introduccion}}</p>
-                  <p>{{souvenir.horarios}}</p>
+                  <!-- <p>{{souvenir.horarios}}</p>
                   <p>{{souvenir.direccion}}</p>
-                  <p>{{souvenir.telefono}}</p>
+                  <p>{{souvenir.telefono}}</p> -->
                   
                   <button color="danger" ion-button clear [navPush]="souvelist" (tap)="detalles(souvenir)">Ver</button>
                 </ion-item>
-                </ion-card-content>
+             
                 </ion-card>
-              </ion-list>
+              </ion-col>
+      </ion-row>
+  </ion-grid>
 
 </ion-content>

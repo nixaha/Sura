@@ -1,7 +1,7 @@
 <ion-header>
     <ion-navbar color="primary">
     </ion-navbar>
-    <ion-toolbar>
+    <!-- <ion-toolbar> -->
         <ion-segment [(ngModel)]="tipo">
             <ion-segment-button (click)="filtrar()" value="TODOS" checked>
                 <small>Todos</small>
@@ -16,15 +16,16 @@
                 <small>Social</small>
             </ion-segment-button>
         </ion-segment>
-    </ion-toolbar>
+    <!-- </ion-toolbar> -->
 </ion-header>
 
 <ion-content>
     <ion-list *ngFor="let iti of filtro; let i = index">
-        <ion-card>
+        <ion-card class="card1">
             <ion-card-content>
                 <div class="fecha">
                     <ion-label color="date">{{iti.fecha}}</ion-label>
+                    <br/>
                     <ion-label color="date">{{iti.horaInicio}} - {{iti.horaFin}} hrs</ion-label>
                 </div>
                 <h2><strong>{{ iti.nombre }}</strong></h2>

@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-restaurante-list',
   templateUrl: 'restaurante-list.html',
+  // styleUrls: 'restaurante-list.scss',
 })
 export class RestauranteListPage {
   restaurante:any = {}; 
