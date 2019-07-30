@@ -11,7 +11,6 @@ import {
   MessagesService
 } from "../../../services/index.services";
 
-@IonicPage()
 @Component({
   selector: "page-itinerarios",
   templateUrl: "itinerarios.html"
