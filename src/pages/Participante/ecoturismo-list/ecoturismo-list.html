@@ -1,9 +1,27 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>ecoturismoList</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
+    <ion-navbar color="primary">
+    </ion-navbar>
+  </ion-header>
+<ion-content padding >
+ <h3 class="titulo">{{ecoturismo.nombre}} </h3>
+        <hr/>
+        <br/>
+<ion-card>
+  <img src="{{ecoturismo.imagen}}"/>
+    <ion-card-content>
+        <ion-card-title ALIGN="left">
+        </ion-card-title>
+        <p ALIGN="justify">
+           
+            {{ecoturismo.actividades}}
+        </p>
+        <br/>
+        <strong>Ubicación:</strong>
+        <p ALIGN="justify">
+            {{ecoturismo.ubicacion}}
+        </p>
+        
+    </ion-card-content>
+</ion-card>
 
 </ion-content>

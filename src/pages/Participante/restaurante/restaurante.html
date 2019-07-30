@@ -3,23 +3,29 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3 class="titulo">Restaurantes</h3>
-  <hr/>
-  <br/>
-  <ion-list *ngFor="let restaurante of restaurantes | async">
-    <h6 class="subti">{{restaurante.nombre}}</h6>
+<ion-content >
+        <h3 class="titulo">Restaurantes</h3>
+        <ion-grid>
+            <ion-row>
+<ion-col *ngFor="let restaurante of restaurantes | async"col-6>
+    <ion-card class="card">
+      
     <ion-item>
-      <ion-thumbnail item-start>
+      
         <img class="uno" src="{{restaurante.imagen}}">
-      </ion-thumbnail>
+      
+      <h3 class="p-card1">{{restaurante.nombre}}</h3>
       <p>{{restaurante.introduccion}}</p>
-      <p>{{restaurante.horarios}}</p>
+      <!-- <p>{{restaurante.horarios}}</p>
       <p>{{restaurante.direccion}}</p>
-      <p>{{restaurante.telefono}}</p>
+      <p>{{restaurante.telefono}}</p> -->
 
       <button color="danger" ion-button clear [navPush]="restaurantelist" (tap)="detalles(restaurante)">Ver</button>
     </ion-item>
-  </ion-list>
+    
+    </ion-card>
+  </ion-col>
+            </ion-row>
+        </ion-grid>
 
 </ion-content>

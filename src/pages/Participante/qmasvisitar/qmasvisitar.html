@@ -2,25 +2,24 @@
   <ion-navbar color="primary">
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  <h3 class="titulo">Que Más Visitar</h3>
-  <hr/>
-  <br/>
-  <ion-list *ngFor="let quema of quemas | async">
-    <h6 class="subti">{{quema.nombre}}</h6>
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img class="uno" src="{{quema.imagen}}">
-      </ion-thumbnail>
-
-      <p>{{quema.introduccion}}</p>
-      <p>{{quema.horarios}}</p>
-      <p>{{quema.direccion}}</p>
-      <p>{{quema.telefono}}</p>
-      <p>{{quema.costo}}</p>
-      <button color="danger" ion-button clear [navPush]="qmasvisitarList" (tap)="detalles(quema)">Ver</button>
-    </ion-item>
-  </ion-list>
-
+<ion-content >
+        <h3 class="titulo">¿Qué más Visitar?</h3>
+        <ion-grid>
+            <ion-row>
+        <ion-col *ngFor="let quema of quemas | async"col-6>
+          <ion-card class="card">
+                <ion-item>                  
+                    <img class="uno" src="{{quema.imagen}}">                 
+                  <h3 class="p-card1">{{quema.nombre}}</h3>
+                  <p>{{quema.introduccion}}</p>
+                  <!-- <p>{{quema.horarios}}</p>
+                  <p>{{quema.direccion}}</p>
+                  <p>{{quema.telefono}}</p>
+                  <p>{{quema.costo}}</p> -->
+                  <button color="danger" ion-button clear [navPush]="qmasvisitarList" (tap)="detalles(quema)">Ver</button>
+                </ion-item>
+                </ion-card>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
 </ion-content>

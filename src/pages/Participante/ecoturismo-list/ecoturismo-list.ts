@@ -7,11 +7,10 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class EcoturismoListPage {
 
+  ecoturismo:any = {};
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.ecoturismo= this.navParams.get('id');
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EcoturismoListPage');
-  }
 
 }

@@ -4,6 +4,7 @@ page-log-in {
         font-size: 60px;
         top: 0px;
         left: 120px;
+        color: #95187E !important;
     }
     .btnLo{
         position: relative;
@@ -33,5 +34,30 @@ page-log-in {
         top: 30px;
         left: -110px;
     }
+    
 
+}
+.logo{
+    background: white;
+    align-content: center;
+    width: 30px;
+    height: 30px;
+    
+    text-align: center;
+
+}
+
+.tit{
+    align-content: center;
+    text-align: center;
+    //width: 110px; /* Para que no se rompa en dos líneas, y lo translade tal cual. */
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+}
+
+.iconito
+{
+    width: 10px!important;
+    height: 10px !important;
 }

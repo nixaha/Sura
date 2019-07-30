@@ -3,13 +3,14 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { Restaurante } from '../../../commons/restaurante';
-import{ RestauranteListPage } from "../../index.paginas"
+import{ RestauranteListPage } from "../../index.paginas";
 import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'page-restaurante',
   templateUrl: 'restaurante.html',
 })
+
 export class RestaurantePage {
   private noticiasCollection: AngularFirestoreCollection<Restaurante>;
 

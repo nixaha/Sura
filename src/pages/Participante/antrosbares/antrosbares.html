@@ -1,9 +1,32 @@
 <ion-header>
     <ion-navbar color="primary">
-
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content >
+        <h3 class="titulo">Antros y Bares</h3>
+        
+  <ion-grid>
+      <ion-row>
+<ion-col *ngFor="let antrosbares of antrosbares | async" col-6>
+    <ion-card class="card">
+      
+    <ion-item>
+      
+    <img class="uno" src="{{antrosbares.imagen}}">
+      
+      <h3 class="p-card1">{{antrosbares.nombre}}</h3>
+      <p>{{antrosbares.introduccion}}</p>
+      <!-- <p>{{antrosbares.horario}}</p>
+      <p>{{antrosbares.direccion}}</p>
+      <p>{{antrosbares.telefono}}</p> -->
+
+      <button color="danger" ion-button clear [navPush]="antrosbareslist" (tap)="detalles(antrosbares)">Ver</button>
+    </ion-item>
+
+    </ion-card>
+  </ion-col>
+      </ion-row>
+  </ion-grid>
 
 </ion-content>

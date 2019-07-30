@@ -95,12 +95,12 @@ export class EventosPage {
   showPrompt(index) {
     if (!this.registrado(index)) {
       const prompt = this.alertCtrl.create({
-        title: 'Inserte la clave',
-        message: "para registrarse",
+        title: 'Ingrese clave para registrarse',
+        //message: "para registrarse",
         inputs: [
           {
-            name: 'clave',
-            placeholder: 'clave',
+            name: 'Clave',
+            placeholder: 'Clave',
           },
         ],
         buttons: [

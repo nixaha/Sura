@@ -133,11 +133,12 @@ export class MapaPage implements OnInit {
     const sw = L.latLng(23.889918576743234, -104.50057983398439);
     this.bounds = L.latLngBounds(ne, sw);
     L.tileLayer(
-      "../assets/map/{z}/{x}/{y}.png", //"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
+      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", //"../assets/map/{z}/{x}/{y}.png", 
       {
         maxZoom: 16,
         minZoom: 12
       }
+      
     ).addTo(this.map);
     this.map.setMaxBounds(this.bounds);
     this.map.fitBounds(this.bounds);

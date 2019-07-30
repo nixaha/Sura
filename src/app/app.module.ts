@@ -8,6 +8,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core"; // importar cl
 import {
   LoginService,
   MessagesService,
+  NotificationsService,
   AdminService,
   ParticipanteService
 } from "../services/index.services";
@@ -35,11 +36,8 @@ import {
   RegistroPage,
   EventosPage,
   EventosComPage,
-  EcoturismoPage,
   EcoturismoListPage,
-  AntrosBaresPage,
   AntrosbaresListPage,
-  TransportesPage,
   LogInPage,
   RestablecerContraPage,
   OpcionesPage,
@@ -48,6 +46,12 @@ import {
   EditarEventoPage,
   EliminarEventoPage,
   ItinerariosPage,
+  AntrosBaresPage,
+  EcoturismoPage,
+  TransportesPage,
+  TransporteListPage,
+  // AntrosListPage,
+  // EcoListPage,
   AgregarItiPage,
   EditarItiPage,
   EliminarItiPage
@@ -74,6 +78,7 @@ import { AngularFireStorageModule } from "angularfire2/storage";
 import { NgIfContext } from "@angular/common";
 
 import { Camera } from "@ionic-native/camera";
+import { Push } from "@ionic-native/push";
 
 @NgModule({
   declarations: [
@@ -112,7 +117,13 @@ import { Camera } from "@ionic-native/camera";
     ItinerariosPage,
     AgregarItiPage,
     EditarItiPage,
-    EliminarItiPage
+    EliminarItiPage,
+    AntrosBaresPage,
+    EcoturismoPage,
+    TransportesPage,
+    TransporteListPage
+    // AntrosListPage,
+    // EcoListPage
   ],
   imports: [
     BrowserModule,
@@ -164,7 +175,13 @@ import { Camera } from "@ionic-native/camera";
     ItinerariosPage,
     AgregarItiPage,
     EditarItiPage,
-    EliminarItiPage
+    EliminarItiPage,
+    AntrosBaresPage,
+    EcoturismoPage,
+    TransportesPage,
+    TransporteListPage,
+    // AntrosListPage,
+    // EcoListPage,
   ],
   providers: [
     StatusBar,
@@ -174,9 +191,11 @@ import { Camera } from "@ionic-native/camera";
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     LoginService,
     MessagesService,
+    NotificationsService,
     AdminService,
     ParticipanteService,
-    Camera
+    Camera,
+    Push
   ],
   schemas: [
     // se agrego por que no se agregaban los botones ionic

@@ -7,11 +7,10 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class AntrosbaresListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  antros:any = {};
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AntrosbaresListPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.antros= this.navParams.get('id');
   }
 
 }

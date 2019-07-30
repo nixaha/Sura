@@ -1,9 +1,35 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>antrosbaresList</ion-title>
+  <ion-navbar color="primary">
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
+<ion-content padding >
+<h3 class="titulo">{{antros.nombre}} </h3>
+      <hr/>
+      <br/>
+<ion-card>
+<img src="{{antros.imagen}}"/>
+  <ion-card-content>
+      <ion-card-title ALIGN="left">
+      </ion-card-title>
+      <p ALIGN="justify">
+          {{antros.introduccion}}
+      </p>
+      <br/>
+      <strong>Horarios:</strong>
+      <p ALIGN="justify">
+          {{antros.horario}}
+      </p>
+      <br/>
+      <strong>Dirección:</strong>
+      <p ALIGN="justify">
+          {{antros.direccion}}
+      </p>
+      <br/>
+      <strong>Teléfono:</strong>
+      <p ALIGN="justify">
+          {{antros.telefono}}
+      </p>
+  </ion-card-content>
+</ion-card>
 
 </ion-content>

@@ -1,9 +1,31 @@
 <ion-header>
     <ion-navbar color="primary">
-
+    
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content >
+        <h3 class="titulo">Ecoturismo</h3>
+        
+  <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let ecoturismo of ecoturismo | async" col-6>
+            <ion-card class="card">
+            
+                  <ion-item>      
+                    <img class="uno" src="{{ecoturismo.imagen}}">
+                  
+                  <h3 class="p-card1">{{ecoturismo.nombre}}</h3>
+                  <!-- <p>{{ecoturismo.actividades}}</p>
+                  <p>{{ecoturismo.ubicacion}}</p> -->
+                 
+                  
+                  <button color="danger" ion-button clear [navPush]="ecolist" (tap)="detalles(ecoturismo)">Ver</button>
+                </ion-item>
+            
+            </ion-card>
+              </ion-col>
+      </ion-row>
+  </ion-grid>
 
 </ion-content>

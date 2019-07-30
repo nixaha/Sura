@@ -10,13 +10,7 @@ export class HotelesListPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.hotel= this.navParams.get('id');
-    //this.museo1 = new Museo("","","","","","","");
-    
 
-  
-    
-    
-    console.log(navParams + 'imagen hotel list ts');
     
   }
 

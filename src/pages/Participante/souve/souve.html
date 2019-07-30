@@ -1,27 +1,34 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Souvenir</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3 class="titulo">Souvenirs</h3>
-  <hr/>
-  <br/>
-  <ion-list *ngFor="let souvenir of souvenirs | async">
-    <h6 class="subti">{{souvenir.nombre}}</h6>
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img class="uno" src="{{souvenir.foto}}">
-      </ion-thumbnail>
-      <h2>{{souvenir.nombre}}</h2>
-      <p>{{souvenir.introduccion}}</p>
-      <p>{{souvenir.horarios}}</p>
-      <p>{{souvenir.direccion}}</p>
-      <p>{{souvenir.telefono}}</p>
+<ion-content >
+        <h3 class="titulo">Souvenirs</h3>
 
-      <button color="danger" ion-button clear [navPush]="souvelist" (tap)="detalles(souvenir)">Ver</button>
-    </ion-item>
-  </ion-list>
+        
+  <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let souvenir of souvenirs | async" col-6>
+            <ion-card class="card">
+               
+                <ion-item>
+                 
+                    <img class="uno" src="{{souvenir.foto}}">
+                  </ion-item>
+                  <ion-item>
+                  <h3 class="p-card1">{{souvenir.nombre}}</h3>
+                  <p>{{souvenir.introduccion}}</p>
+                  <!-- <p>{{souvenir.horarios}}</p>
+                  <p>{{souvenir.direccion}}</p>
+                  <p>{{souvenir.telefono}}</p> -->
+                  
+                  <button color="danger" ion-button clear [navPush]="souvelist" (tap)="detalles(souvenir)">Ver</button>
+                </ion-item>
+             
+                </ion-card>
+              </ion-col>
+      </ion-row>
+  </ion-grid>
 
 </ion-content>

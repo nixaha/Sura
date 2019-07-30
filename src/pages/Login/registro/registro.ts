@@ -3,7 +3,6 @@ import { NavController, NavParams } from 'ionic-angular';
 import { User } from '../../../shared/models/user';
 import { UserInfo } from '../../../shared/models/user-info';
 import { TabsPage } from "../../index.paginas"
-import { Page } from 'ionic-angular/umd/navigation/nav-util';
 
 import { LoginService, MessagesService } from '../../../services/index.services';
 
@@ -16,8 +15,6 @@ export class RegistroPage {
   user = {} as User;
 
   userInfo: UserInfo;
-
-  home: Page = TabsPage;
 
   constructor(
     public navCtrl: NavController,
@@ -43,7 +40,7 @@ export class RegistroPage {
         response => {
           this.loginService.setUserInfo(this.userInfo);
           localStorage.setItem('token',response.user.refreshToken);
-          this.navCtrl.setRoot(this.home);
+          this.navCtrl.setRoot(TabsPage);
           this.messagesService.hideLoadingMessage();
         }, error => {
           console.log(error)
