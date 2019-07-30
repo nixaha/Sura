@@ -3,17 +3,16 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content >
         <h3 class="titulo">Galeria</h3>
- <ion-list *ngFor="let galeria of galerias | async">
-                <ion-item>
-                  <ion-thumbnail item-start>
-                    <img class="uno" src="{{galeria.imagen}}">
-                  </ion-thumbnail>
-                  <h2>{{galeria.nombre}}</h2>
-            
-                  <button color="danger" ion-button clear [navPush]="galerialist" (tap)="detalles(Galeria)">Ver</button>
-                </ion-item>
-              </ion-list>
-
+ <ion-list *ngFor="let galerias of galerias | async">
+    <ion-card class="card">             
+      <ion-item>
+            <img class="unoss" src="{{galerias.imagenUrl}}">
+      </ion-item>
+      <ion-item>      
+            <h2 style="text-align:center;">{{galerias.nombre}}</h2>
+      </ion-item>
+  </ion-card>
+</ion-list>
 </ion-content>
