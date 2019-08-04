@@ -153,6 +153,7 @@ export class EventosPage {
       this.userInfo.eventosRegistrados.push(this.eventos[index].id);
       this.loginService.setUserInfo(this.userInfo);
       localStorage.setItem('data', JSON.stringify(this.userInfo));
+      localStorage.removeItem('lastRegister');
       this.navCtrl.push(EventosComPage,{eventoId:this.eventos[index].id});
     }
   }
