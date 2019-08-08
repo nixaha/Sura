@@ -79,6 +79,7 @@ import { NgIfContext } from "@angular/common";
 
 import { Camera } from "@ionic-native/camera";
 import { Push } from "@ionic-native/push";
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @NgModule({
   declarations: [
@@ -195,7 +196,8 @@ import { Push } from "@ionic-native/push";
     AdminService,
     ParticipanteService,
     Camera,
-    Push
+    Push,
+    LocalNotifications
   ],
   schemas: [
     // se agrego por que no se agregaban los botones ionic
