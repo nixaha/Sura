@@ -15,7 +15,7 @@ import { Galeria } from "../../commons/galeria";
 @Injectable()
 export class AdminService {
   private collectionEventos = "eventos";
-  private collectionimagenes = "galeria";
+  private collectionimagenes = "galerias";
   private collectionItinerarios = "itinerarios";
   private storageEventos = "eventos";
 
