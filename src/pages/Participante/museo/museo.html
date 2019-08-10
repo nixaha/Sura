@@ -3,28 +3,28 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
   <h3 class="titulo">Museos</h3>
   <hr />
 
   <ion-grid>
     <ion-row>
-  <ion-col *ngFor="let museo of museos | async" col-6>
-    <ion-card class="card">
-        <ion-item>
-            <img class="uno" style="text-align:center" src="{{museo.foto}}">
-        </ion-item>
-        <ion-item>
-          <h3 class="p-card1">{{museo.nombre}}</h3>
-           <p>{{museo.descripcion}}
-          <!-- <p>{{museo.horarios}}</p> -->
-          <!-- <p>{{museo.costo}}</p>
+      <ion-col *ngFor="let museo of museos | async" col-6>
+        <ion-card class="cardgeneral" (tap)="detalles(museo)">
+            <img class="unaimagen" style="text-align:center" src="{{museo.foto}}">
+            <ion-card-content class="cardslist">
+            <ion-item>
+            <h3 class="p-card1">{{museo.nombre}}</h3>
+            <p>{{museo.descripcion}}
+              <!-- <p>{{museo.horarios}}</p> -->
+              <!-- <p>{{museo.costo}}</p>
           <p>{{museo.direccion}}</p>
-          <p>{{museo.telefono}}</p> -->  
-        </ion-item>
-        <button color="danger" ion-button clear [navPush]="museolist" (tap)="detalles(museo)">Ver</button>
-  </ion-card>
-</ion-col>
+          <p>{{museo.telefono}}</p> -->
+          </ion-item>
+          </ion-card-content>
+          <!-- <button color="danger" ion-button clear [navPush]="museolist" (tap)="detalles(museo)">Ver</button> -->
+        </ion-card>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

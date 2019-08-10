@@ -6,16 +6,17 @@
       <ion-content padding>
               <h3 class="titulo">Transportación</h3>
               <ion-list *ngFor="let transporte of transporte | async">
-                  <ion-card>
-                      <ion-card-content>
-                      <ion-item>
-                        <img class="uno" src="{{transporte.imagen}}">
-                        <h3><strong>{{transporte.nombre}} </strong> </h3>
+                  <ion-card class="cardgeneral">
+                      <img class="unaimagen" src="{{transporte.imagen}}">
+                        
+                    <ion-card-content class="cardslist">
+                        <ion-item>
+                        <h3 ><strong>{{transporte.nombre}} </strong> </h3>
                          <!-- <button color="danger" ion-button clear [navPush]="transportelist">Descargar</button> -->
                          <!-- <button color="danger" ion-button clear href="{{transporte.android}}">Andoridd</button> -->
-                         <a href="{{transporte.android}}">Android</a>
+                         <a style="text-decoration: none; color:black; font-size: 15px;" href="{{transporte.android}}"> <ion-icon color="primary" ios="logo-android" md="logo-android"></ion-icon> Android</a>
                          <br/>
-                         <a href="{{transporte.ios}}">IOS</a>
+                         <a style="text-decoration: none; color: black; font-size: 15px;" href="{{transporte.ios}}"><ion-icon color="date" ios="logo-apple" md="logo-apple"></ion-icon> IOS</a>
                         </ion-item>
                       </ion-card-content>
                   </ion-card>

@@ -50,6 +50,8 @@ import {
   EcoturismoPage,
   TransportesPage,
   TransporteListPage,
+  Resposocial,
+  Aerolineas,
   // AntrosListPage,
   // EcoListPage,
   AgregarItiPage,
@@ -122,7 +124,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     AntrosBaresPage,
     EcoturismoPage,
     TransportesPage,
-    TransporteListPage
+    TransporteListPage,
+    Resposocial,
+    Aerolineas
     // AntrosListPage,
     // EcoListPage
   ],
@@ -181,6 +185,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     EcoturismoPage,
     TransportesPage,
     TransporteListPage,
+    Resposocial,
+    Aerolineas
     // AntrosListPage,
     // EcoListPage,
   ],

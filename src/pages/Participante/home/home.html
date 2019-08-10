@@ -3,7 +3,7 @@
     <ion-buttons end>
       <button ion-button icon-only (click)="logout()">
         <!-- <ion-icon name="add-circle"></ion-icon> -->
-        <ion-icon name="log-out"></ion-icon>
+        <ion-icon name="walk"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -27,7 +27,7 @@
     </ion-row>
     <ion-row align-item-center>
         <ion-col class="ali">
-            <ion-card class="textoboton">
+            <ion-card class="textoboton" (click)="veraerolineas()">
               <ion-img class="imgfondo" src="/assets/imgs/circulo2/bar.png"></ion-img>
               <ion-label>Aerolíneas</ion-label>
             </ion-card>
@@ -73,7 +73,7 @@
         </ion-card>
       </ion-col>
         <ion-col class="ali">
-            <ion-card class="textoboton">
+            <ion-card class="textoboton" (click)="versocial()">
               <ion-img class="imgfondo" src="/assets/imgs/circulo2/res.png"></ion-img>
               <ion-label>Responsabilidad Social</ion-label>
             </ion-card>

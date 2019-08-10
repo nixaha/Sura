@@ -1,18 +1,19 @@
 <ion-header>
-    <ion-navbar color="primary">
-    </ion-navbar>
+      <ion-navbar color="primary">
+      </ion-navbar>
 </ion-header>
 
-<ion-content >
-        <h3 class="titulo">Galeria</h3>
- <ion-list *ngFor="let galerias of galerias | async">
-    <ion-card class="card">             
-      <ion-item>
-            <img class="unoss" src="{{galerias.imagenUrl}}">
-      </ion-item>
-      <ion-item>      
-            <h2 style="text-align:center;">{{galerias.nombre}}</h2>
-      </ion-item>
-  </ion-card>
-</ion-list>
+<ion-content>
+      <h3 class="titulo">Galeria</h3>
+      <ion-list *ngFor="let galerias of galerias | async">
+            <ion-card class="cardgeneral">
+
+                  <img class="unaimagen" src="{{galerias.imagenUrl}}">
+                  <ion-card-content class="cardslist">
+                        <ion-item>
+                              <h2 style="text-align:center;">{{galerias.nombre}}</h2>
+                        </ion-item>
+                  </ion-card-content>
+            </ion-card>
+      </ion-list>
 </ion-content>

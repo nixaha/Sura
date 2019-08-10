@@ -12,6 +12,8 @@ import { EcoturismoPage } from "../ecoturismo/ecoturismo";
 import { TransportesPage } from "../transportes/transportes";
 import { MessagesService } from "../../../services/messages.service";
 import { LogInPage} from "../../index.paginas";
+import { Resposocial } from '../resposocial/resposocial';
+import { Aerolineas } from '../aerolineas/aerolineas';
 
 import { NotificationsService } from '../../../services/index.services';
 
@@ -32,6 +34,14 @@ export class HomePage {
     this.notificationsService.checkSchedule();
   }
 
+  veraerolineas()
+  {
+    this.navCtrl.push(Aerolineas);
+  }
+  versocial()
+  {
+    this.navCtrl.push(Resposocial);
+  }
   vereventoss() {
     this.navCtrl.push(EventosPage);
   }

@@ -42,3 +42,5 @@ export { AntrosbaresListPage } from "./Participante/antrosbares-list/antrosbares
 export { EcoturismoListPage } from "./Participante/ecoturismo-list/ecoturismo-list";
 export { ContactPage } from "./contact/contact";
 export { TabsPage } from "./tabs/tabs";
+export { Resposocial } from './Participante/resposocial/resposocial';
+export { Aerolineas } from './Participante/aerolineas/aerolineas';
