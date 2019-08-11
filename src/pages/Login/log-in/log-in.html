@@ -1,49 +1,39 @@
 <ion-header>
   <ion-navbar color="primary">
+  <ion-title>Iniciar Sesión</ion-title>
     
   </ion-navbar>
 </ion-header>
 
+
+
 <ion-content padding>
-  <ion-img class="logo"
-  width="100"
-  height="50"
-  aling-content="center"
-  src="/assets/imgs/logosura.png"
-></ion-img>
+    <ion-img class="logo" 
+    align-content="center" src="/assets/imgs/logosura.png"></ion-img>
 
   <ion-list>
-    <ion-item text-center>
 
-    </ion-item>
-
-    <ngForm #loginForm="ngForm" name="loginForm">
+    <ngForm class="info" #loginForm="ngForm" name="loginForm">
         <ion-item>
-            <ion-icon class="iconito" style="color:#51804C; width: 2px;
+            <ion-icon class="iconito1" style="color:#51804C; width: 2px;
             height: 2px" name="person" item-left></ion-icon>
             <ion-label floating>Correo:</ion-label>
             <ion-input name="email" type="text" [(ngModel)]="user.email" required></ion-input>
           </ion-item>
           <ion-item>
-              <ion-icon class="iconito" style="color:#51804C" name="key" item-left></ion-icon>
+              <ion-icon class="iconito2" style="color:#51804C" name="key" item-left></ion-icon>
               <ion-label floating>Contraseña:</ion-label>
               <ion-input name="pass" type="password" [(ngModel)]="user.password" required></ion-input>
             </ion-item>
-      <!-- <ion-item>
-        <ion-icon style="color:#51804C" name="person" item-left></ion-icon>
-        <ion-label floating>Correo:</ion-label>
-        <ion-input name="email" type="text" [(ngModel)]="user.email" required></ion-input>
-      </ion-item> -->
       <br/>
       
-    </ngForm>
-  </ion-list>
   <div>
     <button color="primary" ion-button block type="submit" (click)="login()" [disabled]="!loginForm.valid">Ingresar</button>
     <button class="tit"  ion-button block clear color="danger" [navPush]="registro">Registrate Aquí</button>
-    <!-- <img class="cand" src="assets/imgs/candado.png"> -->
     <button class="tit" ion-button block clear color="danger" [navPush]="olvidar">¿Olvidaste tu Contraseña?</button>
   </div>
+</ngForm>
+</ion-list>
 
   
 </ion-content>

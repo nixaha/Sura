@@ -11,7 +11,7 @@
         <ion-img class="logo"  src="/assets/imgs/logosura.png"></ion-img>
 
     </div>
-    <div>
+    <div class="info">
         <p class="parrafo">
             Los programas de incentivos son programas como parte estratégica por parte de los corporativos, para mantener equipos
             de alto rendimiento y pasión por su trabajo para superar los objetivos empresariales.</p>
@@ -27,8 +27,8 @@
             CONTACTO:
         </ion-label>
         <p>
-            Claudia Huerta 618 116 30 60
-            <br/> Daniela Solis 618 197 91 64
+            Claudia Huerta: 618 116 30 60
+            <br/> Daniela Solis: 618 197 91 64
         </p>
         <ion-label color="primary" class="sub">
             Sitio web:
@@ -36,26 +36,27 @@
         <p>
             www.suratravel.com.mx
         </p>
+    
         <ion-label class="titulo">
             ¡Contáctanos!
-
-            <ion-fab right bottom class="fab">
+        </ion-label>
+    
+        
+            <ion-fab right bottom>
                 <button ion-fab color="light" class="btnfav">
-                    <ion-icon name="arrow-dropright"></ion-icon>
+                    <ion-icon name="arrow-dropleft"></ion-icon>
                 </button>
-                <ion-fab-list side="right">
-                    <button ion-fab href="http://www.facebook.com/surameetingplanner/?ti=as">
-                        <ion-icon name="logo-facebook"></ion-icon>
+                <ion-fab-list side="left" class="listfab">
+                    <button ion-fab (click)="browser1()">
+                        <ion-icon class="fb" name="logo-facebook"></ion-icon>
                     </button>
-                    <button ion-fab href="https://www.instagram.com/surameeting/">
-                        <ion-icon name="logo-instagram"></ion-icon>
+                    <button ion-fab (click)="browser2()" href="https://www.instagram.com/surameeting/">
+                        <ion-icon class="in" name="logo-instagram"></ion-icon>
                     </button>
-                    <button ion-fab href="https://twitter.com/MeetingSura?lang=es">
-                        <ion-icon name="logo-twitter"></ion-icon>
+                    <button ion-fab (click)="browser3()">
+                        <ion-icon class="tw" name="logo-twitter"></ion-icon>
                     </button>
                 </ion-fab-list>
             </ion-fab>
-        </ion-label>
-
-    </div>
+        </div>
 </ion-content>

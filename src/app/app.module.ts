@@ -4,6 +4,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from "ionic-angular";
 import { MyApp } from "./app.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core"; // importar clase para que se puedan agregar componentes ionic botones
 
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 //Servicios de conexión a firebase y utilerías
 import {
   LoginService,
@@ -195,7 +197,8 @@ import { Push } from "@ionic-native/push";
     AdminService,
     ParticipanteService,
     Camera,
-    Push
+    Push,
+    InAppBrowser
   ],
   schemas: [
     // se agrego por que no se agregaban los botones ionic

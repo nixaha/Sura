@@ -1,12 +1,14 @@
 <ion-header>
     <ion-navbar color="primary">
+            <ion-title>Registrate</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-icon class="icono" name="contact"></ion-icon>
+        <ion-img class="logo" 
+        align-content="center" src="/assets/imgs/logosura.png"></ion-img>
 
-    <ngForm #regForm="ngForm" name="regForm">
+    <ngForm class="info" #regForm="ngForm" name="regForm">
         <ion-item class="label">
             <ion-label floating>Nombre:</ion-label>
             <ion-input name="nombre" type="text" [(ngModel)]="userInfo.nombre" required></ion-input>
