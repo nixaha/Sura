@@ -205,11 +205,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     ParticipanteService,
     Camera,
     Push,
-<<<<<<< HEAD
+    LocalNotifications,
     InAppBrowser
-=======
-    LocalNotifications
->>>>>>> 95fd2ad069be4fa2632a5719d1f5ac4828e89d00
   ],
   schemas: [
     // se agrego por que no se agregaban los botones ionic
