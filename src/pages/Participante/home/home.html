@@ -8,14 +8,14 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content>
-  <ion-img class="liston" width="300%" height="60" src="/assets/imgs/liston3.jpg"></ion-img>
+<ion-content class="contentmenu">
+  <ion-img class="listonsillo" width="300%" height="10%" src="/assets/imgs/liston3.jpg"></ion-img>
   <div align-item-center class="titulo">
     <ion-label class="titulo">Bienvenido</ion-label>
   </div>
   <div>
     <ion-row align-item-center>
-        <ion-col> </ion-col>
+       
         <ion-col class="ali">
            <ion-card class="textoboton" (click)="vereventoss()">
             <ion-img class="imgfondo" src="/assets/imgs/circulo2/cal.png">
@@ -23,29 +23,30 @@
             <ion-label>Eventos</ion-label>
           </ion-card>
          </ion-col>
-      <ion-col> </ion-col>
+         <ion-col class="ali">
+          <ion-card class="textoboton" (click)="veraerolineas()">
+            <ion-img class="imgfondo" src="/assets/imgs/circulo2/bar.png"></ion-img>
+            <ion-label>Aerolíneas</ion-label>
+          </ion-card>
+        </ion-col>
     </ion-row>
     <ion-row align-item-center>
-        <ion-col class="ali">
-            <ion-card class="textoboton" (click)="veraerolineas()">
-              <ion-img class="imgfondo" src="/assets/imgs/circulo2/bar.png"></ion-img>
-              <ion-label>Aerolíneas</ion-label>
-            </ion-card>
-          </ion-col>
+        
       <ion-col class="ali">
         <ion-card class="textoboton" (click)="antrosbares()">
           <ion-img class="imgfondo" src="/assets/imgs/circulo2/bar.png"></ion-img>
           <ion-label>Bares y Antros</ion-label>
         </ion-card>
       </ion-col>
+      <ion-col class="ali">
+        <ion-card class="textoboton" (click)="ecoturismo()">
+          <ion-img class="imgfondo" src="/assets/imgs/circulo2/eco.png"></ion-img>
+          <ion-label>Ecoturismo</ion-label>
+        </ion-card>
+      </ion-col>
     </ion-row>
     <ion-row align-item-center>
-        <ion-col class="ali">
-            <ion-card class="textoboton" (click)="ecoturismo()">
-              <ion-img class="imgfondo" src="/assets/imgs/circulo2/eco.png"></ion-img>
-              <ion-label>Ecoturismo</ion-label>
-            </ion-card>
-          </ion-col>
+       
           <ion-col class="ali">
             <ion-card class="textoboton" (click)="vergaleria()">
               <ion-img class="imgfondo" src="/assets/imgs/circulo2/gal.png"></ion-img>
@@ -72,20 +73,23 @@
           <ion-label>¿Qué Más?</ion-label>
         </ion-card>
       </ion-col>
-        <ion-col class="ali">
-            <ion-card class="textoboton" (click)="versocial()">
-              <ion-img class="imgfondo" src="/assets/imgs/circulo2/res.png"></ion-img>
-              <ion-label>Responsabilidad Social</ion-label>
-            </ion-card>
-          </ion-col>
+       
     </ion-row>
   <ion-row align-item-center>    
-      <ion-col class="ali">
+    <ion-col class="ali">
+      <ion-card class="textoboton" (click)="versocial()">
+        <ion-img class="imgfondo" src="/assets/imgs/circulo2/res.png"></ion-img>
+        <ion-label> Social</ion-label>
+      </ion-card>
+    </ion-col>  
+    <ion-col class="ali">
         <ion-card class="textoboton" (click)="verrestaurantes()">
           <ion-img class="imgfondo" src="/assets/imgs/circulo2/res.png"></ion-img>
           <ion-label>Restaurantes</ion-label>
         </ion-card>
       </ion-col>
+  </ion-row>
+  <ion-row> 
       <ion-col class="ali">
         <ion-card class="textoboton" (click)="souvenirs()">
           <ion-img class="imgfondo" src="/assets/imgs/circulo2/sou.png"></ion-img>

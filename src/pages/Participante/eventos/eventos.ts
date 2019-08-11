@@ -70,7 +70,7 @@ export class EventosPage {
 
   cargarEventos() {
     this.eventos = [];
-    this.messagesService.showLoadingMessage('Cargando eventos...');
+    this.messagesService.showLoadingMessage('Cargando Eventos...');
     this.adminService.getEventos().then(
       result => {
         result.forEach(doc => {
@@ -80,7 +80,7 @@ export class EventosPage {
       },
       error => {
         this.messagesService.hideLoadingMessage();
-        this.messagesService.showMessage('Error', 'Error al cargar los eventos', ['Aceptar']);
+        this.messagesService.showMessage('Error', 'Error al Cargar los Eventos', ['Aceptar']);
       }
     );
   }
@@ -95,7 +95,7 @@ export class EventosPage {
   showPrompt(index) {
     if (!this.registrado(index)) {
       const prompt = this.alertCtrl.create({
-        title: 'Ingrese clave para registrarse',
+        title: 'Ingrese la Clave para Registrarse',
         //message: "para registrarse",
         inputs: [
           {
@@ -145,7 +145,7 @@ export class EventosPage {
   verificarClave(index) {
     const clave = this.eventos[index].clave;
     if (clave !== this.clave) {
-      this.messagesService.showMessage('Error', 'Clave incorrecta', ['Aceptar'])
+      this.messagesService.showMessage('Error', 'Clave Incorrecta', ['Aceptar'])
     } else {
       if (!this.userInfo.eventosRegistrados) {
         this.userInfo.eventosRegistrados = [];

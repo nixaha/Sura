@@ -8,13 +8,14 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let hotel of hoteles | async" col-6>
+   
         <ion-card class="cardgeneral" (tap)="detalles(hotel)">
           <img class="unaimagen" src="{{hotel.imagen}}">
           <ion-card-content class="cardslist">
           <ion-item>
             <h3 class="p-card1">{{hotel.nombre}}</h3>
-            <p>{{hotel.categoria}}<ion-icon class="starg" ios="ios-star" md="md-star"></ion-icon></p>            
-            <p>{{hotel.descripcion}}</p>
+            <p>{{hotel.categoria}}<ion-icon class="star" ios="ios-star" md="md-star"></ion-icon></p>            
+            <!-- <p>{{hotel.descripcion}}</p> -->
             <!-- <ion-icon class="ver"  ios="ios-add-circle" md="md-add-circle"></ion-icon> -->
             <!-- <p>{{hotel.direccion}}</p>
             <p>{{hotel.telefono}}</p> -->
