@@ -1,5 +1,5 @@
 page-restablecer-contra {
-    .icono{
+    .logo{
         position: relative;
         font-size: 60px;
         top: 0px;
@@ -7,10 +7,23 @@ page-restablecer-contra {
         color:#EFA233;
         align-content: center;
         text-align: center;
+        background: white;
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 150px;
+        height: 150px;
+        top:-30px;
+    }
+    .info{
+        position: relative;
+            align-content: center;
+            text-align: center;
+            top: -60px;
     }
     .boton{
         position: relative;
-        top: 30px;;
+        top: 20px;;
     }
 
 }

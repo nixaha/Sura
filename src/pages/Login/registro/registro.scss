@@ -1,13 +1,30 @@
 page-registro {
-    .icono{
+    .logo{
         position: relative;
+<<<<<<< HEAD
         font-size: 60px;
         top: 0px;
         left: 40%;
         color:#EFA233;
         align-content: center;
         text-align: center;
+=======
+        background: white;
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 150px;
+        height: 150px;
+        top:-30px;
     }
+    .info{
+        position: relative;
+        align-content: center;
+        text-align: center;
+        top: -80px;
+>>>>>>> ac3a6e5ff6e554318595d42e1bcb0282fc3754fc
+    }
+
     .btnRe{
         position: relative;
         top: 0px;

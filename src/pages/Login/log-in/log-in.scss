@@ -1,52 +1,19 @@
 page-log-in {
-    .icono{
-        position: relative;
-        font-size: 60px;
-        top: 0px;
-        left: 120px;
-        color: #95187E !important;
-    }
-    .btnLo{
-        position: relative;
-        top: 30px;
-    }
-    .letrero{
-        position: relative;
-        font-size: 12px;
-        top: 20px;
-        left: 0px; 
-    }
-    .btnRe{
-        position: relative;
-        top: -20px;
-        left: 132px;
-        font-size: 13px;
-    }
-    .olvido{
-        position: relative;
-        top: -25px;
-        left: 50px;
-    }
-    .cand{
-        position: relative;
-        width: 20px;
-        height: 20px;
-        top: 30px;
-        left: -110px;
-    }
-    
-
-}
 .logo{
+    position: relative;
+    display:block;
+  margin-left: auto;
+  margin-right: auto;
     background: white;
-    align-content: center;
-    margin-left: 100px;
-    text-align: center;
-    padding: 50px;
-    font-size: 300px;
-    height: 170px;
-    width: 200px;
-
+    width: 150px;
+    height: 150px;
+    top:-30px;
+}
+.info{
+    position: relative;
+        align-content: center;
+        text-align: center;
+        top: -70px;
 }
 
 .tit{
@@ -58,8 +25,16 @@ page-log-in {
     font-size: 11px;
 }
 
-.iconito
-{
+.iconito1{
+    position: relative;
     width: 10px!important;
     height: 10px !important;
+    top: 15px;
+}
+.iconito2{
+    position: relative;
+    width: 10px!important;
+    height: 10px !important;
+    top: 13px;
+}
 }
