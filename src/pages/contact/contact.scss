@@ -9,11 +9,13 @@ page-contact {
 }
 .sub
 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
 
 }
 
 .btnfav{
+<<<<<<< HEAD
     position: absolute;
     top:10px;
     right: 0px;
@@ -25,6 +27,11 @@ page-contact {
     top:10px;
     right: -10px;
 
+=======
+    position: relative;
+    top:0px;
+    right: 10px;
+>>>>>>> 95fd2ad069be4fa2632a5719d1f5ac4828e89d00
 }
 .logo{
     position: relative;
@@ -43,6 +50,7 @@ page-contact {
     top: -60px;
 }
 
+<<<<<<< HEAD
 .fb{
     color: blue;
 }
@@ -59,4 +67,9 @@ page-contact {
 }
 .tw{
     color: dodgerblue;
+=======
+}
+h5{
+    color: primary;
+>>>>>>> 95fd2ad069be4fa2632a5719d1f5ac4828e89d00
 }

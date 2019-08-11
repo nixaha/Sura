@@ -2,29 +2,27 @@
   <ion-navbar color="primary">
   </ion-navbar>
 </ion-header>
-<ion-content >
+<ion-content>
   <h3 class="titulo">Hoteles</h3>
-  
+
   <ion-grid>
-      <ion-row>
-  <ion-col *ngFor="let hotel of hoteles | async" col-6>
-      <ion-card>
-      
+    <ion-row>
+      <ion-col *ngFor="let hotel of hoteles | async" col-6>
+        <ion-card class="cardgeneral" (tap)="detalles(hotel)">
+          <img class="unaimagen" src="{{hotel.imagen}}">
+          <ion-card-content class="cardslist">
           <ion-item>
-              <img style="align-content: center" class="uno" src="{{hotel.imagen}}">
-           
-          </ion-item>
-          <ion-item>
-          <h3 class="p-card1" >{{hotel.nombre}}</h3>
-          <p>{{hotel.descripcion}}</p>
-          <p>{{hotel.categoria}}</p>
-          <!-- <p>{{hotel.direccion}}</p>
-          <p>{{hotel.telefono}}</p> -->
-          <button color="danger" ion-button clear [navPush]="hotellist" (tap)="detalles(hotel)">Ver</button>
-        </ion-item>
-       
-      </ion-card>
-  </ion-col>
-      </ion-row>
+            <h3 class="p-card1">{{hotel.nombre}}</h3>
+            <p>{{hotel.categoria}}<ion-icon class="starg" ios="ios-star" md="md-star"></ion-icon></p>            
+            <p>{{hotel.descripcion}}</p>
+            <!-- <ion-icon class="ver"  ios="ios-add-circle" md="md-add-circle"></ion-icon> -->
+            <!-- <p>{{hotel.direccion}}</p>
+            <p>{{hotel.telefono}}</p> -->
+            <!-- <button class="ver"  [navPush]="hotellist" (tap)="detalles(hotel)"> </button> -->
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>

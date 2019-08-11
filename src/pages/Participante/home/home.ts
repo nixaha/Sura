@@ -12,6 +12,10 @@ import { EcoturismoPage } from "../ecoturismo/ecoturismo";
 import { TransportesPage } from "../transportes/transportes";
 import { MessagesService } from "../../../services/messages.service";
 import { LogInPage} from "../../index.paginas";
+import { Resposocial } from '../resposocial/resposocial';
+import { Aerolineas } from '../aerolineas/aerolineas';
+
+import { NotificationsService } from '../../../services/index.services';
 
 @Component({
   selector: "page-home",
@@ -21,10 +25,22 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     private messagesService: MessagesService,
+    private notificationsService: NotificationsService,
     private app: App
   ) {}
+
   ionViewDidLoad() {
     console.log("ionViewDidLoad HomePage");
+    this.notificationsService.checkSchedule();
+  }
+
+  veraerolineas()
+  {
+    this.navCtrl.push(Aerolineas);
+  }
+  versocial()
+  {
+    this.navCtrl.push(Resposocial);
   }
   vereventoss() {
     this.navCtrl.push(EventosPage);

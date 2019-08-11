@@ -2,16 +2,17 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-eliminar-evento',
-  templateUrl: 'eliminar-evento.html',
+ selector: 'aerolineas',
+    templateUrl: 'aerolineas.html',                   
 })
-export class EliminarEventoPage {
+export class Aerolineas {
+ 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EliminarEventoPage');
-  }
+//   ionViewDidLoad() {
+//     console.log('ionViewDidLoad TransporteListPage');
+//   }
 
 }

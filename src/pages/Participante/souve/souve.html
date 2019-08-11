@@ -10,12 +10,10 @@
   <ion-grid>
       <ion-row>
         <ion-col *ngFor="let souvenir of souvenirs | async" col-6>
-            <ion-card class="card">
-               
-                <ion-item>
-                 
-                    <img class="uno" src="{{souvenir.foto}}">
-                  </ion-item>
+            <ion-card class="cardgeneral" (tap)="detalles(souvenir)">
+             
+                    <img class="unaimagen" src="{{souvenir.foto}}">
+                    <ion-card-content class="cardslist">
                   <ion-item>
                   <h3 class="p-card1">{{souvenir.nombre}}</h3>
                   <p>{{souvenir.introduccion}}</p>
@@ -23,9 +21,9 @@
                   <p>{{souvenir.direccion}}</p>
                   <p>{{souvenir.telefono}}</p> -->
                   
-                  <button color="danger" ion-button clear [navPush]="souvelist" (tap)="detalles(souvenir)">Ver</button>
+                  <!-- <button color="danger" ion-button clear [navPush]="souvelist" (tap)="detalles(souvenir)">Ver</button> -->
                 </ion-item>
-             
+             </ion-card-content>
                 </ion-card>
               </ion-col>
       </ion-row>

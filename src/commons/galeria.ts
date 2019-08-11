@@ -1,5 +1,8 @@
 export interface Galeria{
-    nombre: string,
-    imagen: string
+    id: string;
+    nombre: string;
+    descripcion: string
+    imagenId: string;
+    imagenUrl: string;
 
 }

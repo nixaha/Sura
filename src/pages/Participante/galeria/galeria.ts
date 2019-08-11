@@ -20,7 +20,10 @@ export class GaleriaPage {
   galerialist:any = GaleriaListPage;
 
   nombre: string ='';
-  imagen: string ='';
+  id: string ='';
+  descripcion: string ='';
+  imagenId: string = '';
+  imagenUrl: string = '';
 
   constructor(public navCtrl: NavController,
     private database: AngularFirestore,
@@ -37,15 +40,17 @@ export class GaleriaPage {
      );
 
       this.nombre = this.navParams.get('nombre');
-      this.imagen = this.navParams.get('foto');
-      console.log
+      this.id = this.navParams.get('id');
+      this.descripcion = this.navParams.get('descripcion');
+      this.imagenId = this.navParams.get('imagenId');
+      this.imagenUrl = this.navParams.get('imagenUrl');
 
     if(this.nombre != null) {
         const id = this.database.createId(); 
-        const galeria: Galeria = { 'nombre':this.nombre, 'imagen':''};
-        this.noticiasCollection.doc(id).set(galeria); 
+        const galerias: Galeria = { 'nombre':this.nombre, 'id':this.id, 'descripcion':this.descripcion, 'imagenId': this.imagenId, 'imagenUrl': this.imagenUrl};
+        this.noticiasCollection.doc(id).set(galerias); 
         this.navCtrl.push(GaleriaListPage, {
-          id: galeria
+          id: galerias
         });    
     }
         

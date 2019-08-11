@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-img width="300%" height="60" src="/assets/imgs/liston3.jpg"></ion-img>
+  <ion-img class="liston" width="300%" height="60" src="/assets/imgs/liston3.jpg"></ion-img>
   <div class="titulo">
     <ion-label> ¡Hola, Buen día! </ion-label>
   </div>
@@ -19,14 +19,29 @@
     <ion-row align-item-center>
       <ion-col> </ion-col>
       <ion-col class="ali">
-        <ion-img
+          <ion-card class="textoboton" (click)="eventos()">
+              <ion-img class="liston"
           width="50"
           height="50"
           src="/assets/imgs/circulo2/add.png"
         ></ion-img>
-        <button class="textoboton" ion-button (click)="eventos()">
-          Eventos
-        </button>
+              <ion-label>Eventos</ion-label>
+            </ion-card>
+      </ion-col>
+      <ion-col> </ion-col>
+    </ion-row>
+
+      <ion-row align-item-center>
+      <ion-col> </ion-col>
+      <ion-col class="ali">
+          <ion-card class="textoboton" (click)="galeria()">
+        <ion-img class="liston"
+          width="50"
+          height="50"
+          src="/assets/imgs/circulo2/add.png"
+        ></ion-img>
+        <ion-label>Subir Imágenes</ion-label>
+        </ion-card>
       </ion-col>
       <ion-col> </ion-col>
     </ion-row>

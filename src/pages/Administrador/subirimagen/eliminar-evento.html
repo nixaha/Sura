@@ -1,0 +1,62 @@
+
+<!--SUBIR IMAGENNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+<ion-header>
+    <ion-navbar color="primary">
+        
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2 class="titulo">Subir Imagen</h2>
+  <ion-list>
+    <ngForm #evtRegForm="ngForm" name="evtRegForm">
+      <ion-item>
+        <ion-label floating color="primary" stacked>Nombre</ion-label>
+        <ion-input
+          name="nombre"
+          type="text"
+          [(ngModel)]="galerias.nombre"
+          required
+        ></ion-input>
+      </ion-item>
+      <!-- <ion-item>
+        <ion-label floating color="primary" stacked>Descripción</ion-label>
+        <ion-input
+          name="descripcion"
+          type="text"
+          [(ngModel)]="evento.descripcion"
+          required
+        ></ion-input>
+      </ion-item> -->
+      <div padding>
+        <ion-row>
+          <ion-col>
+            <button ion-button color="secondary" (click)="cargarImagen()">
+              Subir Imagen
+            </button>
+          </ion-col>
+          <ion-col>
+            <ion-thumbnail *ngIf="image">
+              <img
+                src="data:image/jpeg;base64,{{ image }}"
+                width="48"
+                height="48"
+              />
+            </ion-thumbnail>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ngForm>
+    <br />
+    <div class="titulo">
+      <button
+        ion-button
+        color="primary"
+        (click)="guardarImagen()"
+        [disabled]="!evtRegForm.valid || !image"
+      >
+        Guardar
+      </button>
+    </div>
+  </ion-list>
+</ion-content>

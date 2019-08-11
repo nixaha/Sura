@@ -52,6 +52,8 @@ import {
   EcoturismoPage,
   TransportesPage,
   TransporteListPage,
+  Resposocial,
+  Aerolineas,
   // AntrosListPage,
   // EcoListPage,
   AgregarItiPage,
@@ -81,6 +83,7 @@ import { NgIfContext } from "@angular/common";
 
 import { Camera } from "@ionic-native/camera";
 import { Push } from "@ionic-native/push";
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @NgModule({
   declarations: [
@@ -123,7 +126,9 @@ import { Push } from "@ionic-native/push";
     AntrosBaresPage,
     EcoturismoPage,
     TransportesPage,
-    TransporteListPage
+    TransporteListPage,
+    Resposocial,
+    Aerolineas
     // AntrosListPage,
     // EcoListPage
   ],
@@ -182,6 +187,8 @@ import { Push } from "@ionic-native/push";
     EcoturismoPage,
     TransportesPage,
     TransporteListPage,
+    Resposocial,
+    Aerolineas
     // AntrosListPage,
     // EcoListPage,
   ],
@@ -198,7 +205,11 @@ import { Push } from "@ionic-native/push";
     ParticipanteService,
     Camera,
     Push,
+<<<<<<< HEAD
     InAppBrowser
+=======
+    LocalNotifications
+>>>>>>> 95fd2ad069be4fa2632a5719d1f5ac4828e89d00
   ],
   schemas: [
     // se agrego por que no se agregaban los botones ionic

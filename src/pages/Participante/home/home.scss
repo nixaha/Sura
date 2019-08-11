@@ -1,51 +1,148 @@
-page-home {
 
-}
-
-
-.boton_personalizado {
-    text-decoration: none;
-    padding: 10px;
-    font-weight: 600;
-    font-size: 20px;
-    color: #ffffff;
-    background-color: #1883ba;
-    border-radius: 6px;
-    border: 2px solid #0016b0;
-    align-content: center;
-}
 .boton_personalizado:hover {
     color: #1883ba;
     background-color: #ffffff;
 }
 .titulo{
-
     align-content: center;
     text-align: center;
-    font-size: 30px;
+    font-size: 28px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
     justify-content:center;
-
+    padding: 0px !important;
 
 }
 .ali{ //icono 
-
     align-content: center !important; 
     text-align: center !important;
     font-size: 40px;
     justify-content:center;
     background-position: center;
-  
-   
-
+    padding: 10px;
 }
 .textoboton{
- padding: 20px;
  background: white;
  color:black;
  font-size: 12px;
- 
+ border-radius: 5px 5px 5px 5px;
+ -moz-border-radius: 5px 5px 5px 5px;
+ -webkit-border-radius: 5px 5px 5px 5px;
+ border: 0px solid #000000;
+ padding: 10px;
+ align-content: center;
+ width: 100%;
+    height: 70%;
+    padding: 0px;
+    max-width: 90% !important;    
+    min-width: 90% !important;
+    max-height: 70% !important;
+    min-height: 70% !important;
 
+}
+.textoboton:hover
+{
+    background: #E9E9E7;
+}
+.liston
+{
+    background: white;
+}
+.imgfondo
+{
+    background: none;
+    width: 35px;
+    height: 35px;
+
+}
+.cardgeneral
+{
+    max-width: 90% !important;    
+    min-width: 90% !important;
+    max-height: 90% !important;
+    min-height: 90% !important;
+}
+
+.cardslist
+{
+    width: 90%;
+    height: 70%;
+    padding: 0px;
+    max-width: 90% !important;    
+    min-width: 90% !important;
+    max-height: 70% !important;
+    min-height: 70% !important;
+
+}
+.unaimagen
+{
+    width: 100% !important;
+    height: 100% !important;
+    text-align: center;
+    max-width: 100% !important;    
+    min-width: 100% !important;
+    max-height: 100% !important;
+    min-height: 100% !important;
+    // -webkit-box-shadow: 8px 10px 18px -1px rgba(0,0,0,0.29);
+    // -moz-box-shadow: 8px 10px 18px -1px rgba(0,0,0,0.29);
+    // box-shadow: 8px 10px 18px -1px rgba(0,0,0,0.29);
+    border-radius: 2px;
 
 }
 
+u{
+    font-size: 45px;
+}
+
+.subti
+{
+
+text-align: center;
+
+}
+
+.p-card1 {
+white-space: normal;
+max-height: 100%;
+max-width: 100%;
+align-content: center;
+text-align: center;
+
+}
+
+.ver{
+    color: #95187E;
+    float: left; 
+    width: 60px;
+    height: 60px;  
+    margin-top:50px;
+}
+
+/////////////////////////////////////iconos
+.star{
+    color: #EFA233;
+}
+.starg{
+    color:  #bfbfbf;
+}
+.icodireccion
+{
+    color: #C21B80;
+}
+.icotelefono
+{
+    color: #2D88B5;
+
+}
+.icocosto
+{
+    color: #CE6B01;
+}
+
+
+// primary:    #51804C, //#51804C #2C657B #2D88B5
+// secondary:  #EFA233,
+// danger:     #95187E,
+// light:      #E9E9E7,
+// dark:       #000000,
+// error:      red,
+// date:       #bfbfbf

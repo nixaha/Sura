@@ -2,16 +2,15 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-eliminar-iti',
-  templateUrl: 'eliminar-iti.html',
+ selector: 'resposocial',
+    templateUrl: 'resposocial.html',                   
 })
-export class EliminarItiPage {
+export class Resposocial {
+ 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EliminarItiPage');
-  }
+ 
 
 }
