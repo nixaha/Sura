@@ -18,14 +18,14 @@
   </ion-list> -->
   <h3 class="titulo">Eventos</h3>
   <ion-list *ngFor="let evt of eventos;let i=index">
-    <ion-card class="cardgeneral" (tap)="showPrompt(i)">
+    <ion-card class="cardgeneralgen" (tap)="showPrompt(i)">
         <img class="unaimagengeneral" src="{{evt.imagenUrl}}">
         <ion-card-content class="cardslist">
           <ion-item>
             <h2 class="p-card1">{{evt.nombre}}</h2>
             <p class="p-card">{{evt.descripcion}}</p>
             <button class="p-card" color="azul" ion-button  [navPush]="eventocom"
-              (tap)="showPrompt(i)">{{(registrado(i))?'Ver itinerario':'Registrar'}}</button>
+              (tap)="showPrompt(i)">{{(registrado(i))?'Ver Itinerario':'Registrar'}}</button>
           </ion-item>
         </ion-card-content>
     </ion-card>
