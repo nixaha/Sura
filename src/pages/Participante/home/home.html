@@ -1,8 +1,115 @@
+<!-- <ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="walk"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="contentmenu">
+  <ion-img class="listonsillo" width="300%" height="10%" src="/assets/imgs/liston3.jpg"></ion-img>
+  <div align-item-center class="titulo">
+    <ion-label class="titulo">Bienvenido</ion-label>
+  </div>
+  <div>
+    <ion-row justify-content-center>
+
+      <ion-col col-3 class="ali">
+        <ion-card class="textoboton" (click)="vereventoss()">
+          <ion-img class="imgfondo" src="/assets/imgs/circulo2/cal.png">
+          </ion-img>
+          <ion-label>Eventos</ion-label>
+        </ion-card>
+      </ion-col>
+      <ion-col col-3 class="ali">
+        <ion-card class="textoboton" (click)="veraerolineas()">
+          <ion-img class="imgfondo" src="/assets/imgs/circulo2/bar.png"></ion-img>
+          <ion-label>Aerolíneas</ion-label>
+        </ion-card>
+      </ion-col>
+      <ion-col col-3 class="ali">
+        <ion-card class="textoboton" (click)="antrosbares()">
+          <ion-img class="imgfondo" src="/assets/imgs/circulo2/bar.png"></ion-img>
+          <ion-label>Bares y Antros</ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-col col-3 class="ali">
+        <ion-card class="textoboton" (click)="ecoturismo()">
+          <ion-img class="imgfondo" src="/assets/imgs/circulo2/eco.png"></ion-img>
+          <ion-label>Ecoturismo</ion-label>
+        </ion-card>
+      </ion-col>
+      <ion-col col-3 class="ali">
+        <ion-card class="textoboton" (click)="vergaleria()">
+          <ion-img class="imgfondo" src="/assets/imgs/circulo2/gal.png"></ion-img>
+          <ion-label>Galería</ion-label>
+        </ion-card>
+      </ion-col>
+      <ion-col col-3 class="ali">
+        <ion-card class="textoboton" (click)="verhoteles()">
+          <ion-img class="imgfondo" src="/assets/imgs/circulo2/hot.png"></ion-img>
+          <ion-label>Hoteles</ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+      <ion-row justify-content-center>
+        <ion-col col-3 class="ali">
+          <ion-card class="textoboton" (click)="vermuseos()">
+            <ion-img class="imgfondo" src="/assets/imgs/circulo2/mus.png"></ion-img>
+            <ion-label>Museos</ion-label>
+          </ion-card>
+        </ion-col>
+        <ion-col col-3 class="ali">
+          <ion-card class="textoboton" (click)="qmasvisitar()">
+            <ion-img class="imgfondo" src="/assets/imgs/circulo2/mas.png"></ion-img>
+            <ion-label>¿Qué Más?</ion-label>
+          </ion-card>
+        </ion-col>
+        <ion-col col-3 class="ali">
+          <ion-card class="textoboton" (click)="versocial()">
+            <ion-img class="imgfondo" src="/assets/imgs/circulo2/res.png"></ion-img>
+            <ion-label> Social</ion-label>
+          </ion-card>
+        </ion-col>
+
+      </ion-row>
+      <ion-row justify-content-center>
+
+        <ion-col col-3 class="ali">
+          <ion-card class="textoboton" (click)="verrestaurantes()">
+            <ion-img class="imgfondo" src="/assets/imgs/circulo2/res.png"></ion-img>
+            <ion-label>Restaurantes</ion-label>
+          </ion-card>
+        </ion-col>
+        <ion-col col-3 class="ali">
+          <ion-card class="textoboton" (click)="souvenirs()">
+            <ion-img class="imgfondo" src="/assets/imgs/circulo2/sou.png"></ion-img>
+            <ion-label>Souvenirs</ion-label>
+          </ion-card>
+        </ion-col>
+        <ion-col col-3 class="ali">
+          <ion-card class="textoboton" (click)="transportes()">
+            <ion-img class="imgfondo" src="/assets/imgs/circulo2/tra.png"></ion-img>
+            <ion-label>Transpotes</ion-label>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+  </div>
+</ion-content> -->
+
+
+
+
+
 <ion-header>
   <ion-navbar color="primary">
     <ion-buttons end>
       <button ion-button icon-only (click)="logout()">
-        <!-- <ion-icon name="add-circle"></ion-icon> -->
+        
         <ion-icon name="walk"></ion-icon>
       </button>
     </ion-buttons>
@@ -46,7 +153,6 @@
       </ion-col>
     </ion-row>
     <ion-row >
-       
           <ion-col class="ali">
             <ion-card class="textoboton" (click)="vergaleria()">
               <ion-img class="imgfondo" src="/assets/imgs/circulo2/gal.png"></ion-img>
@@ -79,7 +185,7 @@
     <ion-col class="ali">
       <ion-card class="textoboton" (click)="versocial()">
         <ion-img class="imgfondo" src="/assets/imgs/circulo2/res.png"></ion-img>
-        <ion-label> Social</ion-label>
+        <ion-label>Responsabilidad Social</ion-label>
       </ion-card>
     </ion-col>  
     <ion-col class="ali">
@@ -103,5 +209,13 @@
         </ion-card>
       </ion-col>
     </ion-row>
+    <ion-row>
+        <ion-col class="ali">
+            <ion-card class="textoboton" (click)="verccb()">
+              <ion-img class="imgfondo" src="/assets/imgs/circulo2/tra.png"></ion-img>
+              <ion-label>CCB</ion-label>
+            </ion-card>
+          </ion-col>
+    </ion-row>
   </div>
-</ion-content>
+</ion-content>  

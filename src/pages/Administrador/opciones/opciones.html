@@ -16,35 +16,27 @@
   </div>
   <br />
   <div>
-    <ion-row align-item-center>
-      <ion-col> </ion-col>
-      <ion-col class="ali">
+    <ion-row justify-content-center>
+     
+      <ion-col col-4 class="ali">
           <ion-card class="textoboton" (click)="eventos()">
-              <ion-img class="listonsillo"
-          width="50"
-          height="50"
-          src="/assets/imgs/circulo2/add.png"
-        ></ion-img>
+              <ion-img class="imgfondo" src="/assets/imgs/circulo2/cal.png">
+              </ion-img>
               <ion-label>Eventos</ion-label>
             </ion-card>
       </ion-col>
-      <ion-col> </ion-col>
+      <ion-col col-4 class="ali">
+          <ion-card class="textoboton" (click)="galeria()">
+              <ion-img class="imgfondo" src="/assets/imgs/circulo2/gal.png"></ion-img>
+        <ion-label> Imágenes</ion-label>
+        </ion-card>
+        </ion-col>
+     
     </ion-row>
 
-      <ion-row align-item-center>
-      <ion-col> </ion-col>
-      <ion-col class="ali">
-          <ion-card class="textoboton" (click)="galeria()">
-        <ion-img class="listonsillo"
-          width="50"
-          height="50"
-          src="/assets/imgs/circulo2/add.png"
-        ></ion-img>
-        <ion-label>Subir Imágenes</ion-label>
-        </ion-card>
-      </ion-col>
-      <ion-col> </ion-col>
-    </ion-row>
+     
+      
+     
     <!-- <ion-row align-item-center>
       <ion-col class="ali">
         <ion-img

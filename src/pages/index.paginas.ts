@@ -44,3 +44,4 @@ export { ContactPage } from "./contact/contact";
 export { TabsPage } from "./tabs/tabs";
 export { Resposocial } from './Participante/resposocial/resposocial';
 export { Aerolineas } from './Participante/aerolineas/aerolineas';
+export { CentroCon } from './Participante/ccb/ccb';

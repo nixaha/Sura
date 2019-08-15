@@ -14,6 +14,7 @@ import { MessagesService } from "../../../services/messages.service";
 import { LogInPage} from "../../index.paginas";
 import { Resposocial } from '../resposocial/resposocial';
 import { Aerolineas } from '../aerolineas/aerolineas';
+import { CentroCon } from '../ccb/ccb';
 
 import { NotificationsService } from '../../../services/index.services';
 
@@ -34,6 +35,10 @@ export class HomePage {
     this.notificationsService.checkSchedule();
   }
 
+  verccb()
+  {
+    this.navCtrl.push(CentroCon);
+  }
   veraerolineas()
   {
     this.navCtrl.push(Aerolineas);
@@ -79,7 +84,7 @@ export class HomePage {
   logout() {
     this.messagesService.showMessage(
       "Cerrar sesión",
-      "¿Desea salir de su cuenta?",
+      "¿Desea cerrar sesión?",
       [
         {
           text: "Aceptar",

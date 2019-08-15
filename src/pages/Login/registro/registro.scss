@@ -1,12 +1,13 @@
 page-registro {
     .logo{
         position: relative;
-        font-size: 60px;
-        top: 0px;
-        left: 40%;
-        color:#EFA233;
-        align-content: center;
-        text-align: center;
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+        background: white;
+        width: 150px;
+        height: 150px;
+        top:-30px;
     }
 
     .btnRe{
