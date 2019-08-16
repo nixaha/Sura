@@ -1,6 +1,5 @@
 <ion-header>
   <ion-navbar color="primary">
-  <ion-title>Iniciar Sesión</ion-title>
     
   </ion-navbar>
 </ion-header>
@@ -8,9 +7,11 @@
 
 
 <ion-content padding>
+  <br/>
     <ion-img class="logo" 
     align-content="center" src="/assets/imgs/logosura.png"></ion-img>
 
+    <br/>
   <ion-list>
 
     <ngForm class="info" #loginForm="ngForm" name="loginForm">
@@ -28,7 +29,7 @@
       <br/>
       
   <div>
-    <button color="primary" ion-button block type="submit" (click)="login()" [disabled]="!loginForm.valid">Ingresar</button>
+    <button color="primary" ion-button block type="submit" (click)="login()" [disabled]="!loginForm.valid">Iniciar Sesión</button>
     <button class="tit"  ion-button block clear color="danger" [navPush]="registro">Registrate Aquí</button>
     <button class="tit" ion-button block clear color="danger" [navPush]="olvidar">¿Olvidaste tu Contraseña?</button>
   </div>

@@ -4,6 +4,7 @@ export interface Restaurante{
     horarios: string,
     direccion: string,
     telefono: string,
-    imagen: string
+    imagen: string,
+    categoria: string
 
 }

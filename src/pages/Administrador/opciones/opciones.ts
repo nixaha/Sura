@@ -32,7 +32,7 @@ export class OpcionesPage {
   logout() {
     this.messagesService.showMessage(
       "Cerrar sesión",
-      "¿Desea salir de su cuenta?",
+      "¿Desea cerrar sesión?",
       [
         {
           text: "Aceptar",

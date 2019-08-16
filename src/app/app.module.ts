@@ -55,6 +55,7 @@ import {
   TransporteListPage,
   Resposocial,
   Aerolineas,
+  CentroCon,
   // AntrosListPage,
   // EcoListPage,
   AgregarItiPage,
@@ -129,7 +130,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     TransportesPage,
     TransporteListPage,
     Resposocial,
-    Aerolineas
+    Aerolineas,
+    CentroCon
     // AntrosListPage,
     // EcoListPage
   ],
@@ -190,7 +192,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     TransportesPage,
     TransporteListPage,
     Resposocial,
-    Aerolineas
+    Aerolineas,
+    CentroCon
     // AntrosListPage,
     // EcoListPage,
   ],
