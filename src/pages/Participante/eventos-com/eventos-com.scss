@@ -10,8 +10,32 @@ page-eventos-com {
     }
     
 }
-.card{
 
-    // border-top: 10rem green;
+.cardunoborde{
+     
+    
+    border-left-style: inset;
+    border-left-color: #C21B80;
+    border-radius: 2px;
+   border-width: 4px;
+}
 
+
+.cardunobordedos{
+     
+    
+    
+    border-left-style: inset;
+    border-left-color: limegreen;
+    border-radius: 2px; 
+    border-width: 4px;
+}
+
+.cardunobordetres{
+     
+    
+    border-left-style: inset;
+    border-left-color: yellow;
+    border-radius: 2px; 
+    border-width: 4px;
 }

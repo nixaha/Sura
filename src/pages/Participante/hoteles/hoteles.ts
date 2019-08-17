@@ -7,14 +7,17 @@ import{ HotelesListPage } from "../../index.paginas";
 import { map } from 'rxjs/operators';
 
 
+
 @Component({
   selector: 'page-hoteles',
   templateUrl: 'hoteles.html',
 })
 export class HotelesPage {
 
-  private noticiasCollection: AngularFirestoreCollection<Hotel>;
+  textoBuscar = '';
 
+  private noticiasCollection: AngularFirestoreCollection<Hotel>;
+  
   hoteles: Observable<Hotel[]>;
   notiDoc: AngularFirestoreDocument<Hotel[]>;
   hotellist:any = HotelesListPage;
@@ -29,6 +32,7 @@ export class HotelesPage {
   constructor(public navCtrl: NavController,
     private database: AngularFirestore,
     public navParams: NavParams) {
+
       this.noticiasCollection = database.collection<Hotel>("hoteles");
       
       this.hoteles = this.noticiasCollection.snapshotChanges().pipe(
@@ -62,4 +66,10 @@ export class HotelesPage {
       id: _hotel
     })
   }
+  buscar( event ){
+    //const texto = event._value;
+    //this.textoBuscar = event.detail(data.value);
+    console.log(event);  
+     
+}
 }

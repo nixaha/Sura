@@ -2,37 +2,83 @@
     <ion-navbar color="primary">
     </ion-navbar>
     <!-- <ion-toolbar> -->
-        <ion-segment [(ngModel)]="tipo">
-            <ion-segment-button (click)="filtrar()" value="TODOS" checked>
-                <small>Todos</small>
-            </ion-segment-button>
-            <ion-segment-button (click)="filtrar()" [value]="tipos.academico">
-                <small>Académico</small>
-            </ion-segment-button>
-            <ion-segment-button (click)="filtrar()" [value]="tipos.acompaniante">
-                <small>Acompañante</small>
-            </ion-segment-button>
-            <ion-segment-button (click)="filtrar()" [value]="tipos.social">
-                <small>Social</small>
-            </ion-segment-button>
-        </ion-segment>
+    <ion-segment [(ngModel)]="tipo">
+        <ion-segment-button (click)="filtrar()" value="TODOS" checked>
+            <small>Todos</small>
+        </ion-segment-button>
+        <ion-segment-button (click)="filtrar()" [value]="tipos.academico">
+            <small>Académico</small>
+        </ion-segment-button>
+        <ion-segment-button (click)="filtrar()" [value]="tipos.acompaniante">
+            <small>Acompañante</small>
+        </ion-segment-button>
+        <ion-segment-button (click)="filtrar()" [value]="tipos.social">
+            <small>Social</small>
+        </ion-segment-button>
+    </ion-segment>
     <!-- </ion-toolbar> -->
 </ion-header>
 
 <ion-content>
-    <ion-list *ngFor="let iti of filtro; let i = index">
-        <ion-card class="card1">
+    <ion-list *ngFor="let iti of filtro; let i = index">   
+        <ion-card class="cardunoborde" *ngIf="iti.tipo=='SOCIAL'">
             <ion-card-content>
                 <div class="fecha">
-                    <ion-label color="date">{{iti.fecha}}</ion-label>
-                    <br/>
-                    <ion-label color="date">{{iti.horaInicio}} - {{iti.horaFin}} hrs</ion-label>
+                    <br />
+                  
                 </div>
-                <h2><strong>{{ iti.nombre }}</strong></h2>
-                <hr />
-                <p>{{(iti.tipo==='ACADEMICO')?'Ponente: ' + iti.ponente:'' }}</p>
-                <p>{{ iti.descripcion }}</p>
+                <!-- <ion-icon color="danger" ios="ios-pricetag" md="md-pricetag"></ion-icon> -->
+                <h2><strong> {{ iti.nombre }}</strong></h2>
+                <br />
+                <p>
+                    <ion-icon class="icotelefono" ios="ios-person" md="md-person" color="primary"></ion-icon>
+                     {{(iti.tipo==='ACADEMICO')?'Ponente: ' + iti.ponente:'' }}
+                </p>
+                <ion-label> <ion-icon ios="ios-time" md="md-time" color="primary" ></ion-icon> {{iti.horaInicio}} - {{iti.horaFin}} hrs</ion-label>
+                <ion-label > <ion-icon class="icocosto" ios="ios-calendar" md="md-calendar" color="primary"></ion-icon>
+                     {{iti.fecha}}
+               </ion-label>
+                <p color="date"> {{ iti.descripcion }}</p>
             </ion-card-content>
         </ion-card>
-    </ion-list>
+    
+     <ion-card class="cardunobordedos" *ngIf="iti.tipo=='ACADEMICO'">
+        <ion-card-content>
+            <div class="fecha">
+                <br />
+              
+            </div>
+            <h2><strong> {{ iti.nombre }}</strong></h2>
+            <br />
+            <p>
+                <ion-icon class="icotelefono" ios="ios-person" md="md-person" color="primary"></ion-icon>
+                 {{(iti.tipo==='ACADEMICO')?'Ponente: ' + iti.ponente:'' }}
+            </p>
+            <ion-label> <ion-icon ios="ios-time" md="md-time" color="primary" ></ion-icon> {{iti.horaInicio}} - {{iti.horaFin}} hrs</ion-label>
+            <ion-label > <ion-icon class="icocosto" ios="ios-calendar" md="md-calendar" color="primary"></ion-icon>
+                 {{iti.fecha}}
+           </ion-label>
+            <p color="date"> {{ iti.descripcion }}</p>
+        </ion-card-content>
+    </ion-card> 
+    <ion-card class="cardunobordetres" *ngIf="iti.tipo=='ACOMPANIANTE'">
+        <ion-card-content>
+            <div class="fecha">
+                <br />
+              
+            </div>
+            <h2><strong> {{ iti.nombre }}</strong></h2>
+            <br />
+            <p>
+                <ion-icon class="icotelefono" ios="ios-person" md="md-person" color="primary"></ion-icon>
+                 {{(iti.tipo==='ACADEMICO')?'Ponente: ' + iti.ponente:'' }}
+            </p>
+            <ion-label> <ion-icon ios="ios-time" md="md-time" color="primary" ></ion-icon> {{iti.horaInicio}} - {{iti.horaFin}} hrs</ion-label>
+            <ion-label > <ion-icon class="icocosto" ios="ios-calendar" md="md-calendar" color="primary"></ion-icon>
+                 {{iti.fecha}}
+           </ion-label>
+            <p color="date"> {{ iti.descripcion }}</p>
+        </ion-card-content>
+    </ion-card> 
+</ion-list>
 </ion-content>

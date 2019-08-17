@@ -7,10 +7,9 @@
 <ion-content padding >
     
      <h3 class="titulo">{{souvenir.nombre}}</h3>
-            <hr/>
-            <br/>
+
     <ion-card>
-        <img src="{{souvenir.foto}}" />
+        <img class="unaimagengeneral" src="{{souvenir.foto}}" />
         <ion-card-content>
             <ion-card-title ALIGN="left">
               
@@ -19,17 +18,17 @@
                 {{souvenir.introduccion}}
             </p>
             <br/>
-            <strong>Horarios:</strong>
+            <strong><ion-icon ios="ios-time" md="md-time" color="primary" ></ion-icon> Horarios:</strong>
             <p ALIGN="justify">
                 {{souvenir.horarios}}
             </p>
             <br/>
-            <strong>Dirección:</strong>
+            <strong><ion-icon class="icodireccion" ios="ios-compass" md="md-compass"> </ion-icon> Dirección:</strong>
             <p ALIGN="justify">
                 {{souvenir.direccion}}
             </p>
             <br/>
-            <strong>Teléfono:</strong>
+            <strong><ion-icon class="icotelefono" ios="ios-call" md="md-call"></ion-icon> Teléfono:</strong>
             <p ALIGN="justify">
                 {{souvenir.telefono}}
             </p>

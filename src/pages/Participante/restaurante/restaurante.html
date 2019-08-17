@@ -1,31 +1,38 @@
 <ion-header>
   <ion-navbar color="primary">
+      <!-- <ion-buttons end>
+          <button ion-button icon-only (click)="mostrarCategorias()">
+              <ion-icon color="light" name="search"></ion-icon>
+          </button>
+      </ion-buttons> -->
   </ion-navbar>
 </ion-header>
 
-<ion-content >
-        <h3 class="titulo">Restaurantes</h3>
-        <ion-grid>
-            <ion-row>
-<ion-col *ngFor="let restaurante of restaurantes | async"col-6>
-    <ion-card class="card">
-      
-    <ion-item>
-      
-        <img class="uno" src="{{restaurante.imagen}}">
-      
-      <h3 class="p-card1">{{restaurante.nombre}}</h3>
-      <p>{{restaurante.introduccion}}</p>
-      <!-- <p>{{restaurante.horarios}}</p>
+<ion-content>
+  <h3 class="titulo">Restaurantes</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let restaurante of restaurantes | async" col-6>
+        <ion-card class="cardgeneral" (tap)="detalles(restaurante)">
+   
+
+            <img class="unaimagen" src="{{restaurante.imagen}}">
+            <ion-card-content class="cardslist">
+            <ion-item>
+
+              <h3 class="p-card1">{{restaurante.nombre}}</h3>
+              <p>{{restaurante.introduccion}}</p>
+              <!-- <p>{{restaurante.horarios}}</p>
       <p>{{restaurante.direccion}}</p>
       <p>{{restaurante.telefono}}</p> -->
 
-      <button color="danger" ion-button clear [navPush]="restaurantelist" (tap)="detalles(restaurante)">Ver</button>
-    </ion-item>
-    
-    </ion-card>
-  </ion-col>
-            </ion-row>
-        </ion-grid>
+              <!-- <button color="danger" ion-button clear [navPush]="restaurantelist"
+              (tap)="detalles(restaurante)">Ver</button> -->
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

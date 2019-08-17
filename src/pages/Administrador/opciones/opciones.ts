@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams, App } from "ionic-angular";
 
-import { EventosAdminPage, LogInPage } from "../../index.paginas";
+import { EventosAdminPage, LogInPage,EliminarEventoPage,EliminarItiPage } from "../../index.paginas";
 
 import { MessagesService } from "../../../services/index.services";
 
@@ -24,11 +24,15 @@ export class OpcionesPage {
   eventos() {
     this.navCtrl.push(EventosAdminPage);
   }
+  galeria()
+  {
+    this.navCtrl.push(EliminarItiPage);
+  }
 
   logout() {
     this.messagesService.showMessage(
       "Cerrar sesión",
-      "¿Desea salir de su cuenta?",
+      "¿Desea cerrar sesión?",
       [
         {
           text: "Aceptar",

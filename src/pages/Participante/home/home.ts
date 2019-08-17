@@ -12,6 +12,9 @@ import { EcoturismoPage } from "../ecoturismo/ecoturismo";
 import { TransportesPage } from "../transportes/transportes";
 import { MessagesService } from "../../../services/messages.service";
 import { LogInPage} from "../../index.paginas";
+import { Resposocial } from '../resposocial/resposocial';
+import { Aerolineas } from '../aerolineas/aerolineas';
+import { CentroCon } from '../ccb/ccb';
 
 import { NotificationsService } from '../../../services/index.services';
 
@@ -32,6 +35,18 @@ export class HomePage {
     this.notificationsService.checkSchedule();
   }
 
+  verccb()
+  {
+    this.navCtrl.push(CentroCon);
+  }
+  veraerolineas()
+  {
+    this.navCtrl.push(Aerolineas);
+  }
+  versocial()
+  {
+    this.navCtrl.push(Resposocial);
+  }
   vereventoss() {
     this.navCtrl.push(EventosPage);
   }
@@ -69,7 +84,7 @@ export class HomePage {
   logout() {
     this.messagesService.showMessage(
       "Cerrar sesión",
-      "¿Desea salir de su cuenta?",
+      "¿Desea cerrar sesión?",
       [
         {
           text: "Aceptar",

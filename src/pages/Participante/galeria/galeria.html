@@ -1,19 +1,24 @@
 <ion-header>
-    <ion-navbar color="primary">
-    </ion-navbar>
+      <ion-navbar color="primary">
+      </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-        <h3 class="titulo">Galeria</h3>
- <ion-list *ngFor="let galeria of galerias | async">
-                <ion-item>
-                  <ion-thumbnail item-start>
-                    <img class="uno" src="{{galeria.imagen}}">
-                  </ion-thumbnail>
-                  <h2>{{galeria.nombre}}</h2>
+<ion-content>
+      <h3 class="titulo">Galeria</h3>
+      <ion-row>
+      <ion-col *ngFor="let galerias of galerias | async" col-6>
             
-                  <button color="danger" ion-button clear [navPush]="galerialist" (tap)="detalles(Galeria)">Ver</button>
-                </ion-item>
-              </ion-list>
+            <ion-card class="cardgeneral">
 
+                  <img class="unaimagen" src="{{galerias.imagenUrl}}">
+                  <ion-card-content class="cardslist">
+                        <ion-item>
+                              <h2 style="text-align:center;">{{galerias.nombre}}</h2>
+                        </ion-item>
+                  </ion-card-content>
+            </ion-card>
+          
+      </ion-col>
+      
+      </ion-row>
 </ion-content>

@@ -9,12 +9,12 @@ export { RestablecerContraPage } from "./Login/restablecer-contra/restablecer-co
 export { OpcionesPage } from "./Administrador/opciones/opciones";
 export { AgregarEventoPage } from "./Administrador/agregar-evento/agregar-evento";
 export { EditarEventoPage } from "./Administrador/editar-evento/editar-evento";
-export { EliminarEventoPage } from "./Administrador/eliminar-evento/eliminar-evento";
+export { EliminarEventoPage } from "./Administrador/subirimagen/eliminar-evento";
 export { EventosAdminPage } from "./Administrador/eventos/eventos";
 export { ItinerariosPage } from "./Administrador/itinerarios/itinerarios";
 export { AgregarItiPage } from "./Administrador/agregar-iti/agregar-iti";
 export { EditarItiPage } from "./Administrador/editar-iti/editar-iti";
-export { EliminarItiPage } from "./Administrador/eliminar-iti/eliminar-iti";
+export { EliminarItiPage } from "./Administrador/verimagenes/eliminar-iti";
 
 //Parte del Participante
 export { HomePage } from "./Participante/home/home";
@@ -42,3 +42,6 @@ export { AntrosbaresListPage } from "./Participante/antrosbares-list/antrosbares
 export { EcoturismoListPage } from "./Participante/ecoturismo-list/ecoturismo-list";
 export { ContactPage } from "./contact/contact";
 export { TabsPage } from "./tabs/tabs";
+export { Resposocial } from './Participante/resposocial/resposocial';
+export { Aerolineas } from './Participante/aerolineas/aerolineas';
+export { CentroCon } from './Participante/ccb/ccb';

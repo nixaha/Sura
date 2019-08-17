@@ -4,19 +4,22 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Recuperar Contraseña</h3>
-  <ngForm #passForm="ngForm" name="passForm">
+  <br/>
+  <h3 style="text-align:center">Recuperar Contraseña</h3>
+  <!-- <ngForm #passForm="ngForm" name="passForm"> -->
+    <br/>
     <ion-list>
-      <ion-icon class="icono" name="unlock" item-left></ion-icon>
+    <ngForm class="info" #passForm="ngForm" name="passForm">
+    <br/>
       <ion-item>
         <ion-label floating>Correo:</ion-label>
         <ion-input name="email" type="text" [(ngModel)]="user.email" required></ion-input>
       </ion-item>
-    </ion-list>
-  </ngForm>
 
   <div padding>
     <button class="boton" color="primary" ion-button block type="submit" (click)="resetPassword()" [disabled]="!passForm.valid">Enviar</button>
   </div>
+</ngForm>
+</ion-list>
 
 </ion-content>

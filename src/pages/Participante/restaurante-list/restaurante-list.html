@@ -7,11 +7,10 @@
 <ion-content padding >
 
  <h3 class="titulo">{{restaurante.nombre}}</h3>
-        <hr/>
-        <br/>
+
 <ion-card class="card">
 
-    <img src="{{restaurante.imagen}}" />
+    <img class="unaimagengeneral" src="{{restaurante.imagen}}" />
     <ion-card-content>
         <ion-card-title ALIGN="left">
           
@@ -20,17 +19,17 @@
             {{restaurante.introduccion}}
         </p>
         <br/>
-        <strong>Horarios:</strong>
+        <strong><ion-icon ios="ios-time" md="md-time" color="primary" ></ion-icon> Horarios:</strong>
         <p ALIGN="justify">
             {{restaurante.horarios}}
         </p>
         <br/>
-        <strong>Dirección:</strong>
+        <strong><ion-icon class="icodireccion" ios="ios-compass" md="md-compass"> </ion-icon>  Dirección:</strong>
         <p ALIGN="justify">
             {{restaurante.direccion}}
         </p>
         <br/>
-        <strong>Teléfono:</strong>
+        <strong><ion-icon class="icotelefono" ios="ios-call" md="md-call"></ion-icon> Teléfono:</strong>
         <p ALIGN="justify">
             {{restaurante.telefono}}
         </p>

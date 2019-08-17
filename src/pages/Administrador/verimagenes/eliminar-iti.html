@@ -1,0 +1,56 @@
+<!--ver imagennnnnnnnnnnnnnnnnnnnnnnnnnnnnnn-->
+
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-buttons end>
+        <button ion-button icon-only (click)="agregareventoo()">
+          <ion-icon name="add-circle"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+    <h3 style="text-align:center">Imágenes</h3>
+    <ion-list>
+      <ion-item *ngFor="let galeria of galeria; let i = index">
+        <ion-card>
+          <ion-card-content>
+              <ion-item>
+
+            <ion-card-title>{{ galeria.nombre }}</ion-card-title>
+              </ion-item>
+              <ion-item>
+            <img src="{{ galeria.imagenUrl }}" class="img-card" />
+            <!-- <ion-item>
+              <p class="p-card">
+                {{ evento.descripcion }}
+              </p>
+            </ion-item> -->
+              <!-- <button
+                color="danger"
+                ion-button
+                clear
+                (tap)="agregarItinerarios(i)"
+              >
+                Ver itinerarios
+              </button> -->
+            </ion-item>
+          </ion-card-content>
+          <div class="btn-footer">
+            <!-- <button ion-button icon-only item-end (click)="editarevento(i)">
+              <ion-icon name="create"></ion-icon>
+            </button> -->
+            <button
+              ion-button
+              icon-only
+              item-end
+              (click)="consultarEliminarevento(i)"
+            >
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </div>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  

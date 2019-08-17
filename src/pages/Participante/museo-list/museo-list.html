@@ -6,11 +6,10 @@
 
 <ion-content padding >
     
-     <h3 class="titulo">{{museo.nombre}}</h3>
-            <hr/>
-            <br/>
+     <h5 class="titulo">{{museo.nombre}}</h5>
+
     <ion-card>
-        <img src="{{museo.foto}}" />
+        <img class="unaimagengeneral" src="{{museo.foto}}" />
         <ion-card-content>
             <ion-card-title ALIGN="left">
               
@@ -19,22 +18,22 @@
                 {{museo.descripcion}}
             </p>
             <br/>
-            <strong>Horarios:</strong>
+            <strong><ion-icon ios="ios-time" md="md-time" color="primary" ></ion-icon> Horarios:</strong>
             <p ALIGN="justify">
                 {{museo.horarios}}
             </p>
             <br/>
-            <strong>Costos:</strong>
+            <strong>  <ion-icon class="icocosto" ios="logo-usd" md="logo-usd"></ion-icon> Costos:</strong>
             <p ALIGN="justify">
                 {{museo.costo}}
             </p>
             <br/>
-            <strong>Dirección:</strong>
+            <strong> <ion-icon class="icodireccion" ios="ios-compass" md="md-compass"> </ion-icon> Dirección:</strong>
             <p ALIGN="justify">
                 {{museo.direccion}}
             </p>
             <br/>
-            <strong>Teléfono:</strong>
+            <strong><ion-icon class="icotelefono" ios="ios-call" md="md-call"></ion-icon> Teléfono:</strong>
             <p ALIGN="justify">
                 {{museo.telefono}}
             </p>

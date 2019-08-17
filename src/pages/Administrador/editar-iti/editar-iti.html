@@ -104,15 +104,11 @@
     <div class="titulo">
       <ion-row>
         <ion-col>
-          <button ion-button color="secondary">Ver</button>
-        </ion-col>
-        <ion-col>
           <button
             ion-button
             color="primary"
             (click)="editar()"
-            [disabled]="!horarioValido"
-          >
+            [disabled]="!horarioValido">
             Guardar
           </button>
         </ion-col>

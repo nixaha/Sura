@@ -4,6 +4,9 @@ import { IonicApp, IonicModule, IonicErrorHandler } from "ionic-angular";
 import { MyApp } from "./app.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core"; // importar clase para que se puedan agregar componentes ionic botones
 
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { PipesModule } from '../pipes/pipes.module';
+
 //Servicios de conexión a firebase y utilerías
 import {
   LoginService,
@@ -50,6 +53,9 @@ import {
   EcoturismoPage,
   TransportesPage,
   TransporteListPage,
+  Resposocial,
+  Aerolineas,
+  CentroCon,
   // AntrosListPage,
   // EcoListPage,
   AgregarItiPage,
@@ -122,7 +128,10 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     AntrosBaresPage,
     EcoturismoPage,
     TransportesPage,
-    TransporteListPage
+    TransporteListPage,
+    Resposocial,
+    Aerolineas,
+    CentroCon
     // AntrosListPage,
     // EcoListPage
   ],
@@ -135,7 +144,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    PipesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -181,6 +191,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     EcoturismoPage,
     TransportesPage,
     TransporteListPage,
+    Resposocial,
+    Aerolineas,
+    CentroCon
     // AntrosListPage,
     // EcoListPage,
   ],
@@ -197,7 +210,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     ParticipanteService,
     Camera,
     Push,
-    LocalNotifications
+    LocalNotifications,
+    InAppBrowser
   ],
   schemas: [
     // se agrego por que no se agregaban los botones ionic

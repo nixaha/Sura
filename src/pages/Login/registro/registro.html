@@ -1,12 +1,17 @@
 <ion-header>
     <ion-navbar color="primary">
+      
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-icon class="icono" name="contact"></ion-icon>
-
-    <ngForm #regForm="ngForm" name="regForm">
+        <!-- <ion-img class="logo" 
+        align-content="center" src="/assets/imgs/logosura.png"></ion-img> -->
+            
+        <h3 style="text-align:center">Registrarse</h3>
+        <br/>
+        <br/>
+    <ngForm class="info" #regForm="ngForm" name="regForm">
         <ion-item class="label">
             <ion-label floating>Nombre:</ion-label>
             <ion-input name="nombre" type="text" [(ngModel)]="userInfo.nombre" required></ion-input>
@@ -34,7 +39,7 @@
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Confirma tu contraseña:</ion-label>
+            <ion-label floating>Confirma tu Contraseña:</ion-label>
             <ion-input name="password2" #password2 type="password" [(ngModel)]="user.password2" required></ion-input>
         </ion-item>
 
