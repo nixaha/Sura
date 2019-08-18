@@ -2,13 +2,17 @@
   <ion-navbar color="primary">
   </ion-navbar>
 </ion-header>
+
 <ion-content>
   <h3 class="titulo">Hoteles</h3>
-
+  <ion-toolbar>
+      <ion-searchbar placeholder="Buscar hotel" 
+                     animated
+                     (ionChange)="buscar( $event )"></ion-searchbar>
+  </ion-toolbar>
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let hotel of hoteles | async" col-6>
-   
+      <ion-col *ngFor="let hotel of hoteles | async: textoBuscar: 'nombre'" col-6>
         <ion-card class="cardgeneral" (tap)="detalles(hotel)">
           <img class="unaimagen" src="{{hotel.imagen}}">
           <ion-card-content class="cardslist">
