@@ -9,7 +9,8 @@
 </ion-header>
 
 <ion-content>
-  <h3 class="titulo">Restaurantes</h3>
+  <h3 class="titulo">Restaurantes y Cafeterías</h3>
+  <h6 style="text-align: center"> Puedes pedir por Uber Eats</h6>
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let restaurante of restaurantes | async" col-6>
@@ -21,7 +22,8 @@
             <ion-item>
 
               <h3 class="p-card1">{{restaurante.nombre}}</h3>
-              <p>{{restaurante.introduccion}}</p>
+              <p>{{restaurante.categoria}} <p>
+              <!-- <p>{{restaurante.introduccion}}</p> -->
               <!-- <p>{{restaurante.horarios}}</p>
       <p>{{restaurante.direccion}}</p>
       <p>{{restaurante.telefono}}</p> -->
