@@ -3,6 +3,6 @@ export class UserInfo {
         public nombre?: string,
         public estado?: string,
         public rol = 'PARTICIPANTE',
-        public eventosRegistrados?: Array<string>
+        public eventosRegistrados = []
     ) { }
 }

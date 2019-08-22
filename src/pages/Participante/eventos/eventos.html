@@ -18,7 +18,7 @@
   </ion-list> -->
   <h3 class="titulo">Eventos</h3>
   <ion-list *ngFor="let evt of eventos;let i=index">
-    <ion-card class="cardgeneralgen" (tap)="showPrompt(i)">
+    <ion-card class="cardgeneralgen">
         <img class="unaimagengeneral" src="{{evt.imagenUrl}}">
         <ion-card-content class="cardslist">
           <ion-item>

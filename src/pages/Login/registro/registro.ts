@@ -4,7 +4,7 @@ import { User } from '../../../shared/models/user';
 import { UserInfo } from '../../../shared/models/user-info';
 import { TabsPage } from "../../index.paginas"
 
-import { LoginService, MessagesService } from '../../../services/index.services';
+import { LoginService, MessagesService, NotificationsService } from '../../../services/index.services';
 
 @Component({
   selector: 'page-registro',
@@ -20,17 +20,28 @@ export class RegistroPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private loginService: LoginService,
-    private messagesService: MessagesService
+    private messagesService: MessagesService,
+    private notificationService: NotificationsService
   ) {
     this.userInfo = new UserInfo();
   }
 
   ionViewDidLoad() {
-    this.getInfoUsuario();
+    //this.getInfoUsuario();
   }
 
-  getInfoUsuario(){
-    this.loginService.getUserInfo().on("value",(snapshot)=>{console.log(snapshot.val())});
+  saveInfoUsuario(token){
+    this.loginService.getUserInfo().on("value",(snapshot)=>{
+      console.log(snapshot.val())
+      const data = {
+        token: token,
+        nombre: snapshot.child("nombre").val(),
+        estado: snapshot.child("estado").val(),
+        rol: snapshot.child("rol").val(),
+        eventosRegistrados: snapshot.child("eventosRegistrados").val()
+      };
+      localStorage.setItem("data", JSON.stringify(data));
+    });
   }
   
   register() {
@@ -39,7 +50,8 @@ export class RegistroPage {
       this.loginService.register(this.user).then(
         response => {
           this.loginService.setUserInfo(this.userInfo);
-          localStorage.setItem('token',response.user.refreshToken);
+          this.saveInfoUsuario(response.user.refreshToken);
+          this.notificationService.setNotificationRegister();
           this.navCtrl.setRoot(TabsPage);
           this.messagesService.hideLoadingMessage();
         }, error => {

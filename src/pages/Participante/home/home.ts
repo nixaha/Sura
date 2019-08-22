@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Platform } from "ionic-angular";
 import { NavController, App } from "ionic-angular";
 import { EventosPage } from "../eventos/eventos";
 import { MuseoPage } from "../museo/museo";
@@ -24,15 +25,19 @@ import { NotificationsService } from '../../../services/index.services';
 })
 export class HomePage {
   constructor(
+    platform: Platform,
     public navCtrl: NavController,
     private messagesService: MessagesService,
     private notificationsService: NotificationsService,
     private app: App
-  ) {}
+  ) {
+    platform.ready().then(() => {  
+      this.notificationsService.checkSchedule();
+    });
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad HomePage");
-    this.notificationsService.checkSchedule();
   }
 
   verccb()
