@@ -99,10 +99,6 @@
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-telerik-imagepicker" spec="^2.3.2" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
-<<<<<<< HEAD
-    <engine name="android" spec="7.0.0" />
-    <engine name="ios" spec="4.5.5" />
-=======
     <engine name="ios" spec="~4.5.5" />
->>>>>>> 95fd2ad069be4fa2632a5719d1f5ac4828e89d00
+    <engine name="android" spec="7.0.0" />
 </widget>

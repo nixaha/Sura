@@ -68,7 +68,7 @@ export class HotelesPage {
   }
   buscar( event ){
     //const texto = event._value;
-    //this.textoBuscar = event.detail(data.value);
+    //this.textoBuscar = event.detail.value;
     console.log(event);  
      
 }
