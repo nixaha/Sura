@@ -1,8 +1,29 @@
 <ion-header>
-        <ion-navbar color="primary">
-        </ion-navbar>
-      </ion-header>
-      
-      <ion-content padding>
-              <h3 class="titulo">Aerolineas</h3>
-            </ion-content>
+  <ion-navbar color="primary">
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h3 class="titulo">Vuelos</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let vuelos of vuelos | async" >
+        <ion-card class="cardgeneral"> 
+            <ion-card-content class="cardslist">
+            <ion-item>
+            <h3 class="p-card1"><strong>{{vuelos.aerolinea}}</strong></h3>
+            <p><ion-icon class="icotelefono" name="jet"></ion-icon> {{vuelos.destino}}</p>
+            <p><ion-icon class="star" name="podium"></ion-icon> {{vuelos.frecuencia}}</p>
+            <p><ion-icon class="verde" name="time"></ion-icon> {{vuelos.horario}}</p>
+              <!-- <p>{{museo.horarios}}</p> -->
+              <!-- <p>{{museo.costo}}</p>
+          <p>{{museo.direccion}}</p>
+          <p>{{museo.telefono}}</p> -->
+          </ion-item>
+          </ion-card-content>
+          <!-- <button color="danger" ion-button clear [navPush]="museolist" (tap)="detalles(museo)">Ver</button> -->
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

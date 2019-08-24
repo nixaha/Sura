@@ -5,7 +5,7 @@ import { MyApp } from "./app.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core"; // importar clase para que se puedan agregar componentes ionic botones
 
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { PipesModule } from '../pipes/pipes.module';
+// import { PipesModule } from '../pipes/pipes.module';
 
 //Servicios de conexión a firebase y utilerías
 import {
@@ -145,7 +145,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    PipesModule
+    // PipesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
