@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams, App } from "ionic-angular";
 
-import { EventosAdminPage, LogInPage,EliminarEventoPage,EliminarItiPage } from "../../index.paginas";
+import { EventosAdminPage, LogInPage, EliminarItiPage } from "../../index.paginas";
 
 import { MessagesService } from "../../../services/index.services";
 
@@ -15,7 +15,7 @@ export class OpcionesPage {
     public navParams: NavParams,
     private messagesService: MessagesService,
     private app: App
-  ) {}
+  ) { }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad OpcionesPage");
@@ -24,8 +24,7 @@ export class OpcionesPage {
   eventos() {
     this.navCtrl.push(EventosAdminPage);
   }
-  galeria()
-  {
+  galeria() {
     this.navCtrl.push(EliminarItiPage);
   }
 

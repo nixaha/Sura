@@ -12,20 +12,16 @@ page-eventos-com {
 }
 
 .cardunoborde{
-     
-    
     border-left-style: inset;
     border-left-color: #2D88B5;
     border-radius: 2px;
-    border-width: 5px;
+    //border-width: 5px;
     border-left-style: outset;
+    border-width: 4px;
 }
 
 
 .cardunobordedos{
-     
-    
-    
     border-left-style: inset;
     border-left-color: #EFA233;
     border-radius: 2px; 
@@ -54,3 +50,10 @@ ion-segment
 
 }
  
+.btn-map{
+    display: block;
+    float: right;
+    width: 32px;
+    height: 32px; 
+    margin-bottom: 15px
+}

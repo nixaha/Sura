@@ -1,11 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { NavController, NavParams, Button } from 'ionic-angular';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable'; 
 import { Evento } from '../../../shared/models/evento.model';
 import { UserInfo } from '../../../shared/models/user-info';
 import { EventosComPage } from "../../index.paginas"
-import { map } from 'rxjs/operators';
 import { AlertController } from 'ionic-angular';
 
 import { MessagesService, AdminService, LoginService } from '../../../services/index.services';
@@ -18,54 +17,20 @@ import { text } from '@angular/core/src/render3/instructions';
 })
 export class EventosPage {
 
-  // private noticiasCollection: AngularFirestoreCollection<Evento>;
-
-  // eventos: Observable<Evento[]>;
-  // notiDoc: AngularFirestoreDocument<Evento[]>;
-  // eventocom: any = EventosComPage;
-
-  // nombre: string = '';
-  // introduccion: string = '';
-  // imagen: string = '';
-
   public evento = {} as Evento;
   public eventos: Array<Evento>;
   public userInfo: UserInfo;
   public clave: string;
   
   constructor(public navCtrl: NavController,
-    private database: AngularFirestore,
     public navParams: NavParams,
     public alertCtrl: AlertController,
     private messagesService: MessagesService,
     private adminService: AdminService,
     private loginService: LoginService
   ) {
-    this.cargarEventos();
     this.cargarUserInfo();
-
-    // this.noticiasCollection = database.collection<Evento>("eventos");
-    // this.eventos = this.noticiasCollection.snapshotChanges().pipe(
-    //   map(actions => actions.map(action => {
-    //     const data = action.payload.doc.data() as Evento;
-    //     const id = action.payload.doc.id;
-    //     return { id, ...data };
-    //   }))
-    // );
-
-    // this.nombre = this.navParams.get('nombre');
-    // this.introduccion = this.navParams.get('introduccion');
-    // this.imagen = this.navParams.get('foto');
-
-    // if (this.nombre != null) {
-    //   const id = this.database.createId();
-    //   const evento: Evento = { 'nombre': this.nombre, 'introduccion': this.introduccion, 'imagen': '' };
-    //   this.noticiasCollection.doc(id).set(evento);
-    //   this.navCtrl.push(EventosComPage, {
-    //     id: evento
-    //   });
-    // }
-
+    this.cargarEventos();
   }
 
   cargarEventos() {
@@ -96,10 +61,9 @@ export class EventosPage {
     if (!this.registrado(index)) {
       const prompt = this.alertCtrl.create({
         title: 'Ingrese la Clave para Registrarse',
-        //message: "para registrarse",
         inputs: [
           {
-            name: 'Clave',
+            name: 'clave',
             placeholder: 'Clave',
           },
         ],
@@ -157,12 +121,5 @@ export class EventosPage {
       this.navCtrl.push(EventosComPage,{eventoId:this.eventos[index].id});
     }
   }
-
-  //detalles(_evento: Evento){
-  //this.navCtrl.push(EventosComPage, {
-  // id: _evento
-  //})
-  //}
-
 }
 

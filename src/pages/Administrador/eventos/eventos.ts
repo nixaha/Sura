@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { NavController, NavParams } from "ionic-angular";
 
 import { AgregarEventoPage } from "../agregar-evento/agregar-evento";
 import { EditarEventoPage } from "../editar-evento/editar-evento";

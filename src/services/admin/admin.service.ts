@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 
-import { AngularFireAuth } from "angularfire2/auth";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { AngularFireStorage } from "@angular/fire/storage";
 
@@ -20,7 +19,6 @@ export class AdminService {
   private storageEventos = "eventos";
 
   constructor(
-    private angfireAuth: AngularFireAuth,
     private angfirestore: AngularFirestore,
     private angfireStorage: AngularFireStorage
   ) {}

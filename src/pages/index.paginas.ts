@@ -1,5 +1,3 @@
-import { from } from "rxjs/observable/from";
-
 //Login y registro
 export { RegistroPage } from "./Login/registro/registro";
 export { LogInPage } from "./Login/log-in/log-in";

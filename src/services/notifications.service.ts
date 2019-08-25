@@ -20,15 +20,43 @@ export class NotificationsService {
     private angfireStore: AngularFirestore,
     private loginService: LoginService,
     private messageService: MessagesService
-  ) { 
-    platform.ready().then(() => {
-      this.localNotifications.on('click',(notification)=>{
+  ) {
+    this.platform.ready().then(() => {
+      this.localNotifications.on('click', (notification) => {
         console.log(notification)
-      })      
+      })
     });
   }
 
-  pushSetup() {
+  setNotificationRegistry() {
+    const pushObject = this.pushSetup();
+    pushObject.on('registration').subscribe((registration: any) => {
+      const token = registration.registrationId;
+      const devicesRef = this.angfireStore.collection('devices');
+      const docData = {
+        token,
+        userId: this.loginService.getUserId()
+      }
+      return devicesRef.doc(this.loginService.getUserId()).set(docData);
+    });
+    pushObject.on('error').subscribe(error => {
+      console.error('Error with Push plugin', error)
+      this.messageService.showMessage('Error', JSON.stringify(error), []);
+    });
+  }
+
+  setPushNotification() {
+    const pushObject = this.pushSetup();
+    pushObject.on('notification').subscribe((notification: any) => {
+      if (notification.additionalData.foreground) {
+        this.messageService.showMessage('TEST', 'Notification', []);
+      } else {
+        this.messageService.showMessage('TEST', 'Notification', []);
+      }
+    });
+  }
+
+  pushSetup(): PushObject {
     const options: PushOptions = {
       android: {
         senderID: environment.firebaseConfig.messagingSenderId
@@ -39,23 +67,7 @@ export class NotificationsService {
         sound: 'true'
       }
     }
-    const pushObject: PushObject = this.push.init(options);
-
-    pushObject.on('notification').subscribe((notification: any) => { console.log('Received a notification', notification) });
-    pushObject.on('registration').subscribe((registration: any) => {
-      console.log('Device registered', registration)
-      const token = registration.registrationId;
-      const devicesRef = this.angfireStore.collection('devices');
-      const docData = {
-        token,
-        userId: this.loginService.getUserId()
-      }
-      return devicesRef.doc(token).set(docData);
-    });
-    pushObject.on('error').subscribe(error => {
-      console.error('Error with Push plugin', error)
-      this.messageService.showMessage('Error', JSON.stringify(error), []);
-    });
+    return this.push.init(options);
   }
 
   checkSchedule() {
@@ -96,18 +108,13 @@ export class NotificationsService {
 
   scheduleNotification(itinerario) {
     const date = new Date(`${itinerario.fecha}:${itinerario.horaInicio}`);
-    const hours = date.getHours();
-    const hoursFormat = (hours < 10) ? `0${hours}` : `${hours}`;
-    const minutes = date.getMinutes() - 10;
-    const minutesFormat = (minutes < 10) ? `0${minutes}` : `${minutes}`;
-    const scheduledDate = new Date(`${itinerario.fecha}:${hoursFormat}:${minutesFormat}`);
+    const scheduledDate = new Date(date.getTime() - (10 * 60 * 1000));
+
     this.localNotifications.schedule({
       id: 1,//itinerario.id, Math.round(Math.random()*9999+1111);
       title: 'Aviso',
       text: `El itinerario: ${itinerario.nombre} comenzará en diez minutos`,
       at: scheduledDate
-      //data:{}
-      //trigger: { at: scheduledDate }
     });
     this.messageService.showMessage('Scheduled', scheduledDate, [])
     console.log('scheduled at ' + scheduledDate)
