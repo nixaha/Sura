@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, Renderer } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { CCBRegions } from '../../../shared/consts/ccb.region.const';
 
@@ -26,7 +26,6 @@ export class CentroCon {
   public marker = { w: 32, h: 32 };
 
   constructor(
-    private navCtrl: NavController,
     private navParams: NavParams,
     private platform: Platform,
     private renderer: Renderer,

@@ -4,14 +4,14 @@ import {
   RegistroPage,
   RestablecerContraPage,
   TabsPage,
-  OpcionesPage,
-  HomePage
+  OpcionesPage
 } from "../../index.paginas";
 import { User } from "../../../shared/models/user";
 
 import {
   LoginService,
-  MessagesService
+  MessagesService,
+  NotificationsService
 } from "../../../services/index.services";
 
 @Component({
@@ -29,7 +29,8 @@ export class LogInPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private loginService: LoginService,
-    private messagesService: MessagesService
+    private messagesService: MessagesService,
+    private notificationsService: NotificationsService
   ) { }
 
   ionViewDidLoad() {
@@ -70,6 +71,7 @@ export class LogInPage {
 
   checkRole(rol) {
     if (rol === "PARTICIPANTE") {
+      this.notificationsService.setNotificationRegistry();
       this.navCtrl.setRoot(TabsPage);
     } else if (rol === "ADMIN") {
       this.navCtrl.setRoot(OpcionesPage);

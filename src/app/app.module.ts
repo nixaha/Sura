@@ -81,7 +81,6 @@ import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireStorageModule } from "angularfire2/storage";
-import { NgIfContext } from "@angular/common";
 
 import { Camera } from "@ionic-native/camera";
 import { Push } from "@ionic-native/push";

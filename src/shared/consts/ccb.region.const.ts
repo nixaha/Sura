@@ -11,7 +11,7 @@ export const CCBRegions = [
     },
     {
         nombre:'REGIOND',
-        centerX:890,
-        centerY:2616,        
+        centerX:1200,
+        centerY:600,        
     }
 ];

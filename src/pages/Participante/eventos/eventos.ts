@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
 import { Evento } from '../../../shared/models/evento.model';
 import { UserInfo } from '../../../shared/models/user-info';
 import { EventosComPage } from "../../index.paginas"
-import { map } from 'rxjs/operators';
 import { AlertController } from 'ionic-angular';
 
 import { MessagesService, AdminService, LoginService } from '../../../services/index.services';
@@ -24,7 +21,6 @@ export class EventosPage {
 
 
   constructor(public navCtrl: NavController,
-    private database: AngularFirestore,
     public navParams: NavParams,
     public alertCtrl: AlertController,
     private messagesService: MessagesService,

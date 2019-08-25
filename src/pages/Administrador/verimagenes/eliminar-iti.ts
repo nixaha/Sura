@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {Galeria} from "../../../commons/galeria";
 import { AdminService, MessagesService } from '../../../services/index.services';
-import { AgregarEventoPage, EditarEventoPage,EliminarEventoPage } from '../../index.paginas';
+import { EliminarEventoPage } from '../../index.paginas';
 
 @Component({
   selector: 'page-eliminar-iti',

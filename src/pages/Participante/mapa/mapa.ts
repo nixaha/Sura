@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import { NavController } from "ionic-angular";
 
 import { AlertController } from "ionic-angular";
 
@@ -14,8 +13,6 @@ import {
   MessagesService,
   ParticipanteService
 } from "../../../services/index.services";
-
-declare var google;
 
 @Component({
   selector: "page-mapa",
