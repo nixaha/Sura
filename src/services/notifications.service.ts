@@ -50,7 +50,11 @@ export class NotificationsService {
   setPushNotification() {
     const pushObject = this.pushSetup();
     pushObject.on('notification').subscribe((notification: any) => {
-      this.messageService.showMessage('TEST', 'Notification', []);
+      if(notification.additionalData.foreground){
+        this.messageService.showMessage('TEST', 'Notification', []);
+      }else{
+        this.messageService.showMessage('TEST', 'Notification', []);
+      }
     });
   }
 

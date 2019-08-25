@@ -32,6 +32,7 @@ export class HomePage {
     private app: App
   ) {
     platform.ready().then(() => {  
+      this.notificationsService.setPushNotification();
       this.notificationsService.checkSchedule();
     });
   }

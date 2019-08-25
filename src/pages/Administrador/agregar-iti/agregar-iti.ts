@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ChangeDetectorRef } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 
 import {
@@ -9,6 +9,7 @@ import {
 import { Itinerario } from "../../../shared/models/itinerario.model";
 
 import { strings } from "../../../shared/consts/strings.const";
+import { CCBRegions } from '../../../shared/consts/ccb.region.const'
 
 @Component({
   selector: "page-agregar-iti",
@@ -18,21 +19,29 @@ export class AgregarItiPage {
   public itinerario = {} as Itinerario;
   public eventoId: string;
   public horarioValido: boolean;
+  public ccb: boolean;
 
   public tiposIti = strings.registroItinerarioCatalogos.tipos;
+  public ccbRegions = CCBRegions;
   public fechasDisponibles: Array<any>;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private adminService: AdminService,
-    private messagesService: MessagesService
+    private messagesService: MessagesService,
+    private cdRef: ChangeDetectorRef
   ) {
     this.eventoId = this.navParams.get("eventoId");
     this.horarioValido = true;
+    this.ccb = false;
     const fechaInicio = this.navParams.get("fechaInicio");
     const fechaFin = this.navParams.get("fechaFin");
     this.cargarFechasDisponibles(fechaInicio, fechaFin);
+  }
+
+  ngAfterViewChecked() {
+    this.cdRef.detectChanges();
   }
 
   cargarFechasDisponibles(fechaInicio, fechaFin) {
@@ -43,7 +52,7 @@ export class AgregarItiPage {
     const dias = Math.round((fechaFinDias - fechaInicioDias) / dia);
     for (let i = 0; i <= dias; i++) {
       const fechaDisponible = new Date(fechaInicio);
-      fechaDisponible.setUTCDate(fechaDisponible.getUTCDate()+i);
+      fechaDisponible.setUTCDate(fechaDisponible.getUTCDate() + i);
       const dia = fechaDisponible.getUTCDate();
       const mes = fechaDisponible.getUTCMonth() + 1;
       const diaFormat = (dia < 10) ? `0${dia}` : `${dia}`;
@@ -58,6 +67,9 @@ export class AgregarItiPage {
 
   guardar() {
     this.itinerario.eventoId = this.eventoId;
+    if (this.itinerario.ccbRegion) {
+      this.itinerario.lugar = `CCB - ${this.itinerario.ccbRegion}`
+    }
     this.messagesService.showLoadingMessage("Registrando itinerario...");
     this.adminService.createItinerario(this.itinerario).then(
       result => {
@@ -89,6 +101,14 @@ export class AgregarItiPage {
       } else {
         this.horarioValido = true;
       }
+    }
+  }
+
+  setLugar() {
+    if (this.ccb) {
+      this.itinerario.lugar = 'CCB';
+    } else {
+      this.itinerario.lugar = '';
     }
   }
 }
