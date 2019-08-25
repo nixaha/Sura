@@ -60,7 +60,7 @@ export class MapaPage implements OnInit {
     this.ubicaciones = [];
     this.ubicacionesSeleccionadas = [];
     this.marcadoresGroup = null;
-    this.messagesService.showLoadingMessage("Cargando ubicaciones");
+    this.messagesService.showLoadingMessage("Cargando Ubicaciones");
     this.participanteService.getUbicaciones().then(
       result => {
         result.forEach(doc => {
