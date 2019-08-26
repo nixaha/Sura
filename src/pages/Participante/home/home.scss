@@ -11,49 +11,40 @@ body{
     font-size: 28px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
     justify-content:center;
-    padding: 0px !important;
+    // padding: 0px !important;
 
 }
 .ali{ //icono 
-    align-content: center !important; 
-    text-align: center !important;
+    
     font-size: 40px;
-    justify-content:center;
-    background-position: center;
-    padding: 4px;
-    margin-left: 5px;
+    // padding: 4px;
+    
 }
-.textoboton{
-    white-space: normal;
-    max-height: 100%;
-    max-width: 100%;
+.textoboton{ 
     color:black;
     font-size: 12px;
     border-radius: 5px 5px 5px 5px;
     -moz-border-radius: 5px 5px 5px 5px;
     -webkit-border-radius: 5px 5px 5px 5px;
     border: 0px solid #f1e0e0;
- 
-    padding-top: 10px;
-    padding-bottom: 10px;
-    align-content: center;
-    margin: 5px;
-    max-width: 100% !important;    
-    min-width: 100% !important;
+    padding-top: 10px; 
+      
+    max-width: 90% !important;
+    min-width: 90% !important;
+    min-height: 100% !important; 
     max-height: 100% !important;
-    min-height: 100% !important;
-    align-content: center;
+    margin: auto;
     background: rgba(255,255,255,1);
-    background: -moz-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(233,233,231,1) 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(233,233,231,1)));
-    background: -webkit-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(233,233,231,1) 100%);
-    background: -o-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(233,233,231,1) 100%);
-    background: -ms-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(233,233,231,1) 100%);
-    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(233,233,231,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e9e9e7', GradientType=1 );
-    -webkit-box-shadow: 0px 5px 20px -10px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 5px 20px -10px rgba(0,0,0,0.75);
-    box-shadow: 0px 5px 20px -10px rgba(0,0,0,0.75);
+    // background: -moz-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(233,233,231,1) 100%);
+    // background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(233,233,231,1)));
+    // background: -webkit-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(233,233,231,1) 100%);
+    // background: -o-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(233,233,231,1) 100%);
+    // background: -ms-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(233,233,231,1) 100%);
+    // background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(233,233,231,1) 100%);
+    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e9e9e7', GradientType=1 );
+     -webkit-box-shadow: 0px 5px 20px -10px rgba(0,0,0,0.75);
+     -moz-box-shadow: 0px 5px 20px -10px rgba(0,0,0,0.75);
+     box-shadow: 0px 5px 20px -10px rgba(0,0,0,0.75);
 }
 .contentmenu
 {
@@ -62,6 +53,7 @@ body{
 }
 .textoboton:hover
  {
+
 // background: rgba(239,162,51,1);
 // background: -moz-linear-gradient(-45deg, rgba(239,162,51,1) 0%, rgba(255,255,255,1) 0%, rgba(239,162,51,1) 100%);
 // background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(239,162,51,1)), color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(239,162,51,1)));
@@ -96,21 +88,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 .cardgeneral
 {
+    margin: auto;
     max-width: 100% !important;    
     min-width: 100% !important;
-    max-height: 90% !important;
-    min-height: 90% !important;
+    max-height: 100% !important;
+    min-height: 100% !important;
+   
 }
 
 .cardslist
-{
-    width: 90%;
-    height: 65%;
-    padding: 0px;
-    max-width: 90% !important;    
-    min-width: 90% !important;
-    max-height: 65% !important;
-    min-height: 65% !important;
+{ 
+    max-width: 100% !important;    
+    min-width: 100% !important;
+    max-height: 85% !important;
+    min-height: 85% !important;
+    // display: table-row-group;
+    // padding: inherit;
+    /* display: table-cell; */
+    padding: inherit;
+    /* padding: 5%; */
 
 }
 .unaimagen
@@ -213,7 +209,10 @@ text-align: center;
 {
     color: #CE6B01;
 }
-
+.verde
+{
+    color: #51804C;
+}
 
 // primary:    #51804C, //#51804C #2C657B #2D88B5
 // secondary:  #EFA233,

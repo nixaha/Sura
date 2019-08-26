@@ -9,6 +9,7 @@ import {
   AdminService,
   MessagesService
 } from "../../../services/index.services";
+import { CentroCon } from '../ccb/ccb';
 
 @Component({
   selector: 'page-eventos-com',
@@ -82,6 +83,11 @@ export class EventosComPage {
     } else {
       this.filtro = this.itinerarios;
     }
+  }
+
+  ccb(region){
+    console.log(region)
+    this.navCtrl.push(CentroCon,{ccbRegion:region})
   }
 
   ionViewDidLoad() {

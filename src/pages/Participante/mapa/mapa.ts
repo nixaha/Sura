@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import { NavController } from "ionic-angular";
 
 import { AlertController } from "ionic-angular";
 
@@ -14,8 +13,6 @@ import {
   MessagesService,
   ParticipanteService
 } from "../../../services/index.services";
-
-declare var google;
 
 @Component({
   selector: "page-mapa",
@@ -60,7 +57,7 @@ export class MapaPage implements OnInit {
     this.ubicaciones = [];
     this.ubicacionesSeleccionadas = [];
     this.marcadoresGroup = null;
-    this.messagesService.showLoadingMessage("Cargando ubicaciones");
+    this.messagesService.showLoadingMessage("Cargando Ubicaciones");
     this.participanteService.getUbicaciones().then(
       result => {
         result.forEach(doc => {

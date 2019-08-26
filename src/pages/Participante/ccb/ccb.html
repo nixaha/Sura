@@ -4,18 +4,14 @@
 </ion-header>
 
 
-<ion-content padding>
-    <h3 class="titulo">Centro Cultural y de Convenciones Bicentenario</h3>
-    <ion-card>
-        
-        <ion-card-content>
-         
-            <p ALIGN="justify">
-                inserte texto aqui
-            </p>
-           
+<!-- <ion-content padding>
+    <ion-slides class="image-slider">
+        <ion-slide>
+            <img src="assets/imgs/CCB_map.png" imageViewer>
+        </ion-slide>
+    </ion-slides>
+</ion-content> -->
 
-        </ion-card-content>
-    </ion-card>
-
+<ion-content>
+    <canvas #canvas style="overflow-y: hidden" (pan)="dragEvent($event)"></canvas>
 </ion-content>

@@ -51,7 +51,7 @@ export class RegistroPage {
         response => {
           this.loginService.setUserInfo(this.userInfo);
           this.saveInfoUsuario(response.user.refreshToken);
-          this.notificationService.setNotificationRegister();
+          this.notificationService.setNotificationRegistry();
           this.navCtrl.setRoot(TabsPage);
           this.messagesService.hideLoadingMessage();
         }, error => {

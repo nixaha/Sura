@@ -38,18 +38,20 @@ right: -10px;
 }
 .info{
     position: relative;
-    top:0px;
-    left: 10px;
+    top:0px; 
     align-content: center;
     text-align: center;
-    top: -60px;
+    top: -60px; 
+    margin: 3px;
 }
 
 .fb{
-    color: blue;
+    color: #29487d;  
+    width: 5%; 
 }
 
 .in{ 
+    color:white;
     background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), 
     radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), 
     radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), 
@@ -58,7 +60,10 @@ right: -10px;
     radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), 
     radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), 
     linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+    border-radius: 5px;
+     
 }
 .tw{
     color: dodgerblue;
+   
 }

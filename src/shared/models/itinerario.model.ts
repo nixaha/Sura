@@ -9,4 +9,5 @@ export interface Itinerario {
   horaFin: string;
   fecha: string;
   tipo: string;
+  ccbRegion: string;
 }

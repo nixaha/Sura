@@ -21,38 +21,36 @@ export class NotificationsService {
     private loginService: LoginService,
     private messageService: MessagesService
   ) {
-    platform.ready().then(() => {
+    this.platform.ready().then(() => {
       this.localNotifications.on('click', (notification) => {
         console.log(notification)
       })
     });
   }
 
-  setNotificationRegister() {
+  setNotificationRegistry() {
     const pushObject = this.pushSetup();
     pushObject.on('registration').subscribe((registration: any) => {
-      console.log('Device registered', registration)
       const token = registration.registrationId;
       const devicesRef = this.angfireStore.collection('devices');
       const docData = {
         token,
         userId: this.loginService.getUserId()
       }
-      return devicesRef.doc(token).set(docData);
+      return devicesRef.doc(this.loginService.getUserId()).set(docData);
     });
     pushObject.on('error').subscribe(error => {
       console.error('Error with Push plugin', error)
       this.messageService.showMessage('Error', JSON.stringify(error), []);
     });
-
   }
 
   setPushNotification() {
     const pushObject = this.pushSetup();
     pushObject.on('notification').subscribe((notification: any) => {
-      if(notification.additionalData.foreground){
+      if (notification.additionalData.foreground) {
         this.messageService.showMessage('TEST', 'Notification', []);
-      }else{
+      } else {
         this.messageService.showMessage('TEST', 'Notification', []);
       }
     });
@@ -111,7 +109,7 @@ export class NotificationsService {
   scheduleNotification(itinerario) {
     const date = new Date(`${itinerario.fecha}:${itinerario.horaInicio}`);
     const scheduledDate = new Date(date.getTime() - (10 * 60 * 1000));
-    
+
     this.localNotifications.schedule({
       id: 1,//itinerario.id, Math.round(Math.random()*9999+1111);
       title: 'Aviso',
