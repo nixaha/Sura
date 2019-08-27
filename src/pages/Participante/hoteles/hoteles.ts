@@ -66,10 +66,11 @@ export class HotelesPage {
       id: _hotel
     })
   }
-  buscar( event ){
-    //const texto = event._value;
-    //this.textoBuscar = event.detail.value;
-    console.log(event);  
+  buscar(event){
+   // const texto = event._value;
+    //this.textoBuscar = event.detail(data.value);
+   // this.textoBuscar = event.deta.value;
+    console.log(event._value);  
      
 }
 }

@@ -13,28 +13,43 @@ page-eventos-com {
 
 .cardunoborde{
     border-left-style: inset;
-    border-left-color: #C21B80;
+    border-left-color: #2D88B5;
     border-radius: 2px;
+    //border-width: 5px;
+    border-left-style: outset;
     border-width: 4px;
 }
 
 
 .cardunobordedos{
     border-left-style: inset;
-    border-left-color: limegreen;
+    border-left-color: #EFA233;
     border-radius: 2px; 
-    border-width: 4px;
+    border-width: 5px;
+    border-left-style: outset;
 }
 
 .cardunobordetres{
      
     
     border-left-style: inset;
-    border-left-color: yellow;
+    border-left-color: #C21B80;
     border-radius: 2px; 
-    border-width: 4px;
+    border-width: 5px;
+    border-left-style: outset;
 }
 
+:host ::ng-deep .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated
+{
+    background: #2D88B5!important;
+}
+ion-segment
+{
+    background: white;
+    border-style: none;
+
+}
+ 
 .btn-map{
     display: block;
     float: right;

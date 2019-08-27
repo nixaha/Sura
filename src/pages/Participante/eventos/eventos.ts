@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, Input } from '@angular/core';
+import { NavController, NavParams, Button } from 'ionic-angular';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable'; 
 import { Evento } from '../../../shared/models/evento.model';
 import { UserInfo } from '../../../shared/models/user-info';
 import { EventosComPage } from "../../index.paginas"
 import { AlertController } from 'ionic-angular';
 
 import { MessagesService, AdminService, LoginService } from '../../../services/index.services';
+import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
+import { text } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'page-eventos',
@@ -17,9 +21,7 @@ export class EventosPage {
   public eventos: Array<Evento>;
   public userInfo: UserInfo;
   public clave: string;
-
-
-
+  
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
@@ -97,7 +99,7 @@ export class EventosPage {
       this.navCtrl.push(EventosComPage,{eventoId:this.eventos[index].id});
     }
   }
-
+ 
   registrado(index) {
     const eventoId = this.eventos[index].id;
     const eventosRegistrados = this.userInfo.eventosRegistrados;
