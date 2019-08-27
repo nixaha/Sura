@@ -58,12 +58,20 @@ export class EventosPage {
   showPrompt(index) {
     if (!this.registrado(index)) {
       const prompt = this.alertCtrl.create({
-        title: 'Ingrese la Clave para Registrarse',
+        title: 'Ingrese clave y datos adicionales',
         inputs: [
           {
             name: 'clave',
             placeholder: 'Clave',
           },
+          {
+            name: 'tipoSangre',
+            placeholder: 'Tipo de sangre'
+          },
+          {
+            name: 'alergias',
+            placeholder: 'Alergias'
+          }
         ],
         buttons: [
           {
@@ -76,7 +84,10 @@ export class EventosPage {
             text: 'Enviar',
             handler: data => {
               this.clave = data.clave;
+              this.userInfo.tipoSangre = data.tipoSangre;
+              this.userInfo.alergias = data.alergias;
               this.registrarEvento(index);
+              console.log(this.userInfo)
             }
           }
         ]
