@@ -111,16 +111,14 @@ export class NotificationsService {
     const date = new Date(`${itinerario.fecha}:${itinerario.horaInicio}`);
     const scheduledDate = new Date(date.getTime() - (10 * 60 * 1000));
     const now = new Date();
-
-    this.localNotifications.schedule({
-      id: 1,//itinerario.id, Math.round(Math.random()*9999+1111);
-      title: 'Aviso',
-      text: `El itinerario: ${itinerario.nombre} comenzará en diez minutos`,
-      at: scheduledDate
-    });
-    this.messageService.showToastMessage("scheduled at: " + scheduledDate);
     
-    if(scheduledDate <= now) {
+    if(scheduledDate >= now) {
+      this.localNotifications.schedule({
+        id: 1,//itinerario.id, Math.round(Math.random()*9999+1111);
+        title: 'Aviso',
+        text: `El itinerario: ${itinerario.nombre} comenzará en diez minutos`,
+        at: scheduledDate
+      });
     }
 
   }
