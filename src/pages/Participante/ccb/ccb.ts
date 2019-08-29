@@ -23,7 +23,8 @@ export class CentroCon {
   private physicalHeight;
   private region;
   private centerRegion;
-  public marker = { w: 32, h: 32 };
+  private isCentered;
+  private marker = { w: 32, h: 32 };
 
   constructor(
     private navParams: NavParams,
@@ -46,7 +47,7 @@ export class CentroCon {
   }
 
   ionViewDidEnter() {
-    this.drawImages();
+    this.setCenterRegion();
     this.messagesService.hideLoadingMessage();
   }
 
@@ -54,8 +55,6 @@ export class CentroCon {
     this.canvas = this.canvasEl.nativeElement;
     this.physicalWidth = this.platform.width();
     this.physicalHeight = this.platform.height();
-    this.lastX = this.centerRegion.x - this.physicalWidth / 2;
-    this.lastY = this.centerRegion.y - this.physicalHeight / 2;
     this.renderer.setElementAttribute(this.canvas, 'width', this.physicalWidth + '');
     this.renderer.setElementAttribute(this.canvas, 'height', this.physicalHeight + '');
     this.ctx = this.canvas.getContext('2d');
@@ -69,17 +68,32 @@ export class CentroCon {
     this.pointer.setAttribute("src", "../../assets/imgs/pointer.png");
   }
 
+  setCenterRegion() {
+    this.lastX = this.centerRegion.x - this.physicalWidth / 2;
+    this.lastY = this.centerRegion.y - this.physicalHeight / 2;
+    this.isCentered = true;
+    this.drawImages();
+  }
+
   dragEvent(event) {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    if (event.additionalEvent == 'panleft')
+    if (event.additionalEvent == 'panleft'){
       this.lastX += 50 * (event.deltaTime / 1000);
-    if (event.additionalEvent == 'panright')
+      this.isCentered = false;
+    }
+    if (event.additionalEvent == 'panright') {
       this.lastX -= 50 * (event.deltaTime / 1000);
-    if (event.additionalEvent == 'panup')
+      this.isCentered = false;
+    }
+    if (event.additionalEvent == 'panup') {
       this.lastY += 50 * (event.deltaTime / 1000);
-    if (event.additionalEvent == 'pandown')
+      this.isCentered = false;
+    }
+    if (event.additionalEvent == 'pandown') {
       this.lastY -= 50 * (event.deltaTime / 1000);
+      this.isCentered = false;
+    }
 
     if (this.lastX < 0)
       this.lastX = 0;
@@ -99,11 +113,10 @@ export class CentroCon {
   drawImages() {
     this.ctx.drawImage(this.mapa, this.lastX, this.lastY, this.physicalWidth, this.physicalHeight, 0, 0, this.physicalWidth, this.physicalHeight);
 
-    //MARKER
-    if (this.centerRegion.x >= this.lastX - this.physicalWidth && this.centerRegion.x <= this.lastX + this.physicalWidth
-      && this.centerRegion.y >= this.lastY && this.centerRegion.y <= this.lastY + this.physicalHeight)
+    if(this.isCentered) {
       this.ctx.drawImage(this.pointer, this.physicalWidth / 2 - this.marker.w / 2, this.physicalHeight / 2 - this.marker.h / 2,
-        this.marker.w, this.marker.h);
+            this.marker.w, this.marker.h);
+    }
   }
 
 }
