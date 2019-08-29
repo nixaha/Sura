@@ -1,15 +1,11 @@
-import { Component, Input } from '@angular/core';
-import { NavController, NavParams, Button } from 'ionic-angular';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable'; 
+import { Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 import { Evento } from '../../../shared/models/evento.model';
 import { UserInfo } from '../../../shared/models/user-info';
 import { EventosComPage } from "../../index.paginas"
 import { AlertController } from 'ionic-angular';
 
 import { MessagesService, AdminService, LoginService } from '../../../services/index.services';
-import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
-import { text } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'page-eventos',
@@ -60,12 +56,20 @@ export class EventosPage {
   showPrompt(index) {
     if (!this.registrado(index)) {
       const prompt = this.alertCtrl.create({
-        title: 'Ingrese la Clave para Registrarse',
+        title: 'Ingrese clave y datos adicionales',
         inputs: [
           {
             name: 'clave',
             placeholder: 'Clave',
           },
+          {
+            name: 'tipoSangre',
+            placeholder: 'Tipo de sangre'
+          },
+          {
+            name: 'alergias',
+            placeholder: 'Alergias'
+          }
         ],
         buttons: [
           {
@@ -78,7 +82,10 @@ export class EventosPage {
             text: 'Enviar',
             handler: data => {
               this.clave = data.clave;
+              this.userInfo.tipoSangre = data.tipoSangre;
+              this.userInfo.alergias = data.alergias;
               this.registrarEvento(index);
+              console.log(this.userInfo)
             }
           }
         ]

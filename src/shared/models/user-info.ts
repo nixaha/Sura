@@ -3,6 +3,8 @@ export class UserInfo {
         public nombre?: string,
         public estado?: string,
         public rol = 'PARTICIPANTE',
-        public eventosRegistrados = []
+        public eventosRegistrados = [],
+        public alergias?: string,
+        public tipoSangre?: string
     ) { }
 }
