@@ -4,7 +4,7 @@ export class UserInfo {
         public estado?: string,
         public rol = 'PARTICIPANTE',
         public eventosRegistrados = [],
-        public alergias?: string,
-        public tipoSangre?: string
+        public alergias = '',
+        public tipoSangre = ''
     ) { }
 }

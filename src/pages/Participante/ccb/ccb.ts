@@ -24,6 +24,7 @@ export class CentroCon {
   private region;
   private centerRegion;
   private isCentered;
+  private isFullMap;
   private marker = { w: 32, h: 32 };
 
   constructor(
@@ -35,7 +36,7 @@ export class CentroCon {
     this.region = this.navParams.get('ccbRegion');
     const indexRegion = this.ccbRegions.map(r => r.nombre).indexOf(this.region);
     this.centerRegion = { x: this.ccbRegions[indexRegion].centerX, y: this.ccbRegions[indexRegion].centerY };
-    console.log(this.region);
+    this.isFullMap = false;
   }
 
   ionViewWillEnter() {
@@ -72,13 +73,17 @@ export class CentroCon {
     this.lastX = this.centerRegion.x - this.physicalWidth / 2;
     this.lastY = this.centerRegion.y - this.physicalHeight / 2;
     this.isCentered = true;
+    this.isFullMap = false;
+    this.drawImages();
+  }
+
+  setFullMap() {
+    this.isFullMap = true;
     this.drawImages();
   }
 
   dragEvent(event) {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-    if (event.additionalEvent == 'panleft'){
+    if (event.additionalEvent == 'panleft') {
       this.lastX += 50 * (event.deltaTime / 1000);
       this.isCentered = false;
     }
@@ -111,11 +116,41 @@ export class CentroCon {
   }
 
   drawImages() {
-    this.ctx.drawImage(this.mapa, this.lastX, this.lastY, this.physicalWidth, this.physicalHeight, 0, 0, this.physicalWidth, this.physicalHeight);
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    if(this.isCentered) {
-      this.ctx.drawImage(this.pointer, this.physicalWidth / 2 - this.marker.w / 2, this.physicalHeight / 2 - this.marker.h / 2,
-            this.marker.w, this.marker.h);
+    if (this.isFullMap) {
+      const virtualWidth = this.mapa.width;
+      const virtualHeight = this.mapa.height;
+      const virtualAR = this.mapa.width / this.mapa.height;
+      const physicalAR = this.physicalWidth / this.physicalHeight;
+      let scale = 0;
+      let cropX = 0;
+      let cropY = 0;
+      if (physicalAR > virtualAR) {
+        scale = this.physicalHeight / virtualHeight;
+        cropX = (this.physicalWidth - virtualWidth * scale) / 2;
+      } else if (physicalAR < virtualAR) {
+        scale = this.physicalWidth / virtualWidth;
+        cropY = (this.physicalHeight - virtualHeight * scale) / 2;
+      } else {
+        scale = this.physicalWidth / virtualWidth
+      }
+      this.ctx.drawImage(this.mapa, 0, 0, this.mapa.width, this.mapa.height, cropX, cropY,
+        virtualWidth * scale, virtualHeight * scale);
+
+      this.ctx.strokeStyle = "#FF0000";
+
+      console.log(this.centerRegion.x * scale)
+
+      this.ctx.strokeRect(cropX + (this.centerRegion.x * scale - ((25 / 2))), cropY + (this.centerRegion.y * scale - ((25 / 2))),
+        25 , 25);
+    } else {
+      this.ctx.drawImage(this.mapa, this.lastX, this.lastY, this.physicalWidth, this.physicalHeight, 0, 0, this.physicalWidth, this.physicalHeight);
+
+      if (this.isCentered) {
+        this.ctx.drawImage(this.pointer, this.physicalWidth / 2 - this.marker.w / 2, this.physicalHeight / 2 - this.marker.h / 2,
+          this.marker.w, this.marker.h);
+      }
     }
   }
 

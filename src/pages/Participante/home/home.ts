@@ -24,6 +24,8 @@ import { NotificationsService } from '../../../services/index.services';
   templateUrl: "home.html"
 })
 export class HomePage {
+
+  private userName;
   constructor(
     platform: Platform,
     public navCtrl: NavController,
@@ -34,6 +36,11 @@ export class HomePage {
     platform.ready().then(() => {  
       this.notificationsService.setPushNotification();
       this.notificationsService.checkSchedule();
+      const data = localStorage.getItem('data');
+      if(data){
+        this.userName = JSON.parse(data).nombre;
+        console.log(this.userName)        
+      }
     });
   }
 
