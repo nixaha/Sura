@@ -12,8 +12,6 @@
     align-content="center" src="/assets/imgs/logosura.png"></ion-img>
 
     <br/>
-  <ion-list>
-
     <ngForm class="info" #loginForm="ngForm" name="loginForm">
         <ion-item>
             <ion-icon class="iconito1" style="color:#51804C; width: 2px;
@@ -21,20 +19,20 @@
             <ion-label floating>Correo:</ion-label>
             <ion-input name="email" type="text" [(ngModel)]="user.email" required></ion-input>
           </ion-item>
+          <br/>
           <ion-item>
               <ion-icon class="iconito2" style="color:#51804C" name="key" item-left></ion-icon>
               <ion-label floating>Contraseña:</ion-label>
               <ion-input name="pass" type="password" [(ngModel)]="user.password" required></ion-input>
             </ion-item>
       <br/>
-      
-  <div>
-    <button color="primary" ion-button block type="submit" (click)="login()" [disabled]="!loginForm.valid">Iniciar Sesión</button>
+      <br/>
+    <button class="botoncircular" color="primary" ion-button block type="submit" (click)="login()" [disabled]="!loginForm.valid">Iniciar Sesión</button>
+    <br/>
     <button class="tit"  ion-button block clear color="danger" [navPush]="registro">Registrate Aquí</button>
+    
     <button class="tit" ion-button block clear color="danger" [navPush]="olvidar">¿Olvidaste tu Contraseña?</button>
-  </div>
-</ngForm>
-</ion-list>
 
-  
+</ngForm>
+
 </ion-content>

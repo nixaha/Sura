@@ -8,7 +8,7 @@
         <!-- <ion-img class="logo" 
         align-content="center" src="/assets/imgs/logosura.png"></ion-img> -->
             
-        <h3 style="text-align:center">Registrarse</h3>
+        <h3 style="text-align:center">Registrate</h3>
         <br/>
         <br/>
     <ngForm class="info" #regForm="ngForm" name="regForm">
@@ -50,7 +50,7 @@
             </ion-label>
         </ion-item>
         <br>
-        <button class="btnRe" ion-button block color="primary" (click)="register()"
+        <button class="btnRe " ion-button block color="primary" (click)="register()"
             [disabled]="!regForm.valid || user.password2 !== user.password">Registrarse</button>
     </ngForm>
 </ion-content>

@@ -18,7 +18,15 @@
           <ion-card-content class="cardslist">
           <ion-item>
             <h3 class="p-card1">{{hotel.nombre}}</h3>
-            <p class="positions">{{hotel.categoria}}<ion-icon class="star" ios="ios-star" md="md-star"></ion-icon></p>            
+               <div ALIGN="justify" [ngSwitch]="hotel.categoria">
+                  <p *ngSwitchCase="'Categoría especial'" > {{hotel.categoria}} </p>
+              
+                <div *ngSwitchCase="1" > <ion-icon class="star" ios="ios-star" md="md-star"></ion-icon>  </div>
+                <div *ngSwitchCase="2" > <ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon>  </div>
+                <div *ngSwitchCase="3" > <ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon>  </div>
+                <div *ngSwitchCase="4" > <ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon>  </div>
+                <div *ngSwitchCase="5" > <ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon>  </div>  
+            </div>
             <!-- <p>{{hotel.descripcion}}</p> -->
             <!-- <ion-icon class="ver"  ios="ios-add-circle" md="md-add-circle"></ion-icon> -->
             <!-- <p>{{hotel.direccion}}</p>

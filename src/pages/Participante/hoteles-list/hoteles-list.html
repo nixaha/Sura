@@ -16,9 +16,15 @@
         <br/>
         <strong> <ion-icon class="star" ios="ios-star" md="md-star"></ion-icon>
             Categoría:</strong>
-        <p ALIGN="justify">
-            {{hotel.categoria}}
-        </p>
+        <div ALIGN="justify" [ngSwitch]="hotel.categoria">
+             <p *ngSwitchCase="'Categoría especial'" > {{hotel.categoria}} </p>
+            <div *ngSwitchCase="1" > {{hotel.categoria}} <ion-icon class="star" ios="ios-star" md="md-star"></ion-icon>  </div>
+            <div *ngSwitchCase="2" > {{hotel.categoria}} <ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon>  </div>
+            <div *ngSwitchCase="3" > {{hotel.categoria}} <ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon>  </div>
+            <div *ngSwitchCase="4" > {{hotel.categoria}} <ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon>  </div>
+            <div *ngSwitchCase="5" > {{hotel.categoria}} <ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon><ion-icon class="star" ios="ios-star" md="md-star"></ion-icon>  </div>
+  
+        </div>
         <br/>
         <strong><ion-icon class="icodireccion" ios="ios-compass" md="md-compass"></ion-icon> Dirección:</strong>
         <p ALIGN="justify">
