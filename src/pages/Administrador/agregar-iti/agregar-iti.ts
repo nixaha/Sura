@@ -22,7 +22,7 @@ export class AgregarItiPage {
   public ccb: boolean;
 
   public tiposIti = strings.registroItinerarioCatalogos.tipos;
-  public ccbRegions = CCBRegions;
+  public ccbRegions = [];//CCBRegions;
   public fechasDisponibles: Array<any>;
 
   constructor(
@@ -63,12 +63,26 @@ export class AgregarItiPage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad AgregarItiPage");
+    this.messagesService.showLoadingMessage('Cargando regiones CCB');
+    this.adminService.getCcbRegions().then(
+      result=>{
+        result.forEach(doc => {
+          this.ccbRegions.push(doc.data());
+          console.log(doc, doc.data());
+        });
+        this.messagesService.hideLoadingMessage();
+      },error=>{
+        this.messagesService.showMessage('Error','No se cargaron las regiones del CCB',[]);
+      }
+    );
   }
 
   guardar() {
     this.itinerario.eventoId = this.eventoId;
     if (this.itinerario.ccbRegion) {
-      this.itinerario.lugar = `CCB - ${this.itinerario.ccbRegion}`
+      const indexRegion = this.ccbRegions.map(c=>c.id).indexOf(this.itinerario.ccbRegion);
+      const nombreRegion = this.ccbRegions[indexRegion].nombre;
+      this.itinerario.lugar = `CCB - ${nombreRegion}`
     }
     this.messagesService.showLoadingMessage("Registrando itinerario...");
     this.adminService.createItinerario(this.itinerario).then(
@@ -109,6 +123,7 @@ export class AgregarItiPage {
       this.itinerario.lugar = 'CCB';
     } else {
       this.itinerario.lugar = '';
+      this.itinerario.ccbRegion = null;
     }
   }
 }

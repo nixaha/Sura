@@ -1,17 +1,32 @@
 export const CCBRegions = [
     {
-        nombre:'REGIONB',
-        centerX:1703,
-        centerY:2664,        
+        id:'OFA',
+        nombre: 'Oficinas administrativas',
+        centerX: 977,
+        centerY: 717,
     },
     {
-        nombre:'REGIONC',
-        centerX:890,
-        centerY:2616,        
+        id:'AMA',
+        nombre: 'Aula Magna sec. A',
+        centerX: 728,
+        centerY: 465,
     },
     {
-        nombre:'REGIOND',
-        centerX:1200,
-        centerY:600,        
+        id:'AMB',
+        nombre: 'Aula Magna sec. B',
+        centerX: 911,
+        centerY: 465,
+    },
+    {
+        id:'AMC',
+        nombre: 'Aula Magna sec. C',
+        centerX: 1091,
+        centerY: 465,
+    },
+    {
+        id:'REGIONC',
+        nombre: 'Jardín 450',
+        centerX: 1091,
+        centerY: 465,
     }
 ];

@@ -8,7 +8,7 @@ import { Itinerario } from "../../shared/models/itinerario.model";
 
 import { strings } from "../../shared/consts/strings.const";
 import { UploadTask } from "@angular/fire/storage/interfaces";
-/*Galeria*/ 
+/*Galeria*/
 import { Galeria } from "../../commons/galeria";
 
 @Injectable()
@@ -16,12 +16,13 @@ export class AdminService {
   private collectionEventos = "eventos";
   private collectionimagenes = "galerias";
   private collectionItinerarios = "itinerarios";
+  private collectionCcbRegions = "ccbRegions";
   private storageEventos = "eventos";
 
   constructor(
     private angfirestore: AngularFirestore,
     private angfireStorage: AngularFireStorage
-  ) {}
+  ) { }
 
   getEventos(): Promise<any> {
     return this.angfirestore
@@ -83,7 +84,7 @@ export class AdminService {
       .doc(evento.id)
       .delete();
   }
-  
+
   deleteGaleria(evento: Galeria): Promise<any> {
     return this.angfirestore
       .collection(this.collectionimagenes)
@@ -98,7 +99,7 @@ export class AdminService {
       .putString(imgString, "data_url").task;
   }
 
-  
+
   uploadGaleria(image, id): UploadTask {
     const imgString = `data:image/jpeg;base64,${image}`;
     return this.angfireStorage
@@ -131,7 +132,15 @@ export class AdminService {
       .delete()
       .toPromise();
   }
-///////////////////////////Itinerariossssssssssssssssssssssss
+  ///////////////////////////Itinerariossssssssssssssssssssssss
+  getCcbRegions(): Promise<any> {
+    return (
+      this.angfirestore
+      .collection(this.collectionCcbRegions)
+      .get().toPromise()
+    );
+  }
+
   getItinerarios(eventoId): Promise<any> {
     return (
       this.angfirestore

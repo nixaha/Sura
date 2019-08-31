@@ -29,7 +29,7 @@
       <ion-item *ngIf="ccb">
         <ion-label floating color="primary" stacked>Ubicación en CCB</ion-label>
         <ion-select name="region" type="text" [(ngModel)]="itinerario.ccbRegion" required>
-          <ion-option *ngFor="let region of ccbRegions" [value]="region.nombre">{{region.nombre}}</ion-option>
+          <ion-option *ngFor="let region of ccbRegions" [value]="region.id">{{region.nombre}}</ion-option>
         </ion-select>
       </ion-item>
 

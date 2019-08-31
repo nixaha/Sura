@@ -3,7 +3,7 @@ import { NavParams } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { CCBRegions } from '../../../shared/consts/ccb.region.const';
 
-import { MessagesService } from '../../../services/index.services';
+import { MessagesService, ParticipanteService } from '../../../services/index.services';
 
 @Component({
   selector: 'ccb',
@@ -12,7 +12,7 @@ import { MessagesService } from '../../../services/index.services';
 export class CentroCon {
   @ViewChild('canvas') canvasEl: ElementRef;
 
-  private ccbRegions = CCBRegions;
+  //private ccbRegions = CCBRegions;
   private canvas;
   private ctx;
   private mapa;
@@ -23,6 +23,13 @@ export class CentroCon {
   private physicalHeight;
   private region;
   private centerRegion;
+  private virtualWidth;
+  private virtualHeight;
+  private virtualAR;
+  private physicalAR;
+  private scale;
+  private cropX;
+  private cropY;
   private isCentered;
   private isFullMap;
   private marker = { w: 32, h: 32 };
@@ -31,12 +38,16 @@ export class CentroCon {
     private navParams: NavParams,
     private platform: Platform,
     private renderer: Renderer,
-    private messagesService: MessagesService
+    private messagesService: MessagesService,
+    private participanteService: ParticipanteService
   ) {
     this.region = this.navParams.get('ccbRegion');
-    const indexRegion = this.ccbRegions.map(r => r.nombre).indexOf(this.region);
-    this.centerRegion = { x: this.ccbRegions[indexRegion].centerX, y: this.ccbRegions[indexRegion].centerY };
+    // const indexRegion = this.ccbRegions.map(r => r.id).indexOf(this.region);
+    // this.centerRegion = { x: this.ccbRegions[indexRegion].centerX, y: this.ccbRegions[indexRegion].centerY };
     this.isFullMap = false;
+    this.scale = 0;
+    this.cropX = 0;
+    this.cropY = 0;
   }
 
   ionViewWillEnter() {
@@ -48,8 +59,19 @@ export class CentroCon {
   }
 
   ionViewDidEnter() {
-    this.setCenterRegion();
-    this.messagesService.hideLoadingMessage();
+    this.participanteService.getCcbRegion(this.region).then(
+      result=>{
+        console.log(result.docs)
+        result.forEach(doc=>{
+          const data = doc.data();
+          this.centerRegion = { x: data.centerX, y: data.centerY };
+        });
+        this.setCenterRegion();
+        this.messagesService.hideLoadingMessage();
+      },error=>{
+        this.messagesService.showMessage('Error','Error al cargar ubicación',[]);
+      }
+    );
   }
 
   init() {
@@ -78,6 +100,19 @@ export class CentroCon {
   }
 
   setFullMap() {
+    this.virtualWidth = this.mapa.width;
+    this.virtualHeight = this.mapa.height;
+    this.virtualAR = this.mapa.width / this.mapa.height;
+    this.physicalAR = this.physicalWidth / this.physicalHeight;
+    if (this.physicalAR > this.virtualAR) {
+      this.scale = this.physicalHeight / this.virtualHeight;
+      this.cropX = (this.physicalWidth - this.virtualWidth * this.scale) / 2;
+    } else if (this.physicalAR < this.virtualAR) {
+      this.scale = this.physicalWidth / this.virtualWidth;
+      this.cropY = (this.physicalHeight - this.virtualHeight * this.scale) / 2;
+    } else {
+      this.scale = this.physicalWidth / this.virtualWidth
+    }
     this.isFullMap = true;
     this.drawImages();
   }
@@ -119,31 +154,14 @@ export class CentroCon {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     if (this.isFullMap) {
-      const virtualWidth = this.mapa.width;
-      const virtualHeight = this.mapa.height;
-      const virtualAR = this.mapa.width / this.mapa.height;
-      const physicalAR = this.physicalWidth / this.physicalHeight;
-      let scale = 0;
-      let cropX = 0;
-      let cropY = 0;
-      if (physicalAR > virtualAR) {
-        scale = this.physicalHeight / virtualHeight;
-        cropX = (this.physicalWidth - virtualWidth * scale) / 2;
-      } else if (physicalAR < virtualAR) {
-        scale = this.physicalWidth / virtualWidth;
-        cropY = (this.physicalHeight - virtualHeight * scale) / 2;
-      } else {
-        scale = this.physicalWidth / virtualWidth
-      }
-      this.ctx.drawImage(this.mapa, 0, 0, this.mapa.width, this.mapa.height, cropX, cropY,
-        virtualWidth * scale, virtualHeight * scale);
 
-      this.ctx.strokeStyle = "#FF0000";
+      this.ctx.drawImage(this.mapa, 0, 0, this.mapa.width, this.mapa.height, this.cropX, this.cropY,
+        this.virtualWidth * this.scale, this.virtualHeight * this.scale);
 
-      console.log(this.centerRegion.x * scale)
+      this.ctx.drawImage(this.pointer, this.cropX + this.centerRegion.x * this.scale - this.marker.w / 2, 
+        this.cropY + this.centerRegion.y * this.scale - this.marker.h / 2, this.marker.w, this.marker.h);
 
-      this.ctx.strokeRect(cropX + (this.centerRegion.x * scale - ((25 / 2))), cropY + (this.centerRegion.y * scale - ((25 / 2))),
-        25 , 25);
+
     } else {
       this.ctx.drawImage(this.mapa, this.lastX, this.lastY, this.physicalWidth, this.physicalHeight, 0, 0, this.physicalWidth, this.physicalHeight);
 
