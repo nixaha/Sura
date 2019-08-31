@@ -1,25 +1,27 @@
-page-contact {
-
-}
+ 
 .parrafo
 {
     text-align: justify;
-
-
+    font-family: 'Lexend Deca', sans-serif;  
+   
 }
 .sub
 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Lexend Deca', sans-serif;  
     font-size: 16px;
     text-align: justify;
 
 }
 .btnfav{
-position: absolute;
-top:10px;
-right: 0px;
-background-color: #95187E;
-color: white;
+    position: absolute;
+    top:10px;
+    right: 0px;
+    background-color: #95187E;
+    color: white;
+    max-width: 10vh;
+    min-width: 10vh;
+    max-height: 10vh;
+    min-height: 10vh;
 }
 .listfab{
 position: absolute;
@@ -35,14 +37,17 @@ right: -10px;
     height: 150px;
     top: -30px;
     background: white;
+    padding: 5px;
 }
 .info{
+    padding: 10px;
     position: relative;
     top:0px; 
     align-content: center;
     text-align: center;
     top: -60px; 
     margin: 3px;
+    font-family: 'Lexend Deca', sans-serif;  
 }
 
 .fb{
