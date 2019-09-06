@@ -6,6 +6,8 @@ import { Transporte } from '../../../commons/transportes';
 import { map } from 'rxjs/operators';
 import { TransporteListPage } from "../../index.paginas";
 
+import { MessagesService } from '../../../services/index.services'
+
 @Component({
   selector: 'transportes',
   templateUrl: 'transportes.html',                   
@@ -24,6 +26,7 @@ export class TransportesPage {
   
   constructor(public navCtrl: NavController,
     private database: AngularFirestore,
+    private messagesService: MessagesService,
     public navParams: NavParams) {
       this.noticiasCollection = database.collection<Transporte>("transportacion");
       
@@ -34,6 +37,12 @@ export class TransportesPage {
           return { id, ...data };
         }))
      );
+
+     this.transporte.subscribe(
+      result => {
+        this.messagesService.hideLoadingMessage();
+      }
+    )
       this.nombre = this.navParams.get('nombre');
       this.imagen = this.navParams.get('imagen');
       

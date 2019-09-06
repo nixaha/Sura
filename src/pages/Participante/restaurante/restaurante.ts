@@ -6,6 +6,8 @@ import { Restaurante } from '../../../commons/restaurante';
 import{ RestauranteListPage } from "../../index.paginas";
 import { map } from 'rxjs/operators';
 
+import { MessagesService } from '../../../services/index.services'
+
 @Component({
   selector: 'page-restaurante',
   templateUrl: 'restaurante.html',
@@ -37,6 +39,7 @@ export class RestaurantePage {
 
   constructor(public navCtrl: NavController,
     private database: AngularFirestore,
+    private messagesService: MessagesService,
     public navParams: NavParams) {
       this.noticiasCollection = database.collection<Restaurante>("restaurantes");
       
@@ -47,6 +50,12 @@ export class RestaurantePage {
           return { id, ...data };
         }))
      );
+
+     this.restaurantes.subscribe(
+      result => {
+        this.messagesService.hideLoadingMessage();
+      }
+    )
 
       this.nombre = this.navParams.get('nombre');
       this.introduccion = this.navParams.get('introduccion');
