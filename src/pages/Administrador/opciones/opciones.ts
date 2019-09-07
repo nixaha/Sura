@@ -3,7 +3,7 @@ import { NavController, NavParams, App } from "ionic-angular";
 
 import { EventosAdminPage, LogInPage, EliminarItiPage } from "../../index.paginas";
 
-import { MessagesService } from "../../../services/index.services";
+import { MessagesService, LoginService } from "../../../services/index.services";
 
 @Component({
   selector: "page-opciones",
@@ -13,6 +13,7 @@ export class OpcionesPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    private loginService: LoginService,
     private messagesService: MessagesService,
     private app: App
   ) { }
@@ -36,8 +37,14 @@ export class OpcionesPage {
         {
           text: "Aceptar",
           handler: () => {
-            localStorage.clear();
-            this.app.getRootNav().setRoot(LogInPage);
+            this.loginService.logout().then(
+              result=>{
+                localStorage.clear();
+                this.app.getRootNav().setRoot(LogInPage);
+              },error=>{
+                this.messagesService.showMessage('Error', 'Error al cerrar sesión', []);
+              }
+            );
           }
         },
         {

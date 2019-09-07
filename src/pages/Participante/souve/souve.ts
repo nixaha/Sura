@@ -6,6 +6,8 @@ import { Souvenir } from '../../../commons/souvenir';
 import{ SouveListPage } from "../../index.paginas"
 import { map } from 'rxjs/operators';
 
+import { MessagesService } from '../../../services/index.services';
+
 @Component({
   selector: 'page-souve',
   templateUrl: 'souve.html',
@@ -26,6 +28,7 @@ export class SouvePage {
 
   constructor(public navCtrl: NavController,
     private database: AngularFirestore,
+    private messagesService: MessagesService,
     public navParams: NavParams) {
       this.noticiasCollection = database.collection<Souvenir>("souvenirs");
       
@@ -36,6 +39,12 @@ export class SouvePage {
           return { id, ...data };
         }))
      );
+
+     this.souvenirs.subscribe(
+      result => {
+        this.messagesService.hideLoadingMessage();
+      }
+    )
 
       this.nombre = this.navParams.get('nombre');
       this.introduccion = this.navParams.get('introduccion');

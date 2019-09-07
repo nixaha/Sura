@@ -19,6 +19,10 @@ export class LoginService {
     );
   }
 
+  logout() : Promise<any> {
+    return this.angfireAuth.auth.signOut();
+  }
+
   register(user: User): Promise<any> {
     return this.angfireAuth.auth.createUserWithEmailAndPassword(
       user.email,
@@ -43,14 +47,10 @@ export class LoginService {
   }
 
   setUserInfo(user) {
-    this.angfireAuth.auth.onAuthStateChanged(usr => {
-      if (usr) {
-        this.angfireDB.database
-          .ref("Users")
-          .child(usr.uid)
-          .set(user);
-      }
-    });
+    this.angfireDB.database
+      .ref("Users")
+      .child(this.getUserId())
+      .set(user);
   }
 
   getLoginErrorMessage(code): String {

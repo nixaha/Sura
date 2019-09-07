@@ -6,6 +6,8 @@ import { Antro } from '../../../commons/antros';
 import{ AntrosbaresListPage } from "../../index.paginas"
 import { map } from 'rxjs/operators';
 
+import { MessagesService } from '../../../services/messages.service'
+
 @Component({
   selector: 'antros-bares',
   templateUrl: 'antrosbares.html',  
@@ -27,7 +29,11 @@ export class AntrosBaresPage {
 
   constructor(public navCtrl: NavController,
     private database: AngularFirestore,
+    private messagesService: MessagesService,
     public navParams: NavParams) {
+
+      this.messagesService.showLoadingMessage('Cargando información...');
+
       this.noticiasCollection = database.collection<Antro>("antrosbares");
       
       this.antrosbares = this.noticiasCollection.snapshotChanges().pipe(
@@ -38,12 +44,20 @@ export class AntrosBaresPage {
         }))
      );
 
+     this.antrosbares.subscribe(
+      result => {
+        this.messagesService.hideLoadingMessage();
+      }
+    )
+
       this.nombre = this.navParams.get('nombre');
       this.introduccion = this.navParams.get('introduccion');
       this.horario = this.navParams.get('horario'); 
       this.direccion = this.navParams.get('direccion');
       this.telefono = this.navParams.get('telefono');
       this.imagen = this.navParams.get('imagen');
+
+      
 
 
     if(this.nombre != null) {

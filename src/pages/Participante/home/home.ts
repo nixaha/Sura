@@ -12,12 +12,12 @@ import { AntrosBaresPage } from "../antrosbares/antrosbares";
 import { EcoturismoPage } from "../ecoturismo/ecoturismo";
 import { TransportesPage } from "../transportes/transportes";
 import { MessagesService } from "../../../services/messages.service";
-import { LogInPage} from "../../index.paginas";
+import { LogInPage } from "../../index.paginas";
 import { Resposocial } from '../resposocial/resposocial';
 import { Aerolineas } from '../aerolineas/aerolineas';
 import { CentroCon } from '../ccb/ccb';
 
-import { NotificationsService } from '../../../services/index.services';
+import { NotificationsService, LoginService } from '../../../services/index.services';
 
 @Component({
   selector: "page-home",
@@ -29,17 +29,18 @@ export class HomePage {
   constructor(
     platform: Platform,
     public navCtrl: NavController,
+    private loginService: LoginService,
     private messagesService: MessagesService,
     private notificationsService: NotificationsService,
     private app: App
   ) {
-    platform.ready().then(() => {  
+    platform.ready().then(() => {
       this.notificationsService.setPushNotification();
       this.notificationsService.checkSchedule();
       const data = localStorage.getItem('data');
-      if(data){
+      if (data) {
         this.userName = JSON.parse(data).nombre;
-        console.log(this.userName)        
+        console.log(this.userName)
       }
     });
   }
@@ -48,16 +49,13 @@ export class HomePage {
     console.log("ionViewDidLoad HomePage");
   }
 
-  verccb()
-  {
+  verccb() {
     this.navCtrl.push(CentroCon);
   }
-  veraerolineas()
-  {
+  veraerolineas() {
     this.navCtrl.push(Aerolineas);
   }
-  versocial()
-  {
+  versocial() {
     this.navCtrl.push(Resposocial);
   }
   vereventoss() {
@@ -75,12 +73,12 @@ export class HomePage {
   antrosbares() {
     this.navCtrl.push(AntrosBaresPage);
   }
-   ecoturismo() {
-   this.navCtrl.push(EcoturismoPage);
+  ecoturismo() {
+    this.navCtrl.push(EcoturismoPage);
   }
-   transportes() {
+  transportes() {
     this.navCtrl.push(TransportesPage);
-   }
+  }
 
   souvenirs() {
     this.navCtrl.push(SouvePage);
@@ -102,8 +100,14 @@ export class HomePage {
         {
           text: "Aceptar",
           handler: () => {
-            localStorage.clear();
-            this.app.getRootNav().setRoot(LogInPage);
+            this.loginService.logout().then(
+              result => {
+                localStorage.clear();
+                this.app.getRootNav().setRoot(LogInPage);
+              }, error => {
+                this.messagesService.showMessage('Error', 'Error al cerrar sesión', []);
+              }
+            );
           }
         },
         {
@@ -112,5 +116,5 @@ export class HomePage {
       ]
     );
   }
-  
+
 }

@@ -30,10 +30,10 @@
                 <!-- <ion-icon color="danger" ios="ios-pricetag" md="md-pricetag"></ion-icon> -->
                 <h2><strong> {{ iti.nombre }}</strong></h2>
                 <br />
-                <p>
+                <!-- <p>
                     <ion-icon class="icotelefono" ios="ios-person" md="md-person" color="primary"></ion-icon>
                     {{(iti.tipo==='ACADEMICO')?'Ponente: ' + iti.ponente:'' }}
-                </p>
+                </p> -->
                 <ion-label>
                     <ion-icon ios="ios-time" md="md-time" color="primary"></ion-icon> {{iti.horaInicio}} -
                     {{iti.horaFin}} hrs
@@ -41,6 +41,10 @@
                 <ion-label>
                     <ion-icon class="icocosto" ios="ios-calendar" md="md-calendar" color="primary"></ion-icon>
                     {{iti.fecha}}
+                </ion-label>
+                <ion-label>
+                    <ion-icon ios="ios-compass" md="md-compass" color="date"></ion-icon>
+                    {{iti.lugar}}
                 </ion-label>
                 <p color="date"> {{ iti.descripcion }}</p>
                 <ion-button color="azul" style="border-radius:25px;" class="btn-map" ion-button (click)="ccb(iti.ccbRegion)" *ngIf="iti.ccbRegion">
@@ -59,7 +63,7 @@
                 <br />
                 <p>
                     <ion-icon class="icotelefono" ios="ios-person" md="md-person" color="primary"></ion-icon>
-                    {{(iti.tipo==='ACADEMICO')?'Ponente: ' + iti.ponente:'' }}
+                    Ponente: {{iti.ponente}}
                 </p>
                 <ion-label>
                     <ion-icon ios="ios-time" md="md-time" color="primary"></ion-icon> {{iti.horaInicio}} -
@@ -68,6 +72,10 @@
                 <ion-label>
                     <ion-icon class="icocosto" ios="ios-calendar" md="md-calendar" color="primary"></ion-icon>
                     {{iti.fecha}}
+                </ion-label>
+                <ion-label>
+                    <ion-icon ios="ios-compass" md="md-compass" color="date"></ion-icon>
+                    {{iti.lugar}}
                 </ion-label>
                 <p color="date"> {{ iti.descripcion }}</p>
                 <ion-button style="border-radius:25px;" color="azul" class="btn-map" ion-button (click)="ccb(iti.ccbRegion)" *ngIf="iti.ccbRegion">
@@ -84,10 +92,6 @@
                 </div>
                 <h2><strong> {{ iti.nombre }}</strong></h2>
                 <br />
-                <p>
-                    <ion-icon class="icotelefono" ios="ios-person" md="md-person" color="primary"></ion-icon>
-                    {{(iti.tipo==='ACADEMICO')?'Ponente: ' + iti.ponente:'' }}
-                </p>
                 <ion-label>
                     <ion-icon ios="ios-time" md="md-time" color="primary"></ion-icon> {{iti.horaInicio}} -
                     {{iti.horaFin}} hrs
@@ -95,6 +99,10 @@
                 <ion-label>
                     <ion-icon class="icocosto" ios="ios-calendar" md="md-calendar" color="primary"></ion-icon>
                     {{iti.fecha}}
+                </ion-label>
+                <ion-label>
+                    <ion-icon ios="ios-compass" md="md-compass" color="date"></ion-icon>
+                    {{iti.lugar}}
                 </ion-label>
                 <p color="date"> {{ iti.descripcion }}</p>
                 <ion-button color="azul" style="border-radius:25px;" class="btn-map" ion-button (click)="ccb(iti.ccbRegion)" *ngIf="iti.ccbRegion">

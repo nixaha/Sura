@@ -6,6 +6,8 @@ import { Quema } from '../../../commons/quema';
 import{ QmasvisitarListPage } from "../../index.paginas"
 import { map } from 'rxjs/operators';
 
+import { MessagesService } from '../../../services/index.services'
+
 @Component({
   selector: 'page-qmasvisitar',
   templateUrl: 'qmasvisitar.html',
@@ -28,6 +30,7 @@ export class QmasvisitarPage {
 
   constructor(public navCtrl: NavController,
     private database: AngularFirestore,
+    private messagesService: MessagesService,
     public navParams: NavParams) {
       this.noticiasCollection = database.collection<Quema>("quemas");
       
@@ -38,6 +41,12 @@ export class QmasvisitarPage {
           return { id, ...data };
         }))
      );
+
+     this.quemas.subscribe(
+      result => {
+        this.messagesService.hideLoadingMessage();
+      }
+    )
 
       this.nombre = this.navParams.get('nombre');
       this.introduccion = this.navParams.get('introduccion');

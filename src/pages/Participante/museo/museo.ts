@@ -6,6 +6,8 @@ import { Museo } from '../../../commons/museo';
 import{ MuseoListPage } from "../../index.paginas";
 import { map } from 'rxjs/operators';
 
+import { MessagesService } from '../../../services/index.services';
+
 @Component({
   selector: 'page-museo',
   templateUrl: 'museo.html',                   
@@ -29,7 +31,11 @@ export class MuseoPage {
 
   constructor(public navCtrl: NavController,
     private database: AngularFirestore,
+    private messagesService: MessagesService,
     public navParams: NavParams) {
+
+      this.messagesService.showLoadingMessage('Cargando información...')
+
       this.noticiasCollection = database.collection<Museo>("museos");
       console.log(navParams+'museos llega a museo ts'+ this.noticiasCollection);
       this.museos = this.noticiasCollection.snapshotChanges().pipe(
@@ -37,11 +43,15 @@ export class MuseoPage {
           const data = action.payload.doc.data() as Museo;
           const id = action.payload.doc.id;
           return { id, ...data };
-        }),
-               
-        
+        })
         )
      );
+
+     this.museos.subscribe(
+      result => {
+        this.messagesService.hideLoadingMessage();
+      }
+    )
 
       this.nombre = this.navParams.get('nombre');
       this.descripcion = this.navParams.get('descripcion');
@@ -50,6 +60,7 @@ export class MuseoPage {
       this.direccion = this.navParams.get('direccion');
       this.telefono = this.navParams.get('telefono');
       this.foto = this.navParams.get('foto');
+
      // console.log(this.navParams.get('foto'));
 
     if(this.nombre != null) {

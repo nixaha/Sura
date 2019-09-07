@@ -6,6 +6,8 @@ import { Ecoturismo } from '../../../commons/ecoturismo';
 import{ EcoturismoListPage } from "../../index.paginas";
 import { map } from 'rxjs/operators';
 
+import { MessagesService } from '../../../services/index.services'
+
 @Component({
   selector: 'page-ecoturismo',
   templateUrl: 'ecoturismo.html',                   
@@ -28,7 +30,11 @@ export class EcoturismoPage {
 
   constructor(public navCtrl: NavController,
     private database: AngularFirestore,
+    private messagesService: MessagesService,
     public navParams: NavParams) {
+
+      this.messagesService.showLoadingMessage('Cargando información...');
+
       this.noticiasCollection = database.collection<Ecoturismo>("ecoturismo");
      // console.log(navParams+'museos llega a museo ts'+ this.noticiasCollection);
       this.ecoturismo = this.noticiasCollection.snapshotChanges().pipe(
@@ -36,11 +42,14 @@ export class EcoturismoPage {
           const data = action.payload.doc.data() as Ecoturismo;
           const id = action.payload.doc.id;
           return { id, ...data };
-        }),
-               
-        
-        )
+        }))
      );
+
+     this.ecoturismo.subscribe(
+      result => {
+        this.messagesService.hideLoadingMessage();
+      }
+    )
 
       this.nombre = this.navParams.get('nombre');
       this.ubicacion = this.navParams.get('ubicacion');

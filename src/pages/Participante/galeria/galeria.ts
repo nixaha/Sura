@@ -7,6 +7,8 @@ import{ GaleriaListPage } from "../../index.paginas"
 import { map } from 'rxjs/operators';
 import { AlertController } from 'ionic-angular';
 
+import { MessagesService } from '../../../services/index.services'
+
 @Component({
   selector: 'page-galeria',
   templateUrl: 'galeria.html',
@@ -28,7 +30,11 @@ export class GaleriaPage {
   constructor(public navCtrl: NavController,
     private database: AngularFirestore,
     public navParams: NavParams,
+    private messagesService: MessagesService,
     public alertCtrl: AlertController) {
+
+      this.messagesService.showLoadingMessage('Cargando información...');
+
       this.noticiasCollection = database.collection<Galeria>("galerias");
       
       this.galerias = this.noticiasCollection.snapshotChanges().pipe(
@@ -44,6 +50,8 @@ export class GaleriaPage {
       this.descripcion = this.navParams.get('descripcion');
       this.imagenId = this.navParams.get('imagenId');
       this.imagenUrl = this.navParams.get('imagenUrl');
+
+      this.messagesService.hideLoadingMessage();
 
     if(this.nombre != null) {
         const id = this.database.createId(); 

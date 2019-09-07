@@ -149,6 +149,9 @@ export class MapaPage implements OnInit {
     if (this.gpsActivado) {
       this.geolocation.getCurrentPosition().then(
         response => {
+          if(this.marcadorUbicacion){
+            this.map.removeLayer(this.marcadorUbicacion);
+          }
           this.marcadorUbicacion = L.marker([
             response.coords.latitude,
             response.coords.longitude

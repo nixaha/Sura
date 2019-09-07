@@ -39,6 +39,7 @@ export class EliminarEventoPage {
     this.camera.getPicture(options).then(
       result => {
         this.image = result;
+        //this.getImagenUrl();
         this.messagesService.hideLoadingMessage();
       },
       error => {
@@ -46,6 +47,25 @@ export class EliminarEventoPage {
         this.messagesService.hideLoadingMessage();
       }
     );
+  }
+
+  guardarImagen() {
+    this.galerias.imagenId = this.adminService.generateId();
+    this.adminService.uploadImage(this.image, this.galerias.imagenId).then(
+      result => {
+        this.buscarImgUrl();
+      },
+      error => {
+        this.messagesService.showMessage("Error", "No se pudo guardar imagen", [
+          "Aceptar"
+        ]);
+      }
+    );
+  }
+
+  buscarImgUrl() {
+    this.messagesService.showLoadingMessage("Registrando evento...");
+    this.getImagenUrl();
   }
 
   
@@ -59,11 +79,13 @@ export class EliminarEventoPage {
         this.messagesService.showMessage("Error", "No se pudo guardar imagen", [
           "Aceptar"
         ]);
+        this.messagesService.hideLoadingMessage();
       }
     );
   }
   
   creategaleria() {
+    console.log(this.galerias)
     this.adminService.creategaleria(this.galerias).then(
       result => {
         this.messagesService.hideLoadingMessage();

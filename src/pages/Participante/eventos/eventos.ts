@@ -56,7 +56,8 @@ export class EventosPage {
   showPrompt(index) {
     if (!this.registrado(index)) {
       const prompt = this.alertCtrl.create({
-        title: 'Ingrese clave y datos adicionales',
+        title: 'Ingresar clave y datos adicionales',
+        message: '*Por seguridad, agregar los datos: tipo de sangre y alergias',
         inputs: [
           {
             name: 'clave',
@@ -68,7 +69,7 @@ export class EventosPage {
           },
           {
             name: 'alergias',
-            placeholder: 'Alergias'
+            placeholder: 'Alergias (alimento y/o medicamento)'
           }
         ],
         buttons: [
