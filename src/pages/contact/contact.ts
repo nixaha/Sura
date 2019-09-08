@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { FabContainer } from 'ionic-angular';
 
 @Component({
   selector: 'page-contact',
@@ -8,10 +9,17 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 })
 export class ContactPage {
 
+  @ViewChild('fabion')fab : FabContainer
+
   constructor(public navCtrl: NavController, private iab: InAppBrowser) {
 
   }
 
+  ionViewDidEnter()
+  {
+    this.fab.toggleList();
+
+  }
   browser1(){
   this.iab.create('http://www.facebook.com/surameetingplanner/?ti=as');
 }

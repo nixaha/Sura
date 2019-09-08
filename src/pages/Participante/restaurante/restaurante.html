@@ -1,3 +1,22 @@
+<style>
+  .ubereats
+  {
+   
+    width: 20%;
+    margin: 1px 120px;
+    height: 8%;
+  }
+  .ubereats2
+  {
+    border-radius: 10px;
+    display: inline-block;
+    min-width: 30px;
+    min-height: 30px;
+    background: #eee;
+    contain: strict;
+
+  }
+</style>
 <ion-header>
   <ion-navbar color="primary">
       <!-- <ion-buttons end>
@@ -10,7 +29,26 @@
 
 <ion-content>
   <h3 class="titulo">Restaurantes y Cafeterías</h3>
-  <h6 style="text-align: center"> Puedes pedir por <a href="https://www.ubereats.com/es-MX/">Uber Eats</a></h6>
+  <div class="row">  
+  <div class="col ">
+      <!-- <h6 style="text-align: center"> Puedes pedir por </h6>  -->
+      
+      <a  class="ubereats" href="https://www.ubereats.com/es-MX/">
+        <ion-img class="ubereats2" src="/assets/imgs/uberaets.png"></ion-img></a> 
+  </div>
+<!--    
+  <ion-item>
+    <ion-label>Selecciona Categoría</ion-label>
+    <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+      <ion-select-option value="brown">Comida Italiana</ion-select-option>
+      <ion-select-option value="blonde">Blonde</ion-select-option>
+      <ion-select-option value="black">Black</ion-select-option>
+      <ion-select-option value="red">Red</ion-select-option>
+    </ion-select>
+  </ion-item> -->
+ 
+  </div>
+ 
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let restaurante of restaurantes | async" col-6>

@@ -37,11 +37,11 @@
         <ion-label class="titulo" font-weight="bold">
             ¡Contáctanos!
         </ion-label>
-        <ion-fab right bottom >
-            <button ion-fab color="light" class="btnfav">
+        <ion-fab #fabion activated="true"  right bottom>
+            <button ion-fab show="true" color="light"  class="btnfav">
                 <ion-icon name="arrow"></ion-icon>
             </button>
-            <ion-fab-list side="left" class="listfab">
+            <ion-fab-list activated="true" side="left" class="listfab">
                 
                 <button ion-fab (click)="browser1()">
                     <ion-icon class="fb" name="logo-facebook"></ion-icon>
@@ -55,4 +55,16 @@
             </ion-fab-list>
         </ion-fab>
     </div>
+    
+    <hr/>
+    <br/>
+    <br/>
+    <div class="info">
+    <ion-label>Contactos de Emergencia</ion-label>
+    <p><strong>Emergencias: </strong>066</p>
+    <p><strong>Cruz Roja: </strong>(618) 817 34 44 - (618) 817 35 35</p>
+    <p><strong>Bomberos: </strong>(618) 814 45 55</p>
+    <p><strong>Incendios Forestales: </strong>(618) 825 21 37</p>
+    <p><strong>Seguridad al turista: </strong>078 o 01 800 006 88 39</p>
+</div>
 </ion-content>

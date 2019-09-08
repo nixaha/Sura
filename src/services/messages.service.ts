@@ -37,7 +37,11 @@ export class MessagesService {
     }
 
     hideLoadingMessage(){
-        this.loader.dismiss();    
+        if(this.loader)
+        {
+            this.loader.dismiss(); 
+        }
+           
     }
 
 }
