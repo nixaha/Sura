@@ -60,7 +60,8 @@ import {
   // EcoListPage,
   AgregarItiPage,
   EditarItiPage,
-  EliminarItiPage
+  EliminarItiPage,
+  TouroperadoresPage
 } from "../pages/index.paginas";
 
 const config = {
@@ -130,7 +131,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     TransporteListPage,
     Resposocial,
     Aerolineas,
-    CentroCon
+    CentroCon,
+    TouroperadoresPage
     // AntrosListPage,
     // EcoListPage
   ],
@@ -192,7 +194,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     TransporteListPage,
     Resposocial,
     Aerolineas,
-    CentroCon
+    CentroCon,
+    TouroperadoresPage
     // AntrosListPage,
     // EcoListPage,
   ],

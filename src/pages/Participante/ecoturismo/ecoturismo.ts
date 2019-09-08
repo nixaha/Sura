@@ -6,6 +6,7 @@ import { Ecoturismo } from '../../../commons/ecoturismo';
 import{ EcoturismoListPage } from "../../index.paginas";
 import { map } from 'rxjs/operators';
 
+import { TouroperadoresPage } from '../../index.paginas';
 import { MessagesService } from '../../../services/index.services'
 
 @Component({
@@ -72,5 +73,9 @@ export class EcoturismoPage {
  
     })
 
+  }
+
+  tourOperadores() {
+    this.navCtrl.push(TouroperadoresPage);
   }
 }

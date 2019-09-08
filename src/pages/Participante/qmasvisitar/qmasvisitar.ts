@@ -32,6 +32,9 @@ export class QmasvisitarPage {
     private database: AngularFirestore,
     private messagesService: MessagesService,
     public navParams: NavParams) {
+
+      this.messagesService.showLoadingMessage('Cargando información...')
+      
       this.noticiasCollection = database.collection<Quema>("quemas");
       
       this.quemas = this.noticiasCollection.snapshotChanges().pipe(

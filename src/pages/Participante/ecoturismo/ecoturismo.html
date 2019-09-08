@@ -11,19 +11,33 @@
     <ion-row>
       <ion-col *ngFor="let ecoturismo of ecoturismo | async" col-6>
         <ion-card class="cardgeneral" (tap)="detalles(ecoturismo)">
-            <img class="unaimagen" src="{{ecoturismo.imagen}}">
-            <ion-card-content class="cardslist">
-          <ion-item>
-           
-            <h3 class="p-card1">{{ecoturismo.nombre}}</h3>
-            <!-- <p>{{ecoturismo.actividades}}</p>
+          <img class="unaimagen" src="{{ecoturismo.imagen}}">
+          <ion-card-content class="cardslist">
+            <ion-item>
+
+              <h3 class="p-card1">{{ecoturismo.nombre}}</h3>
+              <!-- <p>{{ecoturismo.actividades}}</p>
                   <p>{{ecoturismo.ubicacion}}</p> -->
 
 
-            <!-- <button color="danger" ion-button clear [navPush]="ecolist" (tap)="detalles(ecoturismo)">Ver</button> -->
-          </ion-item>
+              <!-- <button color="danger" ion-button clear [navPush]="ecolist" (tap)="detalles(ecoturismo)">Ver</button> -->
+            </ion-item>
           </ion-card-content>
 
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card class="cardgeneral" (tap)="tourOperadores()">
+          <img class="unaimagen" src="https://firebasestorage.googleapis.com/v0/b/suraapp-e18e3.appspot.com/o/ecoturismo%2Ftouroperadores.png?alt=media&token=51027fe1-b0e6-462c-8ba2-4284d2c00289">
+          <ion-card-content class="cardslist">
+            <ion-item>
+              <h3 class="p-card1">Tour operadores</h3>
+              <!-- <p>{{ecoturismo.actividades}}</p>
+                    <p>{{ecoturismo.ubicacion}}</p> -->
+              <!-- <button color="danger" ion-button clear [navPush]="ecolist" (tap)="detalles(ecoturismo)">Ver</button> -->
+            </ion-item>
+          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>

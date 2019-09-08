@@ -51,7 +51,7 @@ export class EliminarEventoPage {
 
   guardarImagen() {
     this.galerias.imagenId = this.adminService.generateId();
-    this.adminService.uploadImage(this.image, this.galerias.imagenId).then(
+    this.adminService.uploadGaleria(this.image, this.galerias.imagenId).then(
       result => {
         this.buscarImgUrl();
       },
@@ -64,13 +64,13 @@ export class EliminarEventoPage {
   }
 
   buscarImgUrl() {
-    this.messagesService.showLoadingMessage("Registrando evento...");
+    this.messagesService.showLoadingMessage("Registrando...");
     this.getImagenUrl();
   }
 
   
   getImagenUrl() {
-    this.adminService.getImageUrl(this.galerias.imagenId).then(
+    this.adminService.getImageUrlGaleria(this.galerias.imagenId).then(
       result => {
         this.galerias.imagenUrl = result;
         this.creategaleria();

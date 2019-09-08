@@ -19,6 +19,7 @@ export class EliminarItiPage {
   ) {}
 
   cargarEventos() {
+    console.log('entra a cargar eventos')
     this.galeria = [];
     this.messagesService.showLoadingMessage("Cargando Galeria...");
     this.adminService.getImagen().then(
@@ -91,7 +92,7 @@ export class EliminarItiPage {
   }
 
   eliminarImagen(index) {
-    this.adminService.deleteImage(this.galeria[index].imagenId).then(
+    this.adminService.deleteImageGaleria(this.galeria[index].imagenId).then(
       result => {
         this.eliminarEvento(index);
       },

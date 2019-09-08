@@ -18,6 +18,7 @@ export class AdminService {
   private collectionItinerarios = "itinerarios";
   private collectionCcbRegions = "ccbRegions";
   private storageEventos = "eventos";
+  private storageGaleria = "galeria";
 
   constructor(
     private angfirestore: AngularFirestore,
@@ -35,13 +36,14 @@ export class AdminService {
   getImagen(): Promise<any> {
     return this.angfirestore
       .collection(this.collectionimagenes)
-      .ref.orderBy("fechaInicio") //.get()
-      .get();
-    //.toPromise();
+      .get()
+      .toPromise();
   }
+
   generateId(): string {
     return this.angfirestore.createId();
   }
+  
   generateIdImagen(): string {
     return this.angfirestore.createId();
   }
@@ -103,7 +105,7 @@ export class AdminService {
   uploadGaleria(image, id): UploadTask {
     const imgString = `data:image/jpeg;base64,${image}`;
     return this.angfireStorage
-      .ref(`${this.storageEventos}/${id}`)
+      .ref(`${this.storageGaleria}/${id}`)
       .putString(imgString, "data_url").task;
   }
 
@@ -115,7 +117,7 @@ export class AdminService {
   }
   getImageUrlGaleria(id): Promise<any> {
     return this.angfireStorage
-      .ref(`${this.storageEventos}/${id}`)
+      .ref(`${this.storageGaleria}/${id}`)
       .getDownloadURL()
       .toPromise();
   }
@@ -128,7 +130,7 @@ export class AdminService {
   }
   deleteImageGaleria(id): Promise<any> {
     return this.angfireStorage
-      .ref(`${this.storageEventos}/${id}`)
+      .ref(`${this.storageGaleria}/${id}`)
       .delete()
       .toPromise();
   }
