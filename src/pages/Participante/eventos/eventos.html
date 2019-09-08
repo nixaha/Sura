@@ -22,7 +22,11 @@
           <ion-item>
             <h2 class="p-card1">{{evt.nombre}}</h2>
             <p class="p-card">{{evt.descripcion}}</p>
-            <button class="p-card" color="azul" ion-button  [navPush]="eventocom"
+            <button class="p-card" color="azul" ion-button style=" color: #fff;
+            border-radius: 60px;
+            box-shadow: rgba(0,0,0,0.5) 0px 1px 5px 0px;
+             "  
+             [navPush]="eventocom"
               (tap)="showPrompt(i)">{{(registrado(i))?'Ver Itinerario':'Registrar'}}</button>
           </ion-item>
         </ion-card-content>

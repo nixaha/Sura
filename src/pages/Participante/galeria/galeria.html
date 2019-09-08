@@ -4,7 +4,7 @@
 </ion-header>
 
 <ion-content>
-      <h3 class="titulo">Galeria</h3>
+      <h3 class="titulo">Galería</h3>
       <ion-row>
       <ion-col *ngFor="let galerias of galerias | async" col-6>
             
@@ -13,7 +13,7 @@
                   <img class="unaimagen" src="{{galerias.imagenUrl}}">
                   <ion-card-content class="cardslist">
                         <ion-item>
-                              <h2 style="text-align:center;">{{galerias.nombre}}</h2>
+                              <h6 style="text-align:center; white-space: normal;">{{galerias.nombre}}</h6>
                         </ion-item>
                   </ion-card-content>
             </ion-card>
