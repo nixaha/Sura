@@ -57,7 +57,7 @@ export class EventosPage {
     if (!this.registrado(index)) {
       const prompt = this.alertCtrl.create({
         title: 'Ingresar clave y datos adicionales',
-        message: '*Por seguridad, agregar los datos: tipo de sangre y alergias',
+        message: '*Por tu seguridad en el destino proporciona los siguientes datos',
         inputs: [
           {
             name: 'clave',
