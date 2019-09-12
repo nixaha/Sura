@@ -8,10 +8,14 @@ page-eventos {
     //     font-size: 45px;
     // }
     .p-card {
+        
         white-space: normal;
-        max-height: 75px;
+        max-height: initial;
         overflow-y: hidden;
-        border-radius: 20px;
+        text-align: justify;
+
+
+        // border-radius: 20px;
       }
 
     //   img {
