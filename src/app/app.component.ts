@@ -18,7 +18,8 @@ export class MyApp {
     splashScreen: SplashScreen
   ) {
     platform.ready().then(() => {
-      this.checkSession();
+      this.rootPage = TabsPage;
+      // this.checkSession();
       statusBar.styleDefault();
       splashScreen.hide();
     });
