@@ -7,6 +7,7 @@ import { HomePage } from '../Participante/home/home';
 import { App } from "ionic-angular";
 import { LogInPage } from '../Login/log-in/log-in';
 import { MessagesService, LoginService } from '../../services/index.services';
+import { EventosPage } from '../Participante/eventos/eventos';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -36,7 +37,8 @@ export class TabsPage {
             this.loginService.logout().then(
               result => {
                 localStorage.clear();
-                this.app.getRootNav().setRoot(LogInPage);
+                this.app.getRootNav().setRoot(TabsPage);
+                // this.app.getRootNav().setRoot(LogInPage);
               }, error => {
                 this.messagesService.showMessage('Error', 'Error al cerrar sesión', []);
               }

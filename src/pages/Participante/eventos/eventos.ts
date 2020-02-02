@@ -6,6 +6,8 @@ import { EventosComPage } from "../../index.paginas"
 import { AlertController } from 'ionic-angular';
 
 import { MessagesService, AdminService, LoginService } from '../../../services/index.services';
+import { LogInPage } from '../../Login/log-in/log-in';
+import { OpcionesPage } from '../../index.paginas';
 
 @Component({
   selector: 'page-eventos',
@@ -17,7 +19,7 @@ export class EventosPage {
   public eventos: Array<Evento>;
   public userInfo: UserInfo;
   public clave: string;
-  
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
@@ -25,8 +27,28 @@ export class EventosPage {
     private adminService: AdminService,
     private loginService: LoginService
   ) {
-    this.cargarUserInfo();
-    this.cargarEventos();
+    this.checkSession();
+    // this.cargarUserInfo();
+    // this.cargarEventos();
+  }
+
+  //iOS
+  checkSession() {
+    const data = JSON.parse(localStorage.getItem("data"));
+    if (data) {
+      this.checkRole(data.rol);
+    } else {
+      this.navCtrl.push(LogInPage);
+    }
+  }
+
+  checkRole(rol) {
+    if (rol === "PARTICIPANTE") {
+      this.cargarUserInfo();
+      this.cargarEventos();
+    } else if (rol === "ADMIN") {
+      this.navCtrl.push(OpcionesPage)
+    }
   }
 
   cargarEventos() {
@@ -93,10 +115,10 @@ export class EventosPage {
       });
       prompt.present();
     } else {
-      this.navCtrl.push(EventosComPage,{eventoId:this.eventos[index].id});
+      this.navCtrl.push(EventosComPage, { eventoId: this.eventos[index].id });
     }
   }
- 
+
   registrado(index) {
     const eventoId = this.eventos[index].id;
     const eventosRegistrados = this.userInfo.eventosRegistrados;
@@ -126,7 +148,7 @@ export class EventosPage {
       this.loginService.setUserInfo(this.userInfo);
       localStorage.setItem('data', JSON.stringify(this.userInfo));
       localStorage.removeItem('lastRegister');
-      this.navCtrl.push(EventosComPage,{eventoId:this.eventos[index].id});
+      this.navCtrl.push(EventosComPage, { eventoId: this.eventos[index].id });
     }
   }
 }
