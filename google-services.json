@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "163347150648",
+    "firebase_url": "https://suraapp-e18e3.firebaseio.com",
+    "project_id": "suraapp-e18e3",
+    "storage_bucket": "suraapp-e18e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:163347150648:android:ba8be0ff2de4f292",
+        "android_client_info": {
+          "package_name": "com.sura.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "163347150648-li75eppbva6v1mpfansbq1v6m0kk2km7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBosvi5H0_f2qkKFjzNuuMLte6xSIM72UM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "163347150648-li75eppbva6v1mpfansbq1v6m0kk2km7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "163347150648-ut9vu3cbhjsrpht82hk411limng49104.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sura.ios"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -98,6 +98,7 @@ export class NotificationsService {
         result => {
           result.forEach(doc => {
             this.scheduleNotification(doc.data());
+
           });
           // localStorage.setItem('lastRegister', fecha)
         },
@@ -107,20 +108,44 @@ export class NotificationsService {
       )
   }
 
-  scheduleNotification(itinerario) {
-    const date = new Date(`${itinerario.fecha}:${itinerario.horaInicio}`);
-    const scheduledDate = new Date(date.getTime() - (10 * 60 * 1000));
-    const now = new Date();
+  // scheduleNotification(itinerario) {
+  //   const date = new Date(`${itinerario.fecha}:${itinerario.horaInicio}`);
+  //   const scheduledDate = new Date(date.getTime() - (10 * 60 * 1000));
+  //   const now = new Date();
     
-    if(scheduledDate >= now) {
-      this.localNotifications.schedule({
-        id: 1,//itinerario.id, Math.round(Math.random()*9999+1111);
-        title: 'Aviso',
-        text: `El itinerario: ${itinerario.nombre} comenzará en diez minutos`,
-        at: scheduledDate
-      });
-    }
+  //   if(scheduledDate >= now) {
+  //     this.localNotifications.schedule({
+  //       id: 1,
+  //       title: 'Aviso',
+  //       text: `El itinerario: ${itinerario.nombre} comenzará en diez minutos`,
+  //       at: scheduledDate,
+  //       data:{"id": 1, "nombre": `${itinerario.nombre}` , "fecha": `${itinerario.fecha}`, "horaInicio": `${itinerario.horaInicio}`}
+  //     });
+  //   }
 
+  // }
+  // scheduleNotification(itinerario) {
+  //   this.localNotifications.schedule({
+      
+  //     id: 1, 
+  //     title: 'Aviso',
+  //     text: `El itinerario: ${itinerario.nombre} comenzará en 10 minutos`,
+  //     trigger: { in: 10, unit: 'minute' },
+  //     data:{"id": 1, "nombre": `${itinerario.nombre}` , "fecha": `${itinerario.fecha}`, "horaInicio": `${itinerario.horaInicio}`}
+  //   })
+  // }
+  scheduleNotification(itinerario) {
+    const horaNotificacion = moment(fecha).subtract(10, 'minutes');
+    const horaActual = moment();
+    if (horaActual.isAfter(horaNotificacion)) return;
+
+    this.localNotification.schedule({
+      id: 1, // O un id generado,
+      title: 'Aviso',
+      text: `El itinerario: ${itinerario.nombre} comenzará en 10 minutos`,
+      trigger: { at: horaNotificacion.toDate() },
+      data:{"id": 1, "nombre": `${itinerario.nombre}` , "fecha": `${itinerario.fecha}`, "horaInicio": `${itinerario.horaInicio}`}
+    })
   }
 
   getFormatoFecha(date) {
