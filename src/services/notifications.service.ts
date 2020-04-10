@@ -4,10 +4,14 @@ import { Platform } from "ionic-angular";
 import { environment } from '../environments/environment';
 
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
-import { LocalNotifications } from '@ionic-native/local-notifications';
+//import {LocalNotifications} from '@ionic-native/local-notifications';
+//import { LocalNotifications } from '@ionic-native/local-notifications';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 import { AngularFirestore } from "angularfire2/firestore";
 import { LoginService, MessagesService } from './index.services';
+import * as moment from 'moment';
+
 
 @Injectable()
 export class NotificationsService {
@@ -22,9 +26,10 @@ export class NotificationsService {
     private messageService: MessagesService
   ) {
     this.platform.ready().then(() => {
-      this.localNotifications.on('click', (notification) => {
-        console.log(notification)
-      })
+      //pruebas
+      // this.localNotifications.on('click', (notification) => {
+      //   (console.log(notification);
+      // })
     });
   }
 
@@ -135,18 +140,34 @@ export class NotificationsService {
   //   })
   // }
   scheduleNotification(itinerario) {
-    const horaNotificacion = moment(fecha).subtract(10, 'minutes');
+    const horaNotificacion = moment(itinerario.fecha).subtract(10, 'minutes');
     const horaActual = moment();
     if (horaActual.isAfter(horaNotificacion)) return;
 
-    this.localNotification.schedule({
-      id: 1, // O un id generado,
+    this.localNotifications.schedule({
+      id: 1, 
       title: 'Aviso',
       text: `El itinerario: ${itinerario.nombre} comenzará en 10 minutos`,
       trigger: { at: horaNotificacion.toDate() },
       data:{"id": 1, "nombre": `${itinerario.nombre}` , "fecha": `${itinerario.fecha}`, "horaInicio": `${itinerario.horaInicio}`}
     })
+     
   }
+
+
+  // scheduleNotification(itinerario) {
+  //   const horaNotificacion = moment(fecha).subtract(10, 'minutes');
+  //   const horaActual = moment();
+  //   if (horaActual.isAfter(horaNotificacion)) return;
+
+  //   this.localNotification.schedule({
+  //     id: 1, // O un id generado,
+  //     title: 'Aviso',
+  //     text: `El itinerario: ${itinerario.nombre} comenzará en 10 minutos`,
+  //     trigger: { at: horaNotificacion.toDate() },
+  //     data: { id: 1, nombre: itinerario.nombre, fecha: itinerario.fecha, horaInicio: ... }
+  //   })
+  // }
 
   getFormatoFecha(date) {
     const dia = date.getUTCDate();
