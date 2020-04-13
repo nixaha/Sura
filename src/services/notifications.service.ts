@@ -22,7 +22,9 @@ export class NotificationsService {
     private messageService: MessagesService
   ) {
     this.platform.ready().then(() => {
-      this.localNotifications.on('click', (notification) => {
+      this.localNotifications.on('click', (notification, state) => {
+        alert(state);
+        alert(notification.data);
         console.log(notification)
       })
     });
@@ -108,18 +110,21 @@ export class NotificationsService {
   }
 
   scheduleNotification(itinerario) {
-    const date = new Date(`${itinerario.fecha}:${itinerario.horaInicio}`);
-    const scheduledDate = new Date(date.getTime() - (10 * 60 * 1000));
-    const now = new Date();
+    //const date = new Date(`${itinerario.fecha}:${itinerario.horaInicio}`);
+    //const scheduledDate = new Date(date.getTime() - (10 * 60 * 1000));
+    //const now = new Date();
     
-    if(scheduledDate >= now) {
+    //if(scheduledDate >= now) {}]
+    this.platform.ready().then(() =>{
       this.localNotifications.schedule({
-        id: 1,//itinerario.id, Math.round(Math.random()*9999+1111);
+        id: 1, //itinerario.id.Math.round(Math.random()*9999+1111),
         title: 'Aviso',
         text: `El itinerario: ${itinerario.nombre} comenzará en diez minutos`,
-        at: scheduledDate
+        at: new Date(new Date().getTime() + 10000),
+        data:{"id": 1, "nombre": `${itinerario.nombre}` , "fecha": `${itinerario.fecha}`, "horaInicio": `${itinerario.horaInicio}`}
       });
-    }
+    });
+    
 
   }
 
