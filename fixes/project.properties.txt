@@ -1,0 +1,39 @@
+//project.properties
+# This file was originally created by the Android Tools, but is now
+# used by cordova-android to manage the state of the various third party
+# libraries used in your application
+
+# This is the Library Module that contains the Cordova Library, this is not
+# required when using an AAR
+
+# This is the application project.  This is only required for Android Studio Gradle projects
+
+# Project target.
+target=android-28
+android.library.reference.1=CordovaLib
+android.library.reference.2=app
+cordova.system.library.1=com.google.android.gms:play-services-location:17.0.0
+cordova.system.library.2=com.android.support:support-annotations:27.0.0
+cordova.system.library.3=com.android.support:support-v4:27.0.0
+cordova.system.library.4=com.android.support:appcompat-v7:23.0.0
+cordova.gradle.include.1=cordova-plugin-telerik-imagepicker/android-ignorelinterrors.gradle
+cordova.gradle.include.2=cordova-plugin-telerik-imagepicker/android-androidtarget.gradle
+cordova.gradle.include.3=cordova-support-google-services/android-build.gradle
+cordova.gradle.include.4=phonegap-plugin-multidex/android-multidex.gradle
+cordova.system.library.5=com.android.support:support-v13:27.0.0
+cordova.system.library.6=me.leolin:ShortcutBadger:1.1.17@aar
+cordova.system.library.7=com.google.firebase:firebase-messaging:17.0.0
+cordova.system.library.8=com.google.firebase:firebase-core:17.0.0
+cordova.system.library.9=com.google.firebase:firebase-messaging:17.0.0
+cordova.gradle.include.5=cordova-plugin-fcm-with-dependecy-updated/android-FCMPlugin.gradle
+cordova.system.library.10=com.android.support:support-v4:27.0.0
+cordova.gradle.include.6=cordova-plugin-firebase/android-build.gradle
+cordova.system.library.11=com.google.android.gms:play-services-tagmanager:17.0.0
+cordova.system.library.12=com.google.firebase:firebase-core:17.0.0
+cordova.system.library.13=com.google.firebase:firebase-messaging:17.0.0
+cordova.system.library.14=com.google.firebase:firebase-config:17.0.0
+cordova.system.library.15=com.google.firebase:firebase-perf:17.0.0
+cordova.gradle.include.7=cordova-plugin-badge/android-badge.gradle
+cordova.gradle.include.8=cordova-android-firebase-gradle-release/android-cordova-android-firebase-gradle-release.gradle
+cordova.gradle.include.9=cordova-android-play-services-gradle-release/android-cordova-android-play-services-gradle-release.gradle
+cordova.gradle.include.10=cordova-android-support-gradle-release/android-cordova-android-support-gradle-release.gradle
