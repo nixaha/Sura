@@ -139,6 +139,7 @@ export class NotificationsService {
   //     data:{"id": 1, "nombre": `${itinerario.nombre}` , "fecha": `${itinerario.fecha}`, "horaInicio": `${itinerario.horaInicio}`}
   //   })
   // }
+  //notifica
   scheduleNotification(itinerario) {
     const horaNotificacion = moment(itinerario.fecha).subtract(10, 'minutes');
     const horaActual = moment();
