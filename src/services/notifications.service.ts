@@ -4,9 +4,8 @@ import { Platform } from "ionic-angular";
 import { environment } from '../environments/environment';
 
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
-//import {LocalNotifications} from '@ionic-native/local-notifications';
-//import { LocalNotifications } from '@ionic-native/local-notifications';
-import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import {LocalNotifications} from '@ionic-native/local-notifications';
+//import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 import { AngularFirestore } from "angularfire2/firestore";
 import { LoginService, MessagesService } from './index.services';
@@ -113,63 +112,38 @@ export class NotificationsService {
       )
   }
 
-  // scheduleNotification(itinerario) {
-  //   const date = new Date(`${itinerario.fecha}:${itinerario.horaInicio}`);
-  //   const scheduledDate = new Date(date.getTime() - (10 * 60 * 1000));
-  //   const now = new Date();
+   scheduleNotification(itinerario) {
+     const date = new Date(`${itinerario.fecha}:${itinerario.horaInicio}`);
+     const scheduledDate = new Date(date.getTime() - (10 * 60 * 1000));
+     const now = new Date();
     
-  //   if(scheduledDate >= now) {
-  //     this.localNotifications.schedule({
-  //       id: 1,
-  //       title: 'Aviso',
-  //       text: `El itinerario: ${itinerario.nombre} comenzará en diez minutos`,
-  //       at: scheduledDate,
-  //       data:{"id": 1, "nombre": `${itinerario.nombre}` , "fecha": `${itinerario.fecha}`, "horaInicio": `${itinerario.horaInicio}`}
-  //     });
-  //   }
-
-  // }
-  // scheduleNotification(itinerario) {
-  //   this.localNotifications.schedule({
-      
-  //     id: 1, 
-  //     title: 'Aviso',
-  //     text: `El itinerario: ${itinerario.nombre} comenzará en 10 minutos`,
-  //     trigger: { in: 10, unit: 'minute' },
-  //     data:{"id": 1, "nombre": `${itinerario.nombre}` , "fecha": `${itinerario.fecha}`, "horaInicio": `${itinerario.horaInicio}`}
-  //   })
-  // }
-  //notifica
-  scheduleNotification(itinerario) {
-    const horaNotificacion = moment(itinerario.fecha).subtract(10, 'minutes');
-    const horaActual = moment();
-    if (horaActual.isAfter(horaNotificacion)) return;
-
-    this.localNotifications.schedule({
-      id: 1, 
-      title: 'Aviso',
-      text: `El itinerario: ${itinerario.nombre} comenzará en 10 minutos`,
-      trigger: { at: horaNotificacion.toDate() },
-      data:{"id": 1, "nombre": `${itinerario.nombre}` , "fecha": `${itinerario.fecha}`, "horaInicio": `${itinerario.horaInicio}`}
-    })
-     
-  }
-
+     if(scheduledDate >= now) {
+       this.localNotifications.schedule({
+         id: 1,
+         title: 'Aviso',
+         text: `El itinerario: ${itinerario.nombre} comenzará en diez minutos`,
+         at: scheduledDate,
+         data:{"id": 1, "nombre": `${itinerario.nombre}` , "fecha": `${itinerario.fecha}`, "horaInicio": `${itinerario.horaInicio}`}
+       });
+     }
+  } 
+  // Prueba de noticifacion con el trigger
 
   // scheduleNotification(itinerario) {
-  //   const horaNotificacion = moment(fecha).subtract(10, 'minutes');
+  //   const horaNotificacion = moment(itinerario.fecha).subtract(10, 'minutes');
   //   const horaActual = moment();
   //   if (horaActual.isAfter(horaNotificacion)) return;
 
-  //   this.localNotification.schedule({
-  //     id: 1, // O un id generado,
+  //   this.localNotifications.schedule({
+  //     id: 1, 
   //     title: 'Aviso',
   //     text: `El itinerario: ${itinerario.nombre} comenzará en 10 minutos`,
-  //     trigger: { at: horaNotificacion.toDate() },
-  //     data: { id: 1, nombre: itinerario.nombre, fecha: itinerario.fecha, horaInicio: ... }
+  ////     trigger: { at: horaNotificacion.toDate() },
+  //     data:{"id": 1, "nombre": `${itinerario.nombre}` , "fecha": `${itinerario.fecha}`, "horaInicio": `${itinerario.horaInicio}`}
   //   })
-  // }
 
+  // }
+ 
   getFormatoFecha(date) {
     const dia = date.getUTCDate();
     const mes = date.getUTCMonth() + 1;
