@@ -77,4 +77,8 @@ export class LogInPage {
       this.navCtrl.setRoot(OpcionesPage);
     }
   }
+
+  ionViewDidLeave(){
+    this.navCtrl.setRoot(TabsPage);
+  }
 }
