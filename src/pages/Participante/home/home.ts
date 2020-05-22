@@ -25,7 +25,10 @@ import { NotificationsService, LoginService } from '../../../services/index.serv
 })
 export class HomePage {
 
+  logged;
+  
   private userName;
+  
   constructor(
     platform: Platform,
     public navCtrl: NavController,
@@ -47,6 +50,12 @@ export class HomePage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad HomePage");
+    const data = JSON.parse(localStorage.getItem("data"));
+    if (data) {
+      this.logged = true;
+    }else{
+      this.logged = false;
+    }
   }
 
   verccb() {

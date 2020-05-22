@@ -11,7 +11,7 @@
 </ion-header>
 <ion-content class="contentmenu" >
   <ion-img class="listonsillo" width="300%" height="10%" src="/assets/imgs/liston3.jpg"></ion-img>
-  <div align-item-center class="titulo">
+  <div align-item-center class="titulo" *ngIf="logged">
     <ion-label class="titulo">Bienvenido(a): <h2 style="
       margin:auto">{{userName}}</h2> </ion-label>
   </div>
