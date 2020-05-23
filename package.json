@@ -93,7 +93,9 @@
       "cordova-plugin-telerik-imagepicker": {},
       "cordova-plugin-inappbrowser": {},
       "phonegap-plugin-push": {
-        "SENDER_ID": "163347150648"
+        "SENDER_ID": "163347150648",
+        "ANDROID_SUPPORT_V13_VERSION": "27.+",
+        "FCM_VERSION": "11.6.2"
       },
       "cordova-plugin-fcm-with-dependecy-updated": {},
       "de.appplant.cordova.plugin.local-notification": {}
