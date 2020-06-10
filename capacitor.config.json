@@ -1,0 +1,26 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "SuraApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {
+    "preferences": {
+      "AutoHideSplashScreen": "false",
+      "SplashScreenDelay": "3000",
+      "FadeSplashScreenDuration": "300",
+      "SplashScreen": "screen",
+      "SplashShowOnlyFirstTime": "false",
+      "FadeSplashScreen": "true",
+      "ScrollEnabled": "false",
+      "android-minSdkVersion": "19",
+      "BackupWebStorage": "none",
+      "SplashMaintainAspectRatio": "true"
+    }
+  }
+}

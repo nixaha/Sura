@@ -1,7 +1,8 @@
 {
   "name": "SuraApp",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "ionic-angular"
 }
