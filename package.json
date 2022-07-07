@@ -66,7 +66,7 @@
     "ionic-angular": "3.9.3",
     "ionicons": "3.0.0",
     "leaflet": "^1.5.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "phonegap-plugin-multidex": "^1.0.0",
     "phonegap-plugin-push": "^2.2.3",
     "react-native-firebase": "^5.6.0",
