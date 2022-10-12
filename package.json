@@ -42,7 +42,7 @@
     "angularfire2": "^5.1.2",
     "auth-service": "^1.0.0",
     "cordova-android": "^8.0.0",
-    "cordova-ios": "~4.5.5",
+    "cordova-ios": "~6.2.0",
     "cordova-plugin-androidx-adapter": "^1.1.0",
     "cordova-plugin-app-event": "^1.2.1",
     "cordova-plugin-badge": "^0.8.8",
